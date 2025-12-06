@@ -1,1 +1,288 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>KSeF + low-code: jak polskie firmy mogą przygotować się do e-faktur – DevLab Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Czym jest KSeF, od kiedy będzie obowiązkowy i jak platformy low-code pomagają polskim firmom wdrożyć e-faktury w ERP i procesach bez ogromnych kosztów IT."
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <!-- Main blog styles -->
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "KSeF + low-code: jak polskie firmy mogą przygotować się do e-faktur przy minimalnych kosztach",
+    "description": "Co zmienia KSeF, kluczowe terminy na 2026 rok i jak low-code pomaga zintegrować e-faktury z ERP oraz procesami biznesowymi przy rozsądnym budżecie.",
+    "author": { "@type": "Organization", "name": "DevLab Blog" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": { "@type": "ImageObject", "url": "https://uk.devlab.blog/img/devlab-logo.svg" }
+    },
+    "mainEntityOfPage": "https://pl.devlab.blog/post12.KSeF + low-code.html",
+    "datePublished": "2025-01-02",
+    "dateModified": "2025-01-02"
+  }
+  </script>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automatyzacja</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Artykuły</a>
+              <a href="/#categories">Kategorie</a>
+              <a href="/#about">O blogu</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener">Strona główna</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/">EN</a>
+              <a href="https://pl.devlab.blog/" class="active">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://ua.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Zobacz artykuły</a>
+            <a href="/#about" class="btn btn-primary">O co chodzi?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Przełącz nawigację">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="wrapper" style="padding-top:2.6rem; padding-bottom:3rem;">
+        <div class="main-grid">
+          <!-- ARTICLE -->
+          <article>
+            <div class="section-title">
+              <span>Artykuł</span>
+              <small><a href="/" style="text-decoration:underline;">← Wróć do listy artykułów</a></small>
+            </div>
+
+            <header style="margin-bottom:1.4rem;">
+              <div class="post-meta">
+                <span>Regulacje · KSeF</span>
+                <span>&middot;</span>
+                <span>Około 7 min czytania</span>
+              </div>
+
+              <h1 class="hero-title" style="font-size:1.9rem; margin-top:0.5rem;">
+                KSeF + low-code: jak polskie firmy mogą przygotować się do e-faktur przy minimalnych kosztach
+              </h1>
+
+              <p class="hero-text" style="margin-top:0.5rem;">
+                Polska wprowadza ogólnokrajowy system e-faktur – KSeF. Od 2026 roku praktycznie każda firma
+                będzie musiała wystawiać i odbierać ustrukturyzowane faktury XML przez tę platformę.
+                W artykule wyjaśniamy, co tak naprawdę zmienia KSeF i jak low-code pozwala wdrożyć go
+                bez ogromnych projektów IT.
+              </p>
+
+              <figure class="post-hero">
+                <img
+                  src="https://uk.devlab.blog/img/post12.KSeF + low-code.png"
+                  alt="KSeF i low-code – wizualizacja przejścia na e-faktury"
+                  style="width:100%; max-width:760px; border-radius:18px;"
+                >
+              </figure>
+            </header>
+
+            <section class="post-content">
+              <h2>1. Czym jest KSeF i dlaczego zmienia zasady gry</h2>
+              <p>
+                KSeF (Krajowy System e-Faktur) to państwowa platforma do wystawiania, wysyłania, odbierania
+                i przechowywania ustrukturyzowanych e-faktur w Polsce. Zamiast PDF-ów przesyłanych mailem,
+                firmy wymieniają się fakturami w postaci zwalidowanych dokumentów XML.
+              </p>
+
+              <p>Najważniejsze cechy KSeF:</p>
+              <ul>
+                <li>faktury powstają w ustrukturyzowanym formacie XML, a nie jako załączniki PDF;</li>
+                <li>system automatycznie sprawdza poprawność wymaganych pól;</li>
+                <li>dokumenty przechowywane są centralnie, w państwowym archiwum;</li>
+                <li>wymiana między kontrahentami odbywa się w jednym, wspólnym standardzie;</li>
+                <li>zapewniona jest ważność prawna i bezpieczeństwo danych.</li>
+              </ul>
+
+              <p>
+                To nie jest tylko „elektroniczna wersja papieru”, lecz zmiana logiki działania księgowości
+                i obiegu dokumentów w firmach.
+              </p>
+
+              <h2>2. Od kiedy KSeF będzie obowiązkowy</h2>
+              <p>Terminy zostały wpisane do ustawy:</p>
+              <ul>
+                <li><strong>1 lutego 2026 r.</strong> – obowiązkowy KSeF dla dużych przedsiębiorstw (obrót za 2024 r. ≥ 200 mln PLN);</li>
+                <li><strong>1 kwietnia 2026 r.</strong> – obowiązkowy KSeF dla pozostałych firm: MŚP, mikrofirm, podatników VAT oraz częściowo zwolnionych.</li>
+              </ul>
+              <p>
+                Nie przewidziano osobnych „wakacji” dla małego biznesu. W praktyce oznacza to, że polskie
+                firmy mają ograniczony czas na przygotowanie się zarówno technicznie, jak i organizacyjnie.
+              </p>
+
+              <h2>3. Dlaczego wcześniejsze przygotowanie się opłaca</h2>
+              <p>Poprawnie wdrożony KSeF daje realne korzyści:</p>
+              <ul>
+                <li><strong>mniej błędów</strong> dzięki automatycznej walidacji danych,</li>
+                <li><strong>szybszy obieg dokumentów</strong> – faktury powstają i trafiają do odbiorców w sekundy,</li>
+                <li><strong>większa przejrzystość</strong> – centralne archiwum ułatwia kontrole i audyt,</li>
+                <li><strong>standaryzację</strong> – jeden format zamiast mieszanki PDF-ów, arkuszy i szablonów,</li>
+                <li><strong>niezawodność</strong> – dokumenty trudno zgubić czy przypadkowo skasować.</li>
+              </ul>
+              <p>
+                Przy dużej liczbie dokumentów nawet kilka sekund oszczędności na jednej fakturze przekłada
+                się na zauważalny efekt operacyjny.
+              </p>
+
+              <h2>4. Dlaczego low-code jest idealnym narzędziem do wdrożenia KSeF</h2>
+              <p>Aby zintegrować się z KSeF, firma musi:</p>
+              <ul>
+                <li>generować faktury zgodne z wymaganym schematem XML,</li>
+                <li>automatycznie przesyłać je do API KSeF,</li>
+                <li>obsługiwać potwierdzenia i komunikaty o błędach,</li>
+                <li>powiązać ten proces z ERP, CRM i systemem księgowym,</li>
+                <li>dostosować workflow pracowników,</li>
+                <li>zapewnić spójne archiwum i raportowanie.</li>
+              </ul>
+
+              <p>
+                W klasycznym podejściu oznacza to rozbudowany projekt integracyjny. Platformy low-code
+                oferują inną drogę:
+              </p>
+
+              <ul>
+                <li><strong>szybsza integracja</strong> – gotowe konektory, wizualne procesy, konfigurowalne formularze,</li>
+                <li><strong>niższe koszty</strong> – mniej „twardego” kodu, więcej konfiguracji, część zadań
+                  mogą wykonać księgowi lub administratorzy po przeszkoleniu,</li>
+                <li><strong>wygodny interfejs</strong> – ekrany typu „wystaw fakturę”, „wyślij do KSeF”, „sprawdź status”
+                  składa się jak z klocków,</li>
+                <li><strong>elastyczność przy zmianach prawa</strong> – aktualizację schematu, pól czy reguł walidacji
+                  można wdrożyć w ciągu godzin, a nie tygodni,</li>
+                <li><strong>automatyzacja całego obiegu</strong> – od zdarzenia w ERP (sprzedaż, zamówienie),
+                  przez wysyłkę XML do KSeF, aż po zapis zwrotny i powiadomienia dla księgowości,</li>
+                <li><strong>skalowalność</strong> – łatwiejsze podłączenie magazynu, logistyki, e-commerce czy bankowości.</li>
+              </ul>
+
+              <p>
+                Deklaratywne platformy low-code, w tym rozwiązania podobne do lsFusion, szczególnie dobrze
+                wpisują się w ten scenariusz: proces opisuje się regułami i metadanymi, a techniczna
+                integracja z KSeF jest ukryta w konektorach.
+              </p>
+
+              <h2>5. Co low-code daje polskim firmom w praktyce</h2>
+              <p>Firmy, które zaczną przygotowania już teraz, zyskują:</p>
+              <ul>
+                <li><strong>niższy koszt wdrożenia</strong> w porównaniu z dedykowanym oprogramowaniem,</li>
+                <li><strong>odporność na zmiany przepisów</strong> – poprawki wprowadza się w module low-code,
+                  a nie w całym produkcie,</li>
+                <li><strong>stabilny, zautomatyzowany obieg faktur</strong>,</li>
+                <li><strong>mniej pracy ręcznej i pomyłek</strong>,</li>
+                <li><strong>przewagę konkurencyjną</strong> – gdy inni w 2026 roku będą w trybie „gaszenia pożarów”,
+                  wcześni wdrożeniowcy będą działać spokojnie i przewidywalnie.</li>
+              </ul>
+
+              <h2>6. Podsumowanie: KSeF jest nieunikniony – low-code sprawia, że przejście jest wykonalne</h2>
+              <p>
+                Wprowadzenie e-faktur i KSeF to nie tylko kolejna zmiana przepisów, ale krok w stronę nowego,
+                cyfrowego modelu prowadzenia biznesu w Polsce. Platformy low-code dają firmom praktyczną
+                ścieżkę przygotowania:
+              </p>
+              <ul>
+                <li>bez nadmiernych wydatków na IT,</li>
+                <li>z automatyzacją dopasowaną do własnych procesów,</li>
+                <li>z możliwością szybkiej reakcji na zmiany prawa,</li>
+                <li>z szybszym i bardziej niezawodnym obiegiem faktur.</li>
+              </ul>
+              <p>
+                KSeF stanie się obowiązkowy w 2026 roku. Najlepszy moment na przygotowanie to teraz – a low-code
+                jest jednym z najefektywniejszych sposobów, by to zrobić.
+              </p>
+            </section>
+
+            <footer style="margin-top:1.6rem;">
+              <div class="post-meta">
+                <span class="post-tag">KSeF</span>
+                <span class="post-tag">Low-code</span>
+                <span class="post-tag">Polska</span>
+              </div>
+            </footer>
+          </article>
+
+          <!-- SIDEBAR -->
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">O blogu</h3>
+              <p class="sidebar-text">
+                DevLab Blog opisuje praktyczne wdrożenia open-source ERP, platform deklaratywnych
+                i low-code – w tym przygotowanie do regulacji takich jak KSeF.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">Zobacz także</h3>
+              <ul class="sidebar-list">
+                <li><a href="/">Wszystkie artykuły</a></li>
+                <li><a href="/#categories">Przeglądaj według kategorii</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener">Strona główna DevLab</a></li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Posty</a>
+            <a href="/#categories">Kategorie</a>
+            <a href="/#about">O blogu</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener">Strona główna</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog – notatki o open-source ERP, low-code i automatyzacji.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
