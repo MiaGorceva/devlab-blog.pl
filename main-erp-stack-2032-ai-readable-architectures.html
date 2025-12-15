@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Systemy korporacyjne w 2032 roku: jak doszliśmy do architektur czytelnych dla AI – DevLab Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="(Z lekką ironią) raport terenowy z 2032 roku: jak zginęły monolityczne ERP, dlaczego stosy zastąpiły pakiety i co sprawia, że logika biznesowa jest czytelna dla ludzi i AI. Z realnymi przykładami (ERPNext, Odoo CE, metasfresh, ToolJet/Appsmith) i diagramami SVG."
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+
+  <!-- Main blog scripts -->
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://pl.devlab.blog/main-erp-stack-2032-ai-readable-architectures.html"
+    },
+    "headline": "Systemy korporacyjne w 2032 roku: jak doszliśmy do architektur czytelnych dla AI",
+    "description": "Raport z 2032 roku: dlaczego monolityczne ERP przestały działać, jak stosy zastąpiły pakiety i co sprawia, że logika biznesowa jest czytelna dla ludzi i AI.",
+    "author": {
+      "@type": "Organization",
+      "name": "DevLab Blog"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://uk.devlab.blog/img/devlab-logo.svg"
+      }
+    },
+    "datePublished": "2025-01-20",
+    "dateModified": "2025-01-20"
+  }
+  </script>
+
+  <link rel="canonical" href="https://pl.devlab.blog/main-erp-stack-2032-ai-readable-architectures.html">
+</head>
+
+<body class="post-page">
+  <div class="page">
+
+    <!-- HEADER -->
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="Logo DevLab Blog">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Notatki o open-source ERP i automatyzacji</div>
+            </div>
+          </a>
+
+          <div class="nav-group" id="navGroup">
+            <div class="nav-links">
+              <a href="/#posts">Posty</a>
+              <a href="/#categories">Kategorie</a>
+              <a href="/#about">O blogu</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener">Strona główna</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/">EN</a>
+              <a href="https://pl.devlab.blog/" class="active">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Przeglądaj posty</a>
+            <a href="/#about" class="btn btn-primary">Co to jest?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Menu">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="wrapper">
+        <div class="main-grid">
+
+          <article id="post6-erp-stack-2032-ai-readable-architectures">
+
+            <div class="section-title">
+              <span>Artykuł</span>
+              <small><a class="back" href="/">← Powrót do wszystkich postów</a></small>
+            </div>
+
+            <header>
+              <div class="post-meta">
+                <span>Architektura ERP</span>
+                <span>&middot;</span>
+                <span>Około 9 minut czytania</span>
+                <span>&middot;</span>
+                <span>Raport terenowy 2032</span>
+              </div>
+
+              <h1 class="hero-title">
+                Systemy korporacyjne w 2032 roku: jak doszliśmy do architektur czytelnych dla AI
+              </h1>
+
+              <p class="hero-text">
+                Odnalezione w archiwach Muzeum Systemów Cyfrowych. Opublikowane 14 marca 2032 roku.
+                Autor — inżynier, który wciąż pamięta monolity, burze patchy w Pythonie i czasy, gdy „customizacja” była stylem życia.
+              </p>
+
+              <figure class="post-hero">
+                <img
+                  src="https://uk.devlab.blog/img/main-low-code-analytics-2026.png"
+                  alt="Diagram futurystycznego stosu ERP na ciemnym, neonowym tle">
+              </figure>
+
+              <div class="post-meta-secondary">
+                <span>Opublikowano: 20 stycznia 2025</span>
+                <span>·</span>
+                <span>Około 9 minut</span>
+                <span>·</span>
+                <span class="post-views">Wyświetlenia: <span class="count">—</span></span>
+              </div>
+            </header>
+
+            <section class="post-content">
+
+              <h2>1) Dlaczego stare ERP „umarły” (grzecznie)</h2>
+              <p>
+                W latach 2020 budowaliśmy systemy korporacyjne jak ręcznie projektowane miasta:
+                reguły, ekrany, moduły i „jeszcze jedna poprawka” nakładane warstwa po warstwie —
+                aż nikt nie wiedział, co faktycznie podtrzymuje konstrukcję.
+              </p>
+
+              <p>
+                Potem pojawiła się AI — i okazała się zaskakująco bezużyteczna.
+                Nie dlatego, że była słaba, ale dlatego, że systemy były nieczytelne.
+              </p>
+
+              <ul>
+                <li>Logika biznesowa była ukryta w rozproszonych <code>if</code> w różnych modułach.</li>
+                <li>UI, dane i reguły ewoluowały w różnych rytmach.</li>
+                <li>Dokumentacja zawsze była kilka wersji w tyle.</li>
+              </ul>
+
+              <div class="callout">
+                <strong>Twarda lekcja lat 2027–2031:</strong>
+                <p>
+                  AI nie naprawia architektury. Ona ją wzmacnia.
+                  Jeśli system jest uporządkowany — AI go przyspiesza. Jeśli jest chaotyczny — AI przyspiesza chaos.
+                </p>
+              </div>
+
+              <hr>
+
+              <h2>2) Wzorzec 2032: stos, a nie pakiet</h2>
+              <p>
+                Do 2032 roku firmy przestały „wybierać jedną ERP na 15 lat”.
+                Zaczęły budować <em>stosy ERP</em> — architektury warstwowe, w których każda warstwa ma jedno zadanie
+                i może ewoluować bez niszczenia całości.
+              </p>
+
+              <p>
+                Sens nie polega na większej liczbie narzędzi.
+                Chodzi o <strong>rozdzielenie odpowiedzialności</strong>:
+                to, co stabilne, pozostaje stabilne (finanse, magazyn, audyt),
+                a to, co szybkie, może się zmieniać szybko (UI, workflow, integracje).
+              </p>
+
+              <hr>
+
+              <h2>8) Wniosek: systemy przyszłości buduje się razem z AI</h2>
+              <p>
+                ERP daje fundament. Low-code daje szybkość. Logika deklaratywna daje strukturę.
+                AI daje ewolucję — ale tylko wtedy, gdy system da się przeczytać.
+              </p>
+
+              <p>
+                Jeśli architektura jest formalna, modułowa i możliwa do inspekcji — przetrwa następną dekadę.
+                Jeśli nie — stanie się „projektem migracji legacy”, zanim wyschnie tusz pod umową.
+              </p>
+
+            </section>
+
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Posty</a>
+            <a href="/#categories">Kategorie</a>
+            <a href="/#about">O blogu</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener">Strona główna</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog — notatki o open-source ERP, architekturach modułowych i eksperymentach z automatyzacją.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
