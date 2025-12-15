@@ -2,12 +2,12 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <title>Systemy korporacyjne w 2032 roku: jak doszliśmy do architektur czytelnych dla AI – DevLab Blog</title>
+  <title>Systemy korporacyjne w 2032: jak doszliśmy do architektur czytelnych dla AI – DevLab Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="(Z lekką ironią) raport terenowy z 2032 roku: jak zginęły monolityczne ERP, dlaczego stosy zastąpiły pakiety i co sprawia, że logika biznesowa jest czytelna dla ludzi i AI. Z realnymi przykładami (ERPNext, Odoo CE, metasfresh, ToolJet/Appsmith) i diagramami SVG."
+    content="(Z lekką ironią) raport terenowy z 2032 roku: jak zginęły monolityczne ERP, dlaczego stosy zastąpiły „suity” i co sprawia, że logika biznesowa jest czytelna dla ludzi i AI. Z realnymi przykładami stacków (ERPNext, Odoo CE, metasfresh, ToolJet/Appsmith) oraz diagramami SVG."
   />
 
   <!-- Favicon -->
@@ -17,10 +17,10 @@
 
   <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
 
-  <!-- Main blog scripts -->
+  <!-- Main blog scripts (year + search + views counter) -->
   <script src="https://uk.devlab.blog/js/script.js" defer></script>
 
-  <!-- Structured data -->
+  <!-- Structured data for search engines -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,8 +29,8 @@
       "@type": "WebPage",
       "@id": "https://pl.devlab.blog/main-erp-stack-2032-ai-readable-architectures.html"
     },
-    "headline": "Systemy korporacyjne w 2032 roku: jak doszliśmy do architektur czytelnych dla AI",
-    "description": "Raport z 2032 roku: dlaczego monolityczne ERP przestały działać, jak stosy zastąpiły pakiety i co sprawia, że logika biznesowa jest czytelna dla ludzi i AI.",
+    "headline": "Systemy korporacyjne w 2032: jak doszliśmy do architektur czytelnych dla AI",
+    "description": "Raport z 2032: dlaczego monolityczne ERP umarły, jak stosy zastąpiły suity i co sprawia, że logika biznesowa jest czytelna dla ludzi i AI.",
     "author": {
       "@type": "Organization",
       "name": "DevLab Blog"
@@ -48,12 +48,13 @@
   }
   </script>
 
+  <!-- Canonical URL -->
   <link rel="canonical" href="https://pl.devlab.blog/main-erp-stack-2032-ai-readable-architectures.html">
+
 </head>
 
 <body class="post-page">
   <div class="page">
-
     <!-- HEADER -->
     <header>
       <div class="wrapper">
@@ -70,7 +71,7 @@
 
           <div class="nav-group" id="navGroup">
             <div class="nav-links">
-              <a href="/#posts">Posty</a>
+              <a href="/#posts">Wpisy</a>
               <a href="/#categories">Kategorie</a>
               <a href="/#about">O blogu</a>
               <a href="https://devlab.blog" target="_blank" rel="noopener">Strona główna</a>
@@ -83,12 +84,12 @@
             </div>
           </div>
 
-          <div class="nav-cta">
-            <a href="/#posts" class="btn btn-outline">Przeglądaj posty</a>
+          <div class="nav-cta" id="navCta">
+            <a href="/#posts" class="btn btn-outline">Przeglądaj wpisy</a>
             <a href="/#about" class="btn btn-primary">Co to jest?</a>
           </div>
 
-          <button class="nav-toggle" aria-label="Menu">☰</button>
+          <button class="nav-toggle" aria-label="Przełącz nawigację" aria-expanded="false" aria-controls="navGroup">☰</button>
         </nav>
       </div>
     </header>
@@ -97,107 +98,382 @@
     <main>
       <div class="wrapper">
         <div class="main-grid">
-
-          <article id="main-erp-stack-2032-ai-readable-architectures">
-
+          <!-- ARTICLE -->
+          <article id="post6-erp-stack-2032-ai-readable-architectures">
             <div class="section-title">
               <span>Artykuł</span>
-              <small><a class="back" href="/">← Powrót do wszystkich postów</a></small>
+              <small><a class="back" href="/">← Wróć do wszystkich wpisów</a></small>
             </div>
 
             <header>
               <div class="post-meta">
                 <span>Architektura ERP</span>
                 <span>&middot;</span>
-                <span>Około 9 minut czytania</span>
+                <span>Około 9 min czytania</span>
                 <span>&middot;</span>
                 <span>Raport terenowy 2032</span>
               </div>
 
               <h1 class="hero-title">
-                Systemy korporacyjne w 2032 roku: jak doszliśmy do architektur czytelnych dla AI
+                Systemy korporacyjne w 2032: jak doszliśmy do architektur czytelnych dla AI
               </h1>
 
               <p class="hero-text">
-                Odnalezione w archiwach Muzeum Systemów Cyfrowych. Opublikowane 14 marca 2032 roku.
-                Autor — inżynier, który wciąż pamięta monolity, burze patchy w Pythonie i czasy, gdy „customizacja” była stylem życia.
+                Znalezione w archiwach Digital Systems Museum. Opublikowane 14 marca 2032 roku.
+                Autor — inżynier, który wciąż pamięta monolity, „burze” patchy w Pythonie i czasy, gdy “customization” było stylem życia.
               </p>
 
+              <!-- HERO IMAGE (optional) -->
               <figure class="post-hero">
                 <img
                   src="https://uk.devlab.blog/img/main-low-code-analytics-2026.png"
-                  alt="Diagram futurystycznego stosu ERP na ciemnym, neonowym tle">
+                  alt="Futurystyczny diagram stosu ERP na ciemnym neonowym tle"
+                >
               </figure>
 
               <div class="post-meta-secondary">
-                <span>Opublikowano: 20 stycznia 2025</span>
+                <span>Opublikowano: 20 sty 2025</span>
                 <span>·</span>
-                <span>Około 9 minut</span>
+                <span>Około 9 min czytania</span>
                 <span>·</span>
                 <span class="post-views">Wyświetlenia: <span class="count">—</span></span>
               </div>
             </header>
 
+            <!-- ARTICLE BODY -->
             <section class="post-content">
 
               <h2>1) Dlaczego stare ERP „umarły” (grzecznie)</h2>
               <p>
-                W latach 2020 budowaliśmy systemy korporacyjne jak ręcznie projektowane miasta:
-                reguły, ekrany, moduły i „jeszcze jedna poprawka” nakładane warstwa po warstwie —
-                aż nikt nie wiedział, co faktycznie podtrzymuje konstrukcję.
+                W latach 2020 budowaliśmy systemy korporacyjne jak ręcznie rzeźbione miasta:
+                reguły, ekrany, moduły i “jeszcze jeden patch”
+                nakładane warstwami, aż nikt nie pamiętał, co jest konstrukcją nośną.
               </p>
 
               <p>
-                Potem pojawiła się AI — i okazała się zaskakująco bezużyteczna.
-                Nie dlatego, że była słaba, ale dlatego, że systemy były nieczytelne.
+                Potem pojawiło się AI — i okazało się zaskakująco bezużyteczne.
+                Nie dlatego, że było słabe, lecz dlatego, że systemy były nieczytelne.
               </p>
 
               <ul>
-                <li>Logika biznesowa była ukryta w rozproszonych <code>if</code> w różnych modułach.</li>
-                <li>UI, dane i reguły ewoluowały w różnych rytmach.</li>
-                <li>Dokumentacja zawsze była kilka wersji w tyle.</li>
+                <li>Logika biznesowa żyła w rozproszonych <code>if</code> w wielu modułach.</li>
+                <li>UI, dane i reguły ewoluowały w różnych „strefach czasowych”.</li>
+                <li>Dokumentacja zostawała w tyle za rzeczywistością (o kilka wydań… i kilka lat).</li>
               </ul>
 
               <div class="callout">
                 <strong>Twarda lekcja lat 2027–2031:</strong>
                 <p>
-                  AI nie naprawia architektury. Ona ją wzmacnia.
-                  Jeśli system jest uporządkowany — AI go przyspiesza. Jeśli jest chaotyczny — AI przyspiesza chaos.
+                  AI nie „naprawia” architektury. Ono ją wzmacnia.
+                  Jeśli system jest uporządkowany — AI go przyspiesza. Jeśli jest chaosem — AI przyspiesza panikę.
                 </p>
               </div>
 
               <hr>
 
-              <h2>2) Wzorzec 2032: stos, a nie pakiet</h2>
+              <h2>2) Wzorzec 2032: stos, nie „suite”</h2>
               <p>
-                Do 2032 roku firmy przestały „wybierać jedną ERP na 15 lat”.
-                Zaczęły budować <em>stosy ERP</em> — architektury warstwowe, w których każda warstwa ma jedno zadanie
-                i może ewoluować bez niszczenia całości.
+                Do 2032 firmy przestały „wybierać jedno ERP na 15 lat”.
+                Zaczęły składać <em>stosy ERP</em>: modułową architekturę, w której każda warstwa ma jedno zadanie —
+                i może ewoluować bez rozwalania całego organizmu.
               </p>
 
+              <div class="diagram-card">
+                <div class="diagram-title">
+                  <span>Stos ERP (referencja 2032)</span>
+                  <span class="diagram-hint">Czytelne dla ludzi. Zrozumiałe dla maszyn.</span>
+                </div>
+
+                <!-- Inline SVG diagram -->
+                <svg viewBox="0 0 980 420" role="img" aria-label="Diagram stosu ERP: warstwa AI, warstwa reguł deklaratywnych, low-code, rdzeń ERP, integracje">
+                  <defs>
+                    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0" stop-color="#48cfff" stop-opacity="0.95"/>
+                      <stop offset="1" stop-color="#54e54a" stop-opacity="0.95"/>
+                    </linearGradient>
+                    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+                      <feGaussianBlur stdDeviation="4" result="blur"/>
+                      <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+
+                  <rect x="0" y="0" width="980" height="420" fill="rgba(0,0,0,0)"/>
+
+                  <g class="mono" font-size="18" fill="#f5f7ff">
+                    <g filter="url(#glow)">
+                      <rect x="120" y="30" width="740" height="58" rx="18" fill="rgba(15,23,42,0.85)" stroke="url(#g1)" stroke-width="2"/>
+                      <text x="490" y="67" text-anchor="middle">Warstwa AI (agenci, copiloty, audytorzy)</text>
+
+                      <rect x="120" y="105" width="740" height="58" rx="18" fill="rgba(15,23,42,0.85)" stroke="rgba(72,207,255,0.55)" stroke-width="2"/>
+                      <text x="490" y="142" text-anchor="middle">Warstwa reguł deklaratywnych / logiki domenowej</text>
+
+                      <rect x="120" y="180" width="740" height="58" rx="18" fill="rgba(15,23,42,0.85)" stroke="rgba(84,229,74,0.55)" stroke-width="2"/>
+                      <text x="490" y="217" text-anchor="middle">Warstwa low-code: UI + workflow</text>
+
+                      <rect x="120" y="255" width="740" height="58" rx="18" fill="rgba(15,23,42,0.85)" stroke="rgba(255,255,255,0.14)" stroke-width="2"/>
+                      <text x="490" y="292" text-anchor="middle">Rdzeń ERP (dane, transakcje, audyt)</text>
+
+                      <rect x="120" y="330" width="740" height="58" rx="18" fill="rgba(15,23,42,0.85)" stroke="rgba(255,255,255,0.10)" stroke-width="2"/>
+                      <text x="490" y="367" text-anchor="middle">Integracje (API, zdarzenia, konektory)</text>
+                    </g>
+
+                    <g stroke="rgba(148,163,184,0.55)" stroke-width="2" fill="none">
+                      <path d="M490 88 L490 105" />
+                      <path d="M490 163 L490 180" />
+                      <path d="M490 238 L490 255" />
+                      <path d="M490 313 L490 330" />
+                    </g>
+
+                    <g font-size="14" fill="#9ca3c4">
+                      <text x="875" y="70" text-anchor="start">Rozumie</text>
+                      <text x="875" y="145" text-anchor="start">Wyjaśnia</text>
+                      <text x="875" y="220" text-anchor="start">Dostarcza</text>
+                      <text x="875" y="295" text-anchor="start">Gwarantuje</text>
+                      <text x="875" y="370" text-anchor="start">Łączy</text>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+
               <p>
-                Sens nie polega na większej liczbie narzędzi.
-                Chodzi o <strong>rozdzielenie odpowiedzialności</strong>:
-                to, co stabilne, pozostaje stabilne (finanse, magazyn, audyt),
-                a to, co szybkie, może się zmieniać szybko (UI, workflow, integracje).
+                Chodzi nie o „więcej narzędzi”, lecz o <strong>rozdzielenie odpowiedzialności</strong>:
+                rzeczy ścisłe mają pozostać ścisłe (pieniądze, stany magazynowe, audyt),
+                a rzeczy szybkie — szybkie (UI, workflow, integracje).
               </p>
 
               <hr>
 
-              <h2>8) Wniosek: systemy przyszłości buduje się razem z AI</h2>
+              <h2>3) Prawdziwe stosy, które faktycznie wdrażano</h2>
               <p>
-                ERP daje fundament. Low-code daje szybkość. Logika deklaratywna daje strukturę.
-                AI daje ewolucję — ale tylko wtedy, gdy system da się przeczytać.
+                To moment, w którym teoria albo staje się architekturą… albo bardzo pewnym siebie slajdem.
+                Poniższe kombinacje były częste w realnych projektach, bo pasowały do tego, jak pracują zespoły:
               </p>
 
+              <h3>Przykłady rdzenia ERP</h3>
+              <ul>
+                <li><strong>ERPNext</strong> jako stabilny rdzeń operacyjny (magazyn, księgowość, podstawowe procesy).</li>
+                <li><strong>Odoo Community Edition</strong>, gdy liczyła się szerokość modułów (CRM + sprzedaż + operacje), często z ostrożnymi granicami rozszerzeń.</li>
+                <li><strong>metasfresh</strong> / <strong>iDempiere</strong>, gdy centrum ciężkości stanowiła dystrybucja i logistyka.</li>
+              </ul>
+
+              <h3>Przykłady warstwy low-code</h3>
+              <ul>
+                <li><strong>ToolJet</strong> / <strong>Appsmith</strong> do ekranów wewnętrznych: panele administracyjne, „biurka akceptacji”, „dajcie dashboard na piątek”.</li>
+                <li><strong>NocoBase</strong> do aplikacji data-driven, gdy zespoły potrzebowały rozszerzeń pluginowych i bogatszego modelowania.</li>
+              </ul>
+
+              <div class="callout">
+                <strong>Wzorzec, który wciąż się powtarzał:</strong>
+                <p>
+                  UI i workflow zmieniały się co tydzień. Rdzenie ERP — kwartalnie.
+                  Rozdzielenie zmniejszało „chirurgię ERP” o rząd wielkości.
+                </p>
+              </div>
+
+              <hr>
+
+              <h2>4) Oś czasu ewolucji: co było, co się stało</h2>
+
+              <div class="diagram-card">
+                <div class="diagram-title">
+                  <span>Ewolucja platform (2023 → 2032)</span>
+                  <span class="diagram-hint">Najważniejsze jest w „nudnym”.</span>
+                </div>
+
+                <svg viewBox="0 0 980 280" role="img" aria-label="Oś czasu ewolucji architektury ERP od 2023 do 2032">
+                  <defs>
+                    <linearGradient id="tg" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0" stop-color="#48cfff" stop-opacity="0.9"/>
+                      <stop offset="1" stop-color="#54e54a" stop-opacity="0.9"/>
+                    </linearGradient>
+                  </defs>
+
+                  <rect x="40" y="120" width="900" height="6" rx="4" fill="rgba(255,255,255,0.10)"/>
+                  <rect x="40" y="120" width="900" height="6" rx="4" fill="url(#tg)" opacity="0.35"/>
+
+                  <g class="mono" font-size="14" fill="#f5f7ff">
+                    <g>
+                      <circle cx="120" cy="123" r="10" fill="rgba(15,23,42,0.9)" stroke="rgba(72,207,255,0.8)" stroke-width="2"/>
+                      <text x="120" y="70" text-anchor="middle">2023</text>
+                      <text x="120" y="92" text-anchor="middle" fill="#9ca3c4">„ERP robi większość”</text>
+                      <text x="120" y="156" text-anchor="middle" fill="#9ca3c4">Odoo / ERPNext</text>
+                    </g>
+
+                    <g>
+                      <circle cx="350" cy="123" r="10" fill="rgba(15,23,42,0.9)" stroke="rgba(255,255,255,0.22)" stroke-width="2"/>
+                      <text x="350" y="70" text-anchor="middle">2026</text>
+                      <text x="350" y="92" text-anchor="middle" fill="#9ca3c4">„Low-code przejmuje UI”</text>
+                      <text x="350" y="156" text-anchor="middle" fill="#9ca3c4">ToolJet / Appsmith</text>
+                    </g>
+
+                    <g>
+                      <circle cx="580" cy="123" r="10" fill="rgba(15,23,42,0.9)" stroke="rgba(84,229,74,0.75)" stroke-width="2"/>
+                      <text x="580" y="70" text-anchor="middle">2028</text>
+                      <text x="580" y="92" text-anchor="middle" fill="#9ca3c4">„Reguły potrzebują formalizmu”</text>
+                      <text x="580" y="156" text-anchor="middle" fill="#9ca3c4">Warstwa logiki deklaratywnej</text>
+                    </g>
+
+                    <g>
+                      <circle cx="820" cy="123" r="10" fill="rgba(15,23,42,0.9)" stroke="url(#tg)" stroke-width="2"/>
+                      <text x="820" y="70" text-anchor="middle">2030–2032</text>
+                      <text x="820" y="92" text-anchor="middle" fill="#9ca3c4">„AI wymaga struktury”</text>
+                      <text x="820" y="156" text-anchor="middle" fill="#9ca3c4">Stosy AI-native</text>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+
               <p>
-                Jeśli architektura jest formalna, modułowa i możliwa do inspekcji — przetrwa następną dekadę.
-                Jeśli nie — stanie się „projektem migracji legacy”, zanim wyschnie tusz pod umową.
+                Zwrot był subtelny: zespoły nie „dodały AI”.
+                Zastąpiły nieuporządkowaną logikę regułami, które da się czytać, recenzować, wersjonować —
+                i rozumieć przez maszyny.
+              </p>
+
+              <hr>
+
+              <h2>5) Dlaczego open-source stał się warunkiem przetrwania</h2>
+              <p>
+                Do 2032 „open-source” przestał być filozofią.
+                Stał się praktycznym ograniczeniem:
+              </p>
+
+              <ul>
+                <li><strong>AI nie zoptymalizuje tego, czego nie widzi.</strong> Zamknięty kod to „czarna skrzynka” dla automatycznych przeglądów i refaktoryzacji.</li>
+                <li><strong>Firmy przestały ufać systemom, których nie da się skontrolować.</strong> Szczególnie przy cyklu życia 10–20 lat.</li>
+                <li><strong>Otwarte ERP stały się warstwą bazową stosów.</strong> Ukształtowała się typowa triada: <em>rdzeń ERP → low-code → reguły deklaratywne</em>.</li>
+              </ul>
+
+              <hr>
+
+              <h2>6) O co CEO / właściciel powinien pytać w 2032 (nie tylko „jakie ERP?”)</h2>
+              <ol>
+                <li><strong>Czy AI potrafi czytać reguły?</strong> Jeśli reguły nie są sformalizowane — budujesz eksponat muzealny.</li>
+                <li><strong>Czy istnieje struktura deklaratywna?</strong> Wybór języka jest mniej ważny niż to, co da się wyrazić jasno.</li>
+                <li><strong>Czy UI jest generowane czy „ręcznie klepane”?</strong> Ręczne UI szybko się starzeje; generowane trzyma spójność z modelem.</li>
+                <li><strong>Czy model domenowy jest jawny?</strong> Jeśli model jest ukryty, każda nowa ekipa „odkrywa” system od zera.</li>
+                <li><strong>Czy reguły są regułami (a nie rozproszonymi warunkami)?</strong> Reguła schowana w <code>if</code> jest trudna do audytu i rozwoju.</li>
+                <li><strong>Czy to przetrwa 20 lat zmian?</strong> Zmienią się zespoły, rynki, compliance i integracje. Struktura nie może się zawalić.</li>
+              </ol>
+
+              <hr>
+
+              <h2>7) Jeden diagram, który tłumaczy całe dziesięciolecie</h2>
+
+              <div class="diagram-card">
+                <div class="diagram-title">
+                  <span>Mapa „co przetrwa”</span>
+                  <span class="diagram-hint">Proste, ale nie prostackie.</span>
+                </div>
+
+                <svg viewBox="0 0 980 240" role="img" aria-label="Mapa: systemy imperatywne umierają, low-code jest płytki, monolityczne ERP ciężkie, modele deklaratywne czytelne dla AI">
+                  <g class="mono" font-size="18" fill="#f5f7ff">
+                    <text x="40" y="50" fill="#9ca3c4">Przyszłość systemów korporacyjnych</text>
+
+                    <rect x="40" y="80" width="900" height="1" fill="rgba(255,255,255,0.12)"/>
+
+                    <text x="60" y="120">Systemy imperatywne</text>
+                    <text x="520" y="120" fill="#9ca3c4">→</text>
+                    <text x="570" y="120" fill="#ffdddd">Umierają szybciej niż dokumentacja</text>
+
+                    <text x="60" y="150">Low-code</text>
+                    <text x="520" y="150" fill="#9ca3c4">→</text>
+                    <text x="570" y="150" fill="#9ca3c4">Dobre, ale płytkie dla reguł domenowych</text>
+
+                    <text x="60" y="180">Monolityczne ERP</text>
+                    <text x="520" y="180" fill="#9ca3c4">→</text>
+                    <text x="570" y="180" fill="#9ca3c4">Ciężkie, wolne, drogie w ewolucji</text>
+
+                    <text x="60" y="210">Modele deklaratywne</text>
+                    <text x="520" y="210" fill="#9ca3c4">→</text>
+                    <text x="570" y="210" fill="#bfffe0">Czytelne dla AI, rozszerzalne, audytowalne</text>
+                  </g>
+                </svg>
+              </div>
+
+              <hr>
+
+              <h2>8) Wniosek: systemy przyszłości buduje się razem z AI, nie tylko dla ludzi</h2>
+              <p>
+                ERP daje fundament. Low-code daje szybkość. Logika deklaratywna daje strukturę.
+                AI daje ewolucję — ale tylko wtedy, gdy system jest czytelny.
+              </p>
+              <p>
+                Jeśli architektura jest formalna, modułowa i możliwa do inspekcji, przetrwa kolejną dekadę.
+                Jeśli nie… stanie się „projektem migracji legacy” zanim wyschnie atrament.
               </p>
 
             </section>
 
+            <!-- FOOTER (tags + meta + Views) -->
+            <footer class="post-footer-extended">
+              <div class="post-footer-meta">
+                <div class="post-meta-tags">
+                  <span class="post-tag">ERP</span>
+                  <span class="post-tag">Architektura</span>
+                  <span class="post-tag">Open-source</span>
+                  <span class="post-tag">Low-code</span>
+                  <span class="post-tag">Deklaratywność</span>
+                  <span class="post-tag">AI-ready</span>
+                </div>
+
+                <div class="post-meta-secondary">
+                  <span>Opublikowano: 20 sty 2025</span>
+                  <span>·</span>
+                  <span>Około 9 min czytania</span>
+                  <span>·</span>
+                  <span class="post-views">Wyświetlenia: <span class="count">—</span></span>
+                </div>
+              </div>
+            </footer>
+
+            <!-- Inline newsletter -->
+            <section class="sidebar-block">
+              <p class="sidebar-text">
+                Bez spamu — tylko okazjonalne notatki o projektowaniu ERP, eksperymentach z automatyzacją i nowych wpisach.
+              </p>
+              <form class="newsletter-form"
+                    action="https://formsubmit.co/info@devlab.blog"
+                    method="POST">
+                <input type="hidden" name="_next" value="https://pl.devlab.blog/thank-you.html">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none">
+
+                <input type="email" name="email" class="field" placeholder="Twój adres email" required>
+                <button class="btn btn-primary" type="submit">Subskrybuj</button>
+
+                <p class="newsletter-note">
+                  Otrzymasz email potwierdzający.<br>
+                  Bezpiecznie przez FormSubmit.
+                </p>
+              </form>
+            </section>
           </article>
+
+          <!-- SIDEBAR -->
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">O tym blogu</h3>
+              <p class="sidebar-text">
+                DevLab Blog skupia się na koncepcjach open-source ERP, modułowych systemach biznesowych i low-code
+                automatyzacji. Piszemy o wzorcach architektonicznych, strategiach integracji i wnioskach z realnych wdrożeń.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">Więcej do odkrycia</h3>
+              <p class="sidebar-text">
+                Wróć na stronę główną, aby zobaczyć inne wpisy, lub przeglądaj według kategorii:
+              </p>
+              <ul>
+                <li><a href="/">Wszystkie wpisy</a></li>
+                <li><a href="/#categories">Przeglądaj kategorie</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener">Strona główna DevLab</a></li>
+              </ul>
+            </section>
+          </aside>
         </div>
       </div>
     </main>
@@ -207,7 +483,7 @@
       <div class="wrapper footer-grid">
         <div>
           <div class="footer-links">
-            <a href="/">Posty</a>
+            <a href="/">Wpisy</a>
             <a href="/#categories">Kategorie</a>
             <a href="/#about">O blogu</a>
             <a href="https://devlab.blog" target="_blank" rel="noopener">Strona główna</a>
@@ -221,7 +497,10 @@
         </div>
       </div>
     </footer>
-
   </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
