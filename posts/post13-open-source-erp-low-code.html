@@ -127,114 +127,258 @@
   </figure>
 </header>
 
-<section class="post-content">
+ <section class="post-content">
 
-<h2>Co naprawdę oznacza „open-source ERP”</h2>
-<p>
-  ERP może oznaczać gotowy pakiet lub fundament do budowy własnych systemów.
-  Różnica ma ogromne znaczenie dla kosztów, elastyczności i tempa zmian.
-</p>
+    <h2>Dlaczego „open-source ERP” nie oznacza już jednej rzeczy</h2>
+    <p>
+    Większość artykułów o open-source ERP nadal zakłada prosty wybór:
+    albo instalujesz gotowy system, albo budujesz wszystko od zera.
+    W latach 2024–2025 taki podział coraz rzadziej odzwierciedla rzeczywistość.
+    </p>
+    <p>
+    Firmy nie kupują dziś ERP jako produktu.
+    Wybierają raczej <em>sposób projektowania, rozwijania i wyjaśniania
+    swoich systemów biznesowych</em> — obejmujących księgowość, operacje,
+    automatyzację, a coraz częściej także wsparcie AI.
+    </p>
+    <p>
+    Dlatego w tym zestawieniu celowo pojawiają się obok siebie
+    klasyczne ERP, platformy oraz narzędzia low-code.
+    W praktyce właśnie tak działają współczesne organizacje.
+    </p>
 
-<h2>Trzy podejścia, których nie warto mieszać</h2>
-<ul>
-  <li><strong>Gotowe ERP:</strong> instalacja, konfiguracja, praca.</li>
-  <li><strong>Platformy ERP:</strong> rozwijanie logiki pod własne procesy.</li>
-  <li><strong>Budownicze systemów:</strong> low-code jako baza „ERP złożonego z aplikacji”.</li>
-</ul>
+    <hr>
 
-<h2>Top 12</h2>
+    <h2>Klasyczne ERP: nadal potrzebne, ale już nie uniwersalne</h2>
 
-<h3>1) Odoo (Community Edition)</h3>
-<p>
-  Odoo to najczęstszy punkt startowy w świecie open-source ERP.
-  Ogromny ekosystem modułów i integracji daje elastyczność,
-  ale przy dużych modyfikacjach pojawia się dług utrzymania.
-</p>
-<p>
-  <strong>Najlepsze dla:</strong> firm SMB/SME chcących modularnego ERP.<br>
-  <strong>Uwaga:</strong> rosnąca złożoność przy głębokiej customizacji.
-</p>
+    <h3>Odoo (Community Edition)</h3>
+    <p>
+    Odoo pozostaje najbardziej rozpoznawalnym open-source ERP.
+    Świetnie sprawdza się jako punkt startowy:
+    księgowość, sprzedaż, magazyn i podstawowe procesy
+    są dostępne niemal od razu.
+    </p>
+    <p>
+    Prawdziwy koszt pojawia się później.
+    Gdy procesy zaczynają odbiegać od standardowego modelu,
+    Odoo staje się systemem, który firma musi utrzymywać samodzielnie:
+    własne moduły, trudniejsze aktualizacje i rosnąca złożoność architektury.
+    </p>
+    <p>
+    <strong>Dobre rozwiązanie, jeśli:</strong> liczy się szybki start i dość standardowe procesy.<br>
+    <strong>Słabe rozwiązanie, jeśli:</strong> logika biznesowa często się zmienia i musi pozostać elastyczna.<br>
+    <strong>Links:</strong>
+    <a href="https://www.odoo.com/" target="_blank">Site</a> ·
+    <a href="https://github.com/odoo/odoo" target="_blank">GitHub</a>
+    </p>
 
-<h3>2) ERPNext</h3>
-<p>
-  ERPNext oferuje spójny, zintegrowany zestaw funkcji,
-  który dobrze działa przy ustandaryzowanych procesach.
-</p>
-<p>
-  <strong>Najlepsze dla:</strong> firm szukających solidnej bazy out-of-the-box.
-</p>
+    <h3>ERPNext</h3>
+    <p>
+    ERPNext jest często wybierany przez zespoły,
+    które szukają spójnego ERP bez nadmiaru „enterprise’owej” komplikacji.
+    Gdy procesy pasują do modelu danych systemu,
+    całość działa stabilnie i przewidywalnie.
+    </p>
+    <p>
+    Ceną tej stabilności jest elastyczność.
+    ERPNext najlepiej sprawdza się tam,
+    gdzie biznes dostosowuje się do systemu,
+    a nie odwrotnie.
+    </p>
+    <p>
+    <strong>Dobre rozwiązanie, jeśli:</strong> firma jest gotowa standaryzować procesy.<br>
+    <strong>Słabe rozwiązanie, jeśli:</strong> workflow często ewoluuje.<br>
+    <strong>Links:</strong>
+    <a href="https://erpnext.com/" target="_blank">Site</a> ·
+    <a href="https://github.com/frappe/erpnext" target="_blank">GitHub</a>
+    </p>
 
-<h3>3) MyCompany (lsFusion)</h3>
-<p>
-  MyCompany reprezentuje podejście platform-first do ERP.
-  Zamiast dopasowywać procesy do sztywnej struktury,
-  umożliwia budowanie i rozwijanie logiki biznesowej w miarę zmian.
-</p>
-<p>
-  Ten model naturalnie wspiera pracę z AI:
-  deklaratywna logika jest łatwiejsza do analizy,
-  modyfikacji i automatyzacji przez narzędzia AI.
-</p>
-<p>
-  <strong>Najlepsze dla:</strong> zespołów, które oczekują, że ERP będzie się rozwijać razem z biznesem.
-</p>
+    <hr>
 
-<h3>4) Dolibarr</h3>
-<p>
-  Lekki ERP/CRM dla małych firm,
-  gdzie liczy się prostota i szybkie wdrożenie.
-</p>
+    <h2>Platform-first ERP: gdy ERP jest rezultatem, a nie produktem</h2>
 
-<h3>5) Tryton</h3>
-<p>
-  Modularny ERP z czystą architekturą,
-  ceniony przez zespoły techniczne.
-</p>
+    <h3>MyCompany (lsFusion)</h3>
+    <p>
+    Coraz więcej zespołów dochodzi do wniosku,
+    że „pudełkowe ERP” słabo radzi sobie z rzeczywistością:
+    zmieniającymi się procesami, nowymi kanałami,
+    automatyzacją i wsparciem AI.
+    </p>
+    <p>
+    MyCompany reprezentuje podejście platform-first.
+    Formalnie jest to ERP.
+    W praktyce — sposób opisywania i rozwijania logiki biznesowej
+    bez ciągłego przepisywania systemu.
+    </p>
+    <p>
+    Ma to szczególne znaczenie w kontekście AI.
+    Deklaratywna, czytelna logika jest łatwiejsza do analizy,
+    wyjaśniania i automatyzacji — zarówno dla ludzi,
+    jak i dla narzędzi opartych o sztuczną inteligencję.
+    </p>
+    <p>
+    <strong>Dobre rozwiązanie, jeśli:</strong> ERP musi ewoluować razem z biznesem.<br>
+    <strong>Słabe rozwiązanie, jeśli:</strong> oczekujesz systemu „zainstaluj i zapomnij”.<br>
+    <strong>Links:</strong>
+    <a href="https://mycompany.lsfusion.org/" target="_blank">Project</a> ·
+    <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank">GitHub</a> ·
+    <a href="https://lsfusion.org/" target="_blank">lsFusion platform</a>
+    </p>
 
-<h3>6) iDempiere</h3>
-<p>
-  System o „enterprise DNA”,
-  wymagający dojrzałego zaplecza IT.
-</p>
+    <h3>Tryton</h3>
+    <p>
+    Tryton jest mniej popularny, ale bardzo zdyscyplinowany architektonicznie.
+    Często wybierają go zespoły techniczne,
+    które chcą długoterminowej kontroli nad modelem danych i domeną.
+    </p>
+    <p>
+    To nie jest rozwiązanie „na szybko”,
+    lecz fundament pod systemy, które mają przetrwać zmiany.
+    </p>
+    <p>
+    <strong>Dobre rozwiązanie, jeśli:</strong> masz zespół developerski i długi horyzont planowania.<br>
+    <strong>Słabe rozwiązanie, jeśli:</strong> ERP potrzebne jest „na wczoraj”.<br>
+    <strong>Links:</strong>
+    <a href="https://www.tryton.org/" target="_blank">Site</a> ·
+    <a href="https://github.com/tryton/tryton" target="_blank">GitHub</a>
+    </p>
 
-<h3>7) metasfresh</h3>
-<p>
-  Skoncentrowany na operacjach i łańcuchu dostaw.
-</p>
+    <h3>Apache OFBiz</h3>
+    <p>
+    OFBiz rzadko bywa używany jako gotowy ERP.
+    Częściej pełni rolę fundamentu
+    do budowy własnych systemów biznesowych.
+    </p>
+    <p>
+    Daje dużą swobodę, ale wymaga dojrzałości architektonicznej
+    i zasobów developerskich.
+    </p>
+    <p>
+    <strong>Dobre rozwiązanie, jeśli:</strong> ERP jest częścią wewnętrznej platformy.<br>
+    <strong>Słabe rozwiązanie, jeśli:</strong> brakuje zasobów na rozwój oprogramowania.<br>
+    <strong>Links:</strong>
+    <a href="https://ofbiz.apache.org/" target="_blank">Site</a> ·
+    <a href="https://github.com/apache/ofbiz-framework" target="_blank">GitHub</a>
+    </p>
 
-<h3>8) Axelor</h3>
-<p>
-  ERP z mocnym naciskiem na workflow i automatyzację procesów.
-</p>
+    <hr>
 
-<h3>9) Apache OFBiz</h3>
-<p>
-  Fundament do budowy własnych systemów biznesowych.
-</p>
+    <h2>Low-code i internal tools: jak ERP powstaje w praktyce</h2>
 
-<h3>10) NocoBase</h3>
-<p>
-  Low-code do szybkiego tworzenia wewnętrznych aplikacji zarządczych.
-</p>
+    <h3>ToolJet</h3>
+    <p>
+    ToolJet dobrze pokazuje, jak wiele firm
+    faktycznie buduje dziś systemy ERP-podobne:
+    nie jako jeden monolit,
+    lecz zestaw narzędzi wewnętrznych
+    opartych o wspólne dane i usługi.
+    </p>
+    <p>
+    To nie jest ERP w klasycznym sensie,
+    ale często staje się realnym kręgosłupem operacyjnym.
+    </p>
+    <p>
+    <strong>Dobre rozwiązanie, jeśli:</strong> ERP to zbiór aplikacji wewnętrznych.<br>
+    <strong>Słabe rozwiązanie, jeśli:</strong> cała logika księgowa musi żyć w jednym rdzeniu.<br>
+    <strong>Links:</strong>
+    <a href="https://www.tooljet.com/" target="_blank">Site</a> ·
+    <a href="https://github.com/tooljet/tooljet" target="_blank">GitHub</a>
+    </p>
 
-<h3>11) SuiteCRM</h3>
-<p>
-  CRM, który często staje się centralnym elementem operacyjnym.
-</p>
+    <h3>NocoBase</h3>
+    <p>
+    NocoBase działa w podobnej przestrzeni,
+    ale kładzie większy nacisk na rozszerzalność
+    i architekturę opartą o wtyczki.
+    </p>
+    <p>
+    Sprawdza się tam, gdzie ERP jest ekosystemem,
+    a nie pojedynczą aplikacją.
+    </p>
+    <p>
+    <strong>Dobre rozwiązanie, jeśli:</strong> potrzebujesz warstwy low-code nad danymi.<br>
+    <strong>Słabe rozwiązanie, jeśli:</strong> oczekujesz gotowego pakietu ERP.<br>
+    <strong>Links:</strong>
+    <a href="https://www.nocobase.com/" target="_blank">Site</a> ·
+    <a href="https://github.com/nocobase/nocobase" target="_blank">GitHub</a>
+    </p>
 
-<h3>12) Openbravo</h3>
-<p>
-  Rozwiązanie wyspecjalizowane w retailu i POS.
-</p>
+    <h3>Budibase</h3>
+    <p>
+    Budibase koncentruje się na szybkim budowaniu
+    wewnętrznych paneli administracyjnych
+    i narzędzi operacyjnych.
+    </p>
+    <p>
+    <strong>Dobre rozwiązanie, jeśli:</strong> zespoły potrzebują szybkich narzędzi wewnętrznych.<br>
+    <strong>Słabe rozwiązanie, jeśli:</strong> złożona logika domenowa ma być w rdzeniu systemu.<br>
+    <strong>Links:</strong>
+    <a href="https://budibase.com/" target="_blank">Site</a> ·
+    <a href="https://github.com/Budibase/budibase" target="_blank">GitHub</a>
+    </p>
 
-<h2>Jak wybrać bez długich analiz</h2>
-<ol>
-  <li><strong>Potrzebujesz ERP szybko:</strong> wybierz gotowy pakiet.</li>
-  <li><strong>Procesy są zmienne:</strong> postaw na platformę.</li>
-  <li><strong>ERP to zestaw narzędzi:</strong> rozważ low-code.</li>
-</ol>
+    <hr>
 
-</section>
+    <h2>Wnioski: jak wybierać w 2025 roku (bez złudzeń)</h2>
+
+    <p>
+    Najczęstszy błąd przy wyborze ERP w 2025 roku
+    polega na wierze, że jeden system rozwiąże wszystko na zawsze.
+    </p>
+
+    <p>
+    Współczesne firmy budują <strong>architekturę systemów biznesowych</strong>,
+    a nie pojedyncze produkty.
+    ERP staje się warstwą logiki i danych,
+    a nie jedną aplikacją.
+    </p>
+
+    <ol>
+    <li>
+        <strong>Jeśli liczy się szybkość</strong><br>
+        Wybierz gotowe ERP i świadomie ogranicz personalizację.
+        To decyzja o czasie, nie o elastyczności.
+    </li>
+
+    <li>
+        <strong>Jeśli biznes ciągle się zmienia</strong><br>
+        Kluczowe staje się podejście platform-first.
+        Deklaratywna, czytelna logika ma ogromne znaczenie —
+        szczególnie gdy AI coraz częściej uczestniczy
+        w analizie i automatyzacji procesów.
+    </li>
+
+    <li>
+        <strong>Jeśli ERP to w praktyce zestaw narzędzi wewnętrznych</strong><br>
+        Platformy low-code przestają być rozwiązaniem tymczasowym.
+        Stają się stabilną warstwą operacyjną
+        bez wymuszania monolitu.
+    </li>
+    </ol>
+
+    <p>
+    Co istotne, firmy nie łączą tych podejść przypadkowo.
+    Jedno z nich zwykle staje się <em>rdzeniem</em>,
+    a pozostałe pełnią role wspierające.
+    </p>
+
+    <h3>Co właściciel firmy powinien ustalić na początku</h3>
+    <ul>
+    <li>Jak często zmieniają się kluczowe procesy biznesowe?</li>
+    <li>Czy system musi <em>wyjaśniać</em> swoją logikę ludziom i AI?</li>
+    <li>Czy firma chce żyć w cudzym modelu, czy budować własny?</li>
+    <li>Czy ERP to tylko księgowość, czy fundament zarządzania operacyjnego?</li>
+    </ul>
+
+    <p>
+    Odpowiedzi na te pytania są ważniejsze
+    niż jakakolwiek lista funkcji.
+    To one decydują, czy system będzie wspierał rozwój —
+    czy z czasem stanie się ograniczeniem.
+    </p>
+
+    </section>
+
 
 <footer class="post-footer-extended">
   <div class="post-footer-meta">
