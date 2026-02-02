@@ -1,0 +1,2141 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>ERP, które nie zamienia się w drogi hamulec: ograniczenia 1C / SAP / Dynamics / Odoo – DevLab Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Techniczna analiza ograniczeń architektonicznych ERP na podstawie artykułów z Habr: gdzie dokładnie pojawiają się ograniczenia 1C i jak podobne punkty ujawniają się w SAP / Dynamics / Odoo. Punkt po punkcie, z praktycznymi konsekwencjami dla zmian, kontroli i utrzymania."
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <!-- Consent Mode (set BEFORE GTM) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{
+      analytics_storage:'denied',
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      functionality_storage:'granted',
+      security_storage:'granted'
+    });
+  </script>
+
+  <!-- Main blog styles -->
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+
+  <!-- Main blog scripts (year + search + views counter) -->
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://pl.devlab.blog/posts/post16-erp-change-friendly-architecture-compare.html"
+    },
+    "headline": "ERP, które nie zamienia się w drogi hamulec: analiza architektury 1C / SAP / Dynamics / Odoo",
+    "description": "Techniczna analiza ograniczeń architektonicznych ERP na podstawie artykułów z Habr: gdzie dokładnie pojawiają się ograniczenia 1C i jak podobne punkty ujawniają się w SAP / Dynamics / Odoo. Punkt po punkcie, z praktycznymi konsekwencjami dla zmian, kontroli i utrzymania.",
+    "author": { "@type": "Organization", "name": "DevLab Blog" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": { "@type": "ImageObject", "url": "https://uk.devlab.blog/img/devlab-logo.svg" }
+    },
+    "datePublished": "2026-01-22",
+    "dateModified": "2026-01-22"
+  }
+  </script>
+
+  <link rel="canonical" href="https://pl.devlab.blog/posts/post16-erp-change-friendly-architecture-compare.html">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WTZDV4K6');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="post-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automation notes</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Artykuły</a>
+              <a href="/#categories">Kategorie</a>
+              <a href="/#about">O blogu</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Strona główna</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/">EN</a>
+              <a href="https://pl.devlab.blog/" class="active">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Wszystkie artykuły</a>
+            <a href="/#about" class="btn btn-primary">Co to jest?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="wrapper">
+        <div class="main-grid">
+          <!-- ARTICLE -->
+          <article id="post16-erp-change-friendly-architecture-compare">
+            <div class="section-title">
+              <span>Artykuł</span>
+              <small><a class="back" href="/">← Wróć do wszystkich artykułów</a></small>
+            </div>
+
+            <header>
+              <div class="post-meta">
+                <span>ERP · Architektura · Utrzymanie</span>
+                <span>&middot;</span>
+                <span>Około 10–12 min czytania</span>
+                <span>&middot;</span>
+                <span>Analiza techniczna (bez marketingu)</span>
+              </div>
+
+         <!-- ===================================================== -->
+            <div class="post-content">
+
+                <h1 class="hero-title">ERP, które nie zamienia się w drogi hamulec</h1>
+                <p class="post-subtitle">
+                  Dlaczego systemy ERP psują się w podobny sposób: ograniczenia architektoniczne 1C, SAP, Microsoft Dynamics, Odoo i innych platform ERP oraz ich zachowanie przy zmianie reguł biznesowych.
+                </p>
+
+                <div class="callout" role="note">
+                  <strong>Źródło tez i metoda</strong>
+                  <p>
+                    Na podstawie technicznych artykułów na Habr:
+                    <a href="https://habr.com/ru/companies/lsfusion/articles/544982/" target="_blank" rel="noopener noreferrer">
+                      «Dlaczego lsFusion, a nie 1C?»
+                    </a>
+                    oraz
+                    <a href="https://habr.com/ru/companies/lsfusion/articles/468415/" target="_blank" rel="noopener noreferrer">
+                      «Dlaczego nie 1C?»
+                    </a>.
+                    Dalej — inżynierskie „rozszyfrowanie”: mechanizmy, symptomy, diagnostyka na pilocie i sposoby ograniczania ryzyka.
+                  </p>
+                </div>
+              </header>
+
+            <!-- ===================================================== -->
+           <nav class="post-toc" id="toc">
+            <h2>Spis treści</h2>
+            <ol>
+
+              <li class="has-children">
+                <a class="post-read" href="#intro">Wprowadzenie</a>
+                <ol>
+                  <li><a class="post-read" href="#intro-why">Dlaczego ograniczenia architektoniczne ERP ujawniają się podobnie</a></li>
+                  <li><a class="post-read" href="#intro-what-change">Co uznać za „zmianę reguł biznesowych”</a></li>
+                  <li><a class="post-read" href="#intro-how-to-read">Jak czytać analizę i co daje w praktyce</a></li>
+                </ol>
+              </li>
+
+              <li class="has-children">
+                <a class="post-read" href="#data-model">Model danych i obliczeń</a>
+                <ol>
+                  <li><a class="post-read" href="#limit-2-1"> Obiekty: słowniki, dokumenty itd.</a></li>
+                  <li><a class="post-read" href="#limit-2-2"> Nieefektywne pobieranie danych obiektów</a></li>
+                  <li><a class="post-read" href="#limit-2-3"> Tabele i widoki: rejestry</a></li>
+                  <li><a class="post-read" href="#limit-2-4"> Rejestry są wspierane tylko w bardzo szczególnych przypadkach</a></li>
+                  <li><a class="post-read" href="#limit-2-5"> Brak ograniczeń i zdarzeń dla wartości rejestrów</a></li>
+                  <li><a class="post-read" href="#limit-2-6"> Parametry selekcji tylko stałe</a></li>
+                </ol>
+              </li>
+
+              <li class="has-children">
+                <a class="post-read" href="#query-layer">Warstwa zapytań i praca z danymi</a>
+                <ol>
+                  <li><a class="post-read" href="#limit-3-1"> Zapytania jako samodzielna warstwa systemu</a></li>
+                  <li><a class="post-read" href="#limit-3-2"> Zapytania jako ciągi tekstowe</a></li>
+                  <li><a class="post-read" href="#limit-3-3"> Przewidywalna optymalizacja (symptomy słabego optymalizatora)</a></li>
+                  <li><a class="post-read" href="#limit-3-4"> Brak rozszerzonych możliwości SQL</a></li>
+                  <li><a class="post-read" href="#limit-3-5"> Brak zapytań do masowych zmian</a></li>
+                </ol>
+              </li>
+
+              <li class="has-children">
+                <a class="post-read" href="#execution-flow">Przepływ wykonania i gwarancje spójności</a>
+                <ol>
+                  <li><a class="post-read" href="#limit-4-1"> Rezygnacja z automatycznych blokad</a></li>
+                  <li><a class="post-read" href="#limit-4-2"> Rezygnacja z jednolitego przepływu wykonania</a></li>
+                  <li><a class="post-read" href="#limit-4-3"> Rezygnacja z synchroniczności i jednoznacznego commit point</a></li>
+                </ol>
+              </li>
+
+              <li class="has-children">
+                <a class="post-read" href="#forms-layer">Formularze i prezentacja danych</a>
+                <ol>
+                  <li><a class="post-read" href="#limit-5-1"> Formularze jako osobna warstwa logiki</a></li>
+                  <li><a class="post-read" href="#limit-5-2"> Odejście od WYSIWYG: odczyt vs zapis</a></li>
+                  <li><a class="post-read" href="#limit-5-3"> Ograniczenia kontekstu list i formularzy</a></li>
+                  <li><a class="post-read" href="#limit-5-4"> Nadmiarowe poziomy abstrakcji w UI</a></li>
+                </ol>
+              </li>
+
+              <li class="has-children">
+                <a class="post-read" href="#language-architecture">Architektura języka i rozszerzalność</a>
+                <ol>
+                  <li><a class="post-read" href="#limit-6-1"> Brak dziedziczenia i polimorfizmu</a></li>
+                  <li><a class="post-read" href="#limit-6-2"> Brak jawnego typowania</a></li>
+                  <li><a class="post-read" href="#limit-6-3"> Brak prawdziwej modułowości</a></li>
+                  <li><a class="post-read" href="#limit-6-4"> Stawianie na programowanie wizualne</a></li>
+                </ol>
+              </li>
+
+              <li class="has-children">
+                <a class="post-read" href="#physical-model">Model fizyczny i otwartość systemu</a>
+                <ol>
+                  <li><a class="post-read" href="#limit-7-1"> Zamknięty model fizyczny danych</a></li>
+                  <li><a class="post-read" href="#limit-7-2"> Statyczny model fizyczny danych</a></li>
+                  <li><a class="post-read" href="#limit-7-3"> Zamknięte źródła i licencje</a></li>
+                </ol>
+              </li>
+
+              <li class="has-children">
+                <a class="post-read" href="#operational-constraints">Ograniczenia operacyjne i kulturowe</a>
+                <ol>
+                  <li><a class="post-read" href="#limit-8-1"> Licencjonowanie i branding</a></li>
+                  <li><a class="post-read" href="#limit-8-2"> Krytyczna wada jako suma decyzji</a></li>
+                </ol>
+              </li>
+
+              <li class="has-children">
+                <a class="post-read" href="#demo-pilot-check">Jak sprawdzać na demo i pilocie</a>
+                <ol>
+                  <li><a class="post-read" href="#demo-what-to-ask"> Trzy zmiany do sprawdzenia</a></li>
+                  <li><a class="post-read" href="#demo-what-to-watch"> Na co patrzeć podczas demonstracji</a></li>
+                  <li><a class="post-read" href="#demo-red-flags"> Typowe czerwone flagi</a></li>
+                  <li><a class="post-read" href="#demo-result"> Co uznać za dobry wynik pilota</a></li>
+                </ol>
+              </li>
+
+              <li class="has-children">
+                <a class="post-read" href="#conclusion">Podsumowanie</a>
+                <ol>
+                  <li><a class="post-read" href="#conclusion-title"> Podsumowanie (sekcja)</a></li>
+                  <li><a class="post-read" href="#sources">Źródła i linki</a></li>
+                  <li><a class="post-read" href="#related-posts">Podobne artykuły</a></li>
+                  <li><a class="post-read" href="#feedback">Szybki feedback</a></li>
+                </ol>
+              </li>
+
+            </ol>
+</nav>
+
+
+
+
+
+                          <!-- ===================================================== -->
+                          <section class="post-content" id="intro">
+
+                            <h2 id="intro-why">1.1 Dlaczego ograniczenia architektoniczne ERP ujawniają się podobnie</h2>
+                            <p>
+                              Większość ERP (1C, SAP, Microsoft Dynamics, Odoo) na początku wygląda stabilnie: danych jest mało, procesy są uproszczone,
+                              wyjątki rzadkie, integracje „cienkie”. Ograniczenia architektoniczne w tym momencie są prawie niewidoczne.
+                            </p>
+                            <p>
+                              Problemy pojawiają się później — gdy firma zaczyna zmieniać reguły. Przyczyna nie tkwi w „złym systemie”,
+                              tylko w tym, że typowe ERP są zbudowane wokół podobnych kompromisów: model obiektowy, osobna warstwa raportowania,
+                              rozdzielona logika (formularz/serwer/integracje), a także ograniczenia warstwy zapytań i operacji masowych.
+                              Przy wzroście danych i liczby wyjątków te kompromisy dają takie same symptomy niezależnie od dostawcy.
+                            </p>
+
+                            <div class="callout" role="note">
+                              <strong>Ważne</strong>
+                              <p>
+                                Ten materiał nie odpowiada na pytanie „które ERP jest lepsze”. Odpowiada na inne pytanie:
+                                <strong>gdzie i dlaczego drożeje zmiana reguł</strong> oraz jak to rozpoznać przed wdrożeniem produkcyjnym.
+                              </p>
+                            </div>
+
+                            <hr>
+
+                            <h2 id="intro-what-change">1.2 Co uznać za „zmianę reguł”, a nie modyfikację</h2>
+                            <p>
+                              „Zmiana reguł” to nie „dodać pole” i nie „zrobić nowy raport”. To zmiana, która jednocześnie:
+                            </p>
+                            <ul>
+                              <li><strong>zmienia zachowanie transakcji</strong> (walidacja, księgowanie, statusy, ograniczenia);</li>
+                              <li><strong>zmienia wskaźniki</strong> (marża, koszt własny, limity, stany, ryzyko);</li>
+                              <li><strong>zmienia kontrolę</strong> (blokady, akceptacje, zakazy warunkowe);</li>
+                              <li><strong>nie może zepsuć</strong> raportowania i integracji (CRM/WMS/marketplace/BI).</li>
+                            </ul>
+                            <p>
+                              Jeśli platforma nie utrzymuje tego jako jednego modelu (dane + obliczenia + kontrola), reguła nieuchronnie
+                              jest realizowana w kilku miejscach. Wtedy koszt zmiany jest wyznaczany nie przez złożoność formuły, lecz przez liczbę warstw,
+                              które trzeba jednocześnie zmienić i zweryfikować.
+                            </p>
+
+                            <hr>
+
+                            <h2 id="intro-how-to-read">1.3 Jak czytać tę analizę i co daje w praktyce</h2>
+                            <p>
+                              Dalej znajdują się konkretne punkty architektoniczne (obiekty, rejestry, zapytania, formularze, blokady, typowanie itd.).
+                              Dla każdego punktu używany jest ten sam format:
+                            </p>
+                            <ul>
+                              <li><strong>Co to znaczy</strong> — ograniczenie bez ogólników;</li>
+                              <li><strong>Jak to się ujawnia</strong> w 1C / SAP / Dynamics / Odoo (typowe mechanizmy, a nie „ogólnie trudno”);</li>
+                              <li><strong>Jaki symptom zobaczysz</strong> w eksploatacji (co realnie „boli”);</li>
+                              <li><strong>Jak sprawdzić na demo/pilocie</strong> — pytanie lub scenariusz, który obnaża problem.</li>
+                            </ul>
+
+                            <div class="callout" role="note">
+                              <strong>Efekt praktyczny</strong>
+                              <p>
+                                Po tej analizie będziesz w stanie szybko odróżniać:
+                                „poprawkę reguły” (przewidywalna praca w jednym miejscu)
+                                od „poprawki systemu” (wielowarstwowe zmiany z drogą regresją),
+                                i z wyprzedzeniem rozumieć, gdzie powstaje zależność od dostawcy lub pojedynczych specjalistów.
+                              </p>
+                            </div>
+
+                          </section>
+
+                          <div class="callout" role="note">
+              <strong>Checklista: jak szybko zrozumieć, czy ERP stanie się „drogim hamulcem”</strong>
+              <ul>
+                <li>
+                  <strong>Jedna reguła — jedno miejsce?</strong><br>
+                  Poproś o pokazanie, gdzie „mieszka” konkretna reguła (np. limit/marża/stany) i ile warstw dotyka.
+                  Jeśli to kod + formularz + raport + procedura — zmiany będą drogie.
+                </li>
+                <li>
+                  <strong>Czy istnieje „moment zakończenia” operacji?</strong><br>
+                  Zapytaj, kiedy operacja jest uznawana za ostatecznie wykonaną (commit point) i co dzieje się asynchronicznie po „sukcesie”.
+                  Jeśli odpowiedź jest nieostra — spodziewaj się „odroczonych błędów” i ręcznych kontroli.
+                </li>
+                <li>
+                  <strong>Test wyjątków</strong><br>
+                  Dodaj 2–3 wyjątki do typowej logiki. Jeśli od razu pojawiają się „specjalne procedury” — model nie utrzymuje wariantowości.
+                </li>
+                <li>
+                  <strong>Czy regres jest kontrolowany?</strong><br>
+                  Zapytaj, jak sprawdzają, że zmiana reguły nie zepsuła raportów/integracji. Jeśli „sprawdzimy wzrokiem” — będzie bolało.
+                </li>
+                <li>
+                  <strong>Czy da się przewidzieć koszt kolejnej zmiany?</strong><br>
+                  Dobra architektura pozwala z góry powiedzieć: „zmiana dotknie N mechanizmów i jest weryfikowana takimi testami”.
+                  Zła — zamienia każdą poprawkę w badanie/śledztwo.
+                </li>
+              </ul>
+            </div>
+
+
+
+              <hr>
+
+              <!-- ===================================================== -->
+              <section class="post-content" id="data-model">
+
+                <h2 id="data-model-title">2. Model danych i obliczeń</h2>
+                <p>
+                  Ten rozdział dotyczy fundamentu: <strong>jak w ERP są zbudowane dane i obliczenia</strong>
+                  oraz jakie ograniczenia są zaszyte jeszcze przed kodem, formularzami i integracjami.
+                  To właśnie tutaj decyduje się, czy reguły biznesowe da się wyrazić jako jeden model,
+                  czy też nieuchronnie rozpełzną się po systemie.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-2-1">2.1 Obiekty: słowniki, dokumenty itd.</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w ERP</strong></p>
+                <p>
+                  Większość ERP opiera się na modelu obiektowym:
+                  słowniki, dokumenty, pozycje, ruchy.
+                  Logika biznesowa jest przypięta do cyklu życia obiektu
+                  (utworzenie, edycja, księgowanie),
+                  a nie opisana jako osobny system reguł.
+                </p>
+
+                <p><strong>1C</strong></p>
+                <p>
+                  Metadane (Słowniki, Dokumenty, Rejestry) — podstawa architektury.
+                  Kontrole i obliczenia są rozproszone między księgowaniem,
+                  modułami formularzy i pomocniczymi handlerami.
+                </p>
+
+                <p><strong>SAP</strong></p>
+                <p>
+                  Model obiektowy jest uzupełniany konfiguracją i rozszerzeniami,
+                  ale reguła często okazuje się kompozycją standardowego obiektu,
+                  kodu niestandardowego i warstwy procesowej.
+                </p>
+
+                <p><strong>Microsoft Dynamics</strong></p>
+                <p>
+                  Encje są punktem wejścia,
+                  ale logika jest rozproszona między wtyczkami (plugins),
+                  automatyzacjami i regułami po stronie klienta.
+                </p>
+
+                <p><strong>Odoo</strong></p>
+                <p>
+                  Modele ORM wyglądają spójnie,
+                  ale wraz ze wzrostem kastomizacji logika rozchodzi się
+                  między modelami, polami obliczanymi (computed fields) i modułami.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  jedna reguła biznesowa jest zaimplementowana w kilku obiektach i warstwach;
+                  wyjaśnienie „dlaczego system tak policzył” wymaga znajomości historii wdrożenia.
+                </p>
+
+                <p>
+                  <strong>Jak sprawdzić:</strong>
+                  poprosić o pokazanie jednej reguły
+                  i wszystkich obiektów, w których jest zaimplementowana lub wpływa na zachowanie.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-2-2">2.2 Nieefektywne pobieranie danych obiektów</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w ERP</strong></p>
+                <p>
+                  Obiekty są wygodne dla transakcji,
+                  ale słabo pasują do złożonych obliczeń.
+                  W efekcie dane są pobierane częściowo zapytaniami,
+                  częściowo przez obiekty,
+                  a obliczenia są składane proceduralnie.
+                </p>
+
+                <p><strong>1C</strong></p>
+                <p>
+                  Typowy scenariusz: zapytanie + odczyt obiektów + pętle.
+                  Wydajność zależy od dyscypliny programisty.
+                </p>
+
+                <p><strong>SAP</strong></p>
+                <p>
+                  Dane są dostępne przez kilka poziomów modelu,
+                  co utrudnia kontrolę faktycznych selekcji.
+                </p>
+
+                <p><strong>Dynamics</strong></p>
+                <p>
+                  ORM/API łatwo generują wiele wywołań
+                  zamiast jednego optymalnego zapytania.
+                </p>
+
+                <p><strong>Odoo</strong></p>
+                <p>
+                  ORM ukrywa rzeczywiste zapytania;
+                  problemy ujawniają się przy wzroście danych.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  system degraduje wydajność
+                  nie od razu, lecz „nagle” — wraz ze wzrostem wolumenu.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-2-3">2.3 Tabele i widoki: rejestry</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w ERP</strong></p>
+                <p>
+                  Dla analityki wprowadza się osobną warstwę:
+                  agregaty, ruchy, widoki.
+                  Powstaje drugie źródło prawdy,
+                  różniące się od danych transakcyjnych.
+                </p>
+
+                <p><strong>1C</strong></p>
+                <p>
+                  Rejestry to kluczowy mechanizm,
+                  ale logika obliczeń często częściowo pozostaje w kodzie.
+                </p>
+
+                <p><strong>SAP</strong></p>
+                <p>
+                  Odpowiednik to połączenie ruchów,
+                  agregatów i widoków analitycznych.
+                </p>
+
+                <p><strong>Dynamics</strong></p>
+                <p>
+                  Agregaty często wynosi się do BI lub hurtowni/witryn.
+                </p>
+
+                <p><strong>Odoo</strong></p>
+                <p>
+                  Są typowe agregaty,
+                  ale wraz ze wzrostem wymagań pojawiają się widoki SQL i zewnętrzna analityka.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  operacje i raporty rozjeżdżają się,
+                  przeliczenia wymagają specjalnych procedur.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+               <h3 id="limit-2-4">2.4 Rejestry są wspierane tylko w bardzo szczególnych przypadkach</h3>
+
+                  <p><strong>O co chodzi</strong></p>
+                  <p>
+                    Warstwa analityczna (rejestry/agregaty/witryny) działa dobrze, dopóki reguła biznesowa mieści się
+                    w „typowym” wzorcu: stany, obroty, proste przekroje, standardowe okresy.
+                    Gdy pojawia się nietypowa semantyka (wyjątki, reguły warunkowe, alternatywne źródła,
+                    historyczne „jak było na dzień” według niestandardowej cechy), część logiki przestaje dać się wyrazić
+                    w modelu i trafia do kodu/procedur/integracji.
+                  </p>
+
+                  <p><strong>Jak to się ujawnia w standardowych ERP</strong></p>
+
+                  <p><strong>1C</strong></p>
+                  <p>
+                    Rejestry (magazynowe/księgowe/informacyjne) pokrywają wiele scenariuszy,
+                    ale realna logika często się rozpada: część — w ruchach przy księgowaniu,
+                    część — w zapytaniach raportów (SKD), część — w procedurach przeliczeń.
+                    Gdy potrzebny jest „niestandardowy” algorytm (warunkowe przeliczenia, złożone wyjątki, alternatywna wycena),
+                    trafia on do kodu proceduralnego i przestaje być częścią jednego modelu.
+                  </p>
+
+                  <p><strong>SAP</strong></p>
+                  <p>
+                    Typowe rozliczenia i analityka opierają się na bogatym modelu i mechanizmach rozszerzeń,
+                    ale „niestandard” często realizuje się jako miks konfiguracji + rozszerzeń + osobnego modelu analitycznego
+                    (albo wyniesienia do osobnej warstwy analityki). W efekcie reguła istnieje w kilku miejscach,
+                    a synchronizacja staje się osobnym przedsięwzięciem.
+                  </p>
+
+                  <p><strong>Microsoft Dynamics</strong></p>
+                  <p>
+                    W typowym krajobrazie wskaźniki często „rozprowadza się” po warstwach: encje transakcyjne,
+                    reguły/wtyczki, widoki raportowe i zewnętrzna analityka. Nietypowe reguły
+                    niemal nieuniknienie kończą jako kombinacja: kod + low-code automatyzacje + witryna/BI.
+                  </p>
+
+                  <p><strong>Odoo</strong></p>
+                  <p>
+                    Podstawowe agregaty i pola obliczane działają do pewnej złożoności.
+                    Dalej pojawiają się: osobne modele dla „pochodnych” wskaźników, widoki SQL,
+                    przeliczenia w tle i zewnętrzna analityka. Reguła przestaje być „częścią modelu”
+                    i staje się zestawem implementacji.
+                  </p>
+
+                  <p>
+                    <strong>Symptom eksploatacyjny:</strong>
+                    część reguł żyje w „modelu” (rejestry/agregaty), a część — w „specjalnych procedurach”.
+                    Mała zmiana zaczyna wymagać poprawek w kilku miejscach, a wyjaśnialność
+                    „dlaczego tak policzyło” spada.
+                  </p>
+
+                  <p>
+                    <strong>Jak sprawdzić na demo/pilocie:</strong>
+                    poprosić o wzięcie jednego wskaźnika (np. dostępny stan/marża/limit) i dodanie
+                    2–3 wyjątków (np. wg typu klienta, magazynu, daty, alternatywnego źródła ceny).
+                    Sprawdź, czy pozostaje <em>jeden mechanizm</em> (jedno miejsce/jeden typ mechanizmu), czy reguła „rozpełza się”
+                    na kod + raport + przeliczenie + integrację.
+                  </p>
+
+                  <h3 id="limit-2-5">2.5 Brak ograniczeń i zdarzeń dla wartości rejestrów</h3>
+                                    <hr>
+
+                    <p><strong>O co chodzi</strong></p>
+                    <p>
+                      W wielu ERP ograniczenia i zdarzenia są dobrze zdefiniowane dla operacji (dokument/księgowanie/zapis),
+                      ale słabo zdefiniowane dla <strong>wartości obliczanych/agregowanych</strong> (stany, limity, ratingi, ryzyko).
+                      To znaczy: platforma nie daje natywnego mechanizmu w stylu:
+                      „jeśli agregat stał się taki — zakaż/powiadom/uruchom reakcję” jako część modelu.
+                      Dlatego kontrolę realizuje się proceduralnie: walidacjami przy księgowaniu, kontrolami w tle,
+                      raportami-walidatorami i ręcznymi regulaminami.
+                    </p>
+
+                    <p><strong>Jak to się ujawnia w standardowych ERP</strong></p>
+
+                    <p><strong>1C</strong></p>
+                    <p>
+                      Typowa droga — sprawdzanie „na miejscu” przy księgowaniu dokumentu lub w formularzu.
+                      Ale agregat (np. limit/stan/rotacja) może zmieniać się nie tylko z jednego dokumentu:
+                      z kilku typów operacji, zmian wstecz, przeliczeń, wymian danych. Wtedy kontrola zaczyna się dublować,
+                      a „kiedy dokładnie zadziała zakaz” zależy od scenariusza.
+                    </p>
+
+                    <p><strong>SAP</strong></p>
+                    <p>
+                      Kontrolę często buduje się przez statusy/procesy/sprawdzenia w transakcjach,
+                      a monitoring agregatów — osobnymi mechanizmami (procedury kontroli, raporty, workflow).
+                      Formalnie to potężne, ale reguła częściej staje się konstrukcją procesową,
+                      a nie deklaratywnym ograniczeniem wartości.
+                    </p>
+
+                    <p><strong>Microsoft Dynamics</strong></p>
+                    <p>
+                      Reguły biznesowe i wtyczki wygodnie podpina się pod zdarzenie zmiany encji,
+                      ale agregaty zwykle liczy się osobno (tło, integracja, warstwa raportowa).
+                      W efekcie „ograniczenie na agregat” realizuje się jako zestaw walidacji + automatyzacji,
+                      i trudno je w sposób dowodowy uczynić pełnym (bez luk).
+                    </p>
+
+                    <p><strong>Odoo</strong></p>
+                    <p>
+                      Są constraints i onchange na poziomie modeli, ale agregaty często żyją w computed fields,
+                      które mogą się przeliczać leniwie/po triggerach/po cron. Dlatego kontrola po agregacie
+                      łatwo staje się niedeterministyczna: „czasem łapie, czasem nie”, jeśli nie zbuduje się ścisłej dyscypliny.
+                    </p>
+
+                    <p>
+                      <strong>Symptom eksploatacyjny:</strong>
+                      zakazy i kontrola działają „nie zawsze tak samo”:
+                      jeden użytkownik łapie ograniczenie od razu, inny — później;
+                      część naruszeń wykrywa raport/kontrola po fakcie.
+                      Pojawiają się regulaminy „sprawdzajcie ręcznie”.
+                    </p>
+
+                    <p>
+                      <strong>Jak sprawdzić na demo/pilocie:</strong>
+                      poprosić o zrobienie ograniczenia na agregat:
+                      „nie wolno wysyłać, jeśli sumaryczne ryzyko/limit klienta &gt; X, z uwzględnieniem wszystkich dokumentów i korekt”.
+                      Następnie poprosić o pokazanie 3 ścieżek zmiany agregatu (dokument, korekta wstecz, integracja/import)
+                      i upewnić się, że ograniczenie działa identycznie we wszystkich trzech scenariuszach.
+                    </p>
+
+                    <hr>
+
+                    <h3 id="limit-2-6">2.6 W parametrach tabel wirtualnych można używać tylko stałych</h3>
+
+                      <p><strong>O co chodzi</strong></p>
+                      <p>
+                        Gdy warstwę analityczną da się parametryzować tylko stałymi (albo bardzo ograniczenie),
+                        system nie potrafi „dostosować” obliczeń do kontekstu operacji.
+                        W efekcie trzeba:
+                        (1) pobierać dane „szerzej, niż trzeba”, a potem filtrować w kodzie/formularzu,
+                        (2) tworzyć kopie zapytań/raportów dla różnych wariantów,
+                        (3) wynosić część logiki z modelu do warstw proceduralnych.
+                        To po cichu podnosi koszt zmian: każdy nowy warunek rodzi nowe kopie.
+                      </p>
+
+                      <p><strong>Jak to się ujawnia w standardowych ERP</strong></p>
+
+                      <p><strong>1C</strong></p>
+                      <p>
+                        Typowy efekt: raport/zapytanie „uniwersalne” tylko z nazwy.
+                        Gdy pojawiają się warunki „zależne od kontekstu” (aktualny użytkownik, rola, stan dokumentu,
+                        parametry formularza), część filtracji trafia do kodu, a zapytania się kopiuje.
+                        Z czasem powstaje „zoo” niemal identycznych raportów/selekcji.
+                      </p>
+
+                      <p><strong>SAP</strong></p>
+                      <p>
+                        Warunki kontekstowe często rozwiązuje się konfiguracją, parametrami widoków i warstwami procesowymi,
+                        ale wraz ze wzrostem wariantowości pojawia się ten sam wzorzec: różne warianty widoków/zapytań/ról
+                        zamiast jednej opisanej reguły. Cena: trudniejsze utrzymanie i ryzyko rozjazdu logiki.
+                      </p>
+
+                      <p><strong>Microsoft Dynamics</strong></p>
+                      <p>
+                        Ograniczenia wyrażeń i kontekstu prowadzą do mnożenia widoków/zapytań/flow:
+                        „dla tej roli jedno”, „dla tego formularza drugie”. Gdy biznes zmienia regułę,
+                        trzeba znaleźć wszystkie kopie i poprawić je jednocześnie.
+                      </p>
+
+                      <p><strong>Odoo</strong></p>
+                      <p>
+                        ORM jest wygodny, ale złożony kontekst często prowadzi do:
+                        domen/kontekstów na poziomie UI + osobnych metod selekcji w kodzie + SQL dla ciężkich przypadków.
+                        Wariantowość filtrów szybko rodzi duplikaty i „lokalne rozwiązania”.
+                      </p>
+
+                      <p>
+                        <strong>Symptom eksploatacyjny:</strong>
+                        pojawiają się „prawie identyczne” raporty, listy i selekcje.
+                        Mała zmiana warunku (kolejny filtr/wyjątek) zamienia się w serię poprawek:
+                        zapytanie, kod formularza, uprawnienia, osobny raport, osobna procedura.
+                      </p>
+
+                      <p>
+                        <strong>Jak sprawdzić na demo/pilocie:</strong>
+                        poprosić o realizację tej samej listy/raportu dla 3 kontekstów:
+                        (1) dla księgowego, (2) dla menedżera, (3) dla kierownika — z różnymi filtrami i kolumnami,
+                        ale z jednym źródłem reguły. Następnie poprosić o zmianę reguły (dodać wyjątek)
+                        i zobaczyć, czy zmienia się to w jednym miejscu, czy w kilku kopiach.
+                      </p>
+
+
+
+
+              <!-- ===================================================== -->
+              <section class="post-content" id="query-layer">
+
+                <h2 id="query-layer-title">3. Warstwa zapytań i praca z danymi</h2>
+                <p>
+                  Ten rozdział dotyczy tego, <strong>na ile zapytania są zarządzalną częścią architektury ERP</strong>.
+                  Tu widać, czy logikę biznesową da się wyrażać deklaratywnie
+                  i przewidywalnie kontrolować jej koszt,
+                  czy też każda zmiana zamienia się w ryzyko wydajności i regresji.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-3-1">3.1 Zapytania jako samodzielna warstwa systemu</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                <p>
+                  W większości ERP zapytania służą do odczytu danych i raportowania.
+                  Reguły biznesowe (walidacje, obliczenia, ograniczenia)
+                  realizuje się w logice aplikacyjnej:
+                  w kodzie obiektów, handlerach, workflow i automatyzacjach.
+                  Warstwa zapytań nie jest traktowana jako źródło prawdy dla reguł.
+                </p>
+
+                <p><strong>1C</strong></p>
+                <p>
+                  Zapytania są intensywnie używane w raportach i analityce (SKD),
+                  ale księgowanie dokumentów i kontrola są wykonywane w kodzie.
+                  Ten sam wskaźnik często jest liczony:
+                  raz w zapytaniu, drugi raz — w handlerze.
+                </p>
+
+                <p><strong>SAP</strong></p>
+                <p>
+                  Obliczenia są rozproszone między CDS View, kod ABAP i konfigurację.
+                  Te poziomy są mocne, ale nie tworzą jednego języka reguł.
+                </p>
+
+                <p><strong>Microsoft Dynamics</strong></p>
+                <p>
+                  Widoki i FetchXML — do odczytu,
+                  reguły biznesowe — w pluginach, flow i skryptach klienckich.
+                  Zapytanie nie jest nośnikiem logiki.
+                </p>
+
+                <p><strong>Odoo</strong></p>
+                <p>
+                  Zapytania ORM służą do selekcji,
+                  a logika jest realizowana w kodzie Python i polach computed.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  nie da się jednoznacznie odpowiedzieć,
+                  gdzie dokładnie liczony jest wskaźnik i która wersja formuły jest „główna”.
+                </p>
+
+                <p>
+                  <strong>Jak sprawdzić:</strong>
+                  poprosić o pokazanie wszystkich miejsc,
+                  gdzie używany jest ten sam wyliczenie,
+                  i jak zapewnia się ich identyczność.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-3-2">3.2 Zapytania jako ciągi tekstowe</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                <p>
+                  Zapytania i warunki często są definiowane jako tekst:
+                  SQL, wyrażenia filtrów, formuły w ustawieniach.
+                  Platforma nie potrafi analizować ich struktury
+                  i sprawdzać wpływu zmian.
+                </p>
+
+                <p><strong>1C</strong></p>
+                <p>
+                  Zapytania — tekstowe.
+                  Błędy i zależności ujawniają się dopiero w runtime.
+                </p>
+
+                <p><strong>SAP</strong></p>
+                <p>
+                  W standardowych warstwach kontrola jest wyższa,
+                  ale custom i integracje szybko prowadzą do konstrukcji tekstowych.
+                </p>
+
+                <p><strong>Microsoft Dynamics</strong></p>
+                <p>
+                  Warunki i wyrażenia w flow i konfiguracji
+                  formalnie no-code, ale w praktyce tekstowe.
+                </p>
+
+                <p><strong>Odoo</strong></p>
+                <p>
+                  Raw SQL rozwiązuje zadania,
+                  ale psuje analizę zależności i aktualizacje.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  zmiana schematu danych powoduje błędy „po fakcie”,
+                  pojawia się zasada „lepiej tego nie ruszać”.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-3-3">3.3 Brak przewidywalnej optymalizacji jako części modelu reguł</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                <p>
+                  Wydajność zapytań nie wynika bezpośrednio z modelu reguł.
+                  Osiąga się ją ręczną optymalizacją,
+                  indeksami i doświadczeniem programistów.
+                </p>
+
+                <p><strong>1C</strong></p>
+                <p>
+                  Zapytanie może być logicznie poprawne,
+                  ale fizycznie nieefektywne.
+                </p>
+
+                <p><strong>SAP</strong></p>
+                <p>
+                  Mocna baza danych pomaga,
+                  ale złożone modele dają nieoczekiwane plany wykonania.
+                </p>
+
+                <p><strong>Microsoft Dynamics</strong></p>
+                <p>
+                  Złożoną analitykę często wynosi się do BI,
+                  zamiast optymalizować wewnątrz ERP.
+                </p>
+
+                <p><strong>Odoo</strong></p>
+                <p>
+                  ORM ukrywa rzeczywiste plany wykonania,
+                  optymalizacja staje się „sztuką”.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  raporty „latają” na teście i degradują na realnych danych.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-3-4">3.4 Brak rozszerzonych możliwości SQL</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                <p>
+                  Obsługa funkcji okiennych, CTE i agregacji warunkowych
+                  bywa ograniczona albo wymaga obejść.
+                  W efekcie obliczenia rozpadają się na kilka kroków i kod.
+                </p>
+
+                <p><strong>Symptom eksploatacyjny:</strong>
+                  te same formuły są duplikowane,
+                  trudno zrozumieć, gdzie dokładnie liczony jest wskaźnik.
+                </p>
+
+                <p>
+                  <strong>Jak sprawdzić:</strong>
+                  poprosić o pokazanie złożonego wyliczenia zarządczego
+                  bez pętli i tabel tymczasowych.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-3-5">3.5 Brak zapytań do zmian (UPDATE / DELETE / MERGE)</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                <p>
+                  Masowe zmiany danych
+                  nie są traktowane jako standardowa część języka zapytań.
+                  Stosuje się pętle, procedury lub narzędzia zewnętrzne.
+                </p>
+
+                <p><strong>1C</strong></p>
+                <p>
+                  Masowe zmiany = iteracja po obiektach i ponowne księgowanie.
+                </p>
+
+                <p><strong>SAP</strong></p>
+                <p>
+                  Operacje masowe są możliwe,
+                  ale wymagają wysokich kompetencji i ostrożności.
+                </p>
+
+                <p><strong>Microsoft Dynamics</strong></p>
+                <p>
+                  Masowe zmiany często wynosi się do ETL i Dataflows.
+                </p>
+
+                <p><strong>Odoo</strong></p>
+                <p>
+                  ORM jest wolny dla operacji masowych,
+                  raw SQL jest ryzykowny dla utrzymania.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  przeliczenia wykonuje się nocą,
+                  uznaje się je za niebezpieczne i rzadkie.
+                </p>
+
+              </section>
+
+              <!-- ===================================================== -->
+              <section class="post-content" id="execution-flow">
+
+              <h2 id="execution-flow-title">4. Przepływ wykonania i gwarancje spójności danych</h2>
+              <p>
+                Ten rozdział dotyczy gwarancji, a nie wygody.
+                Tego, <strong>czy da się formalnie określić moment zakończenia operacji</strong>,
+                źródło prawdy i kolejność stosowania reguł biznesowych.
+                Brak formalnych gwarancji prowadzi do błędów,
+                których „nie da się odtworzyć” i podważa zaufanie do danych.
+              </p>
+
+              <hr>
+
+              <h3 id="limit-4-1">4.1 Rezygnacja z automatycznych blokad</h3>
+
+              <p><strong>Istota ograniczenia</strong></p>
+              <p>
+                Wiele ERP poświęca ścisłe blokady na rzecz responsywności interfejsu.
+                W rezultacie platforma nie gwarantuje atomowości operacji biznesowej:
+                kilku użytkowników lub procesów może zmieniać powiązane dane
+                bez jednego punktu synchronizacji.
+              </p>
+
+              <p><strong>Gwarancja, której nie ma</strong></p>
+              <p>
+                Brak formalnego stwierdzenia:
+                „w momencie X dane były spójne i nie mogły zostać zmienione równolegle”.
+              </p>
+
+              <p>
+                <strong>Symptom eksploatacyjny:</strong>
+                rzadkie, nieregularne błędy,
+                których nie da się stabilnie odtworzyć;
+                wyjaśnienie sprowadza się do „równoczesnych działań”.
+              </p>
+
+              <p>
+                <strong>Jak sprawdzić:</strong>
+                poprosić o pokazanie,
+                co dzieje się przy równoczesnej zmianie
+                tego samego obiektu przez kilku użytkowników
+                i gdzie dokładnie jest rejestrowany konflikt.
+              </p>
+
+              <hr>
+
+              <h3 id="limit-4-2">4.2 Rezygnacja z jednolitego przepływu wykonania</h3>
+
+              <p><strong>Istota ograniczenia</strong></p>
+              <p>
+                Logika biznesowa jest rozproszona między klientem,
+                serwerem, procesami w tle i integracjami.
+                W systemie nie ma jednego deterministycznego przepływu wykonania.
+              </p>
+
+              <p><strong>Gwarancja, której nie ma</strong></p>
+              <p>
+                Nie da się formalnie odpowiedzieć:
+                „jakie kontrole i obliczenia zostały zastosowane dokładnie do tej operacji”.
+              </p>
+
+              <p>
+                <strong>Symptom eksploatacyjny:</strong>
+                użytkownik widzi jedno zachowanie,
+                a finalny stan danych jest inny;
+                pojawiają się „niezrozumiałe” odmowy i rollbacki.
+              </p>
+
+              <p>
+                <strong>Jak sprawdzić:</strong>
+                poprosić o pokazanie,
+                które kontrole są gwarantowanie wykonywane na serwerze,
+                które — tylko w UI,
+                i co się stanie przy obejściu interfejsu.
+              </p>
+
+              <hr>
+
+              <h3 id="limit-4-3">4.3 Rezygnacja z synchroniczności i jednoznacznego commit point</h3>
+
+              <p><strong>Istota ograniczenia</strong></p>
+              <p>
+                Dla szybkości operacje wykonuje się asynchronicznie:
+                obliczenia, integracje, przeliczenia wskaźników.
+                Użytkownik dostaje potwierdzenie,
+                ale operacja biznesowa nie jest jeszcze logicznie zakończona.
+              </p>
+
+              <p><strong>Gwarancja, której nie ma</strong></p>
+              <p>
+                Brak jednoznacznego commit point —
+                momentu, po którym można stwierdzić,
+                że operacja jest zakończona, a jej efekt ostateczny.
+              </p>
+
+              <p>
+                <strong>Symptom eksploatacyjny:</strong>
+                duplikaty operacji,
+                „odroczone błędy”,
+                ręczne kontrole i ponowne działania użytkowników.
+              </p>
+
+              <p>
+                <strong>Jak sprawdzić:</strong>
+                zapytać,
+                w którym momencie operacja jest uznawana za zakończoną,
+                jakie działania wykonują się po potwierdzeniu
+                i czy możliwe są rollbacki „wstecz”.
+              </p>
+
+            </section>
+
+
+              <!-- ===================================================== -->
+              <section class="post-content" id="forms-layer">
+
+                <h2 id="forms-layer-title">5. Formularze i prezentacja danych</h2>
+                <p>
+                  Ten rozdział dotyczy tego, jak użytkownik wchodzi w interakcję z modelem danych
+                  i jakie konsekwencje architektoniczne powstają,
+                  gdy interfejs przestaje być bezpośrednim odbiciem logiki biznesowej.
+                  Tutaj błędy wyglądają jak „czynnik ludzki”,
+                  ale ich przyczyna tkwi w budowie systemu.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-5-1">5.1 Formularze jako osobna warstwa logiki</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                <p>
+                  Formularze w ERP rzadko są tylko prezentacją danych.
+                  Dodaje się do nich logikę:
+                  walidacje, obliczenia, ukrywanie pól,
+                  autouzupełnianie, reakcje na zdarzenia.
+                  Z czasem formularz staje się kolejnym miejscem,
+                  gdzie „mieszkają” reguły biznesowe.
+                </p>
+
+                <p><strong>1C</strong></p>
+                <p>
+                  Znaczna część logiki jest realizowana w modułach formularzy:
+                  kontrole przy zmianie pól,
+                  przeliczenia, zarządzanie dostępnością.
+                  Ta logika nie zawsze jest zdublowana na serwerze.
+                </p>
+
+                <p><strong>SAP</strong></p>
+                <p>
+                  Logika UI jest rozproszona między scenariuszami ekranów,
+                  kontrolami backend i regułami procesowymi.
+                </p>
+
+                <p><strong>Microsoft Dynamics</strong></p>
+                <p>
+                  Skrypty klienckie i reguły biznesowe w interfejsie
+                  uzupełniają serwerowe wtyczki,
+                  tworząc kilka poziomów zachowania.
+                </p>
+
+                <p><strong>Odoo</strong></p>
+                <p>
+                  Formularze są względnie proste,
+                  ale przy kastomizacji logika zaczyna dublować backend.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  zachowanie zależy od tego,
+                  jak dokładnie użytkownik wprowadza dane,
+                  przez jaki formularz lub scenariusz.
+                </p>
+
+                <p>
+                  <strong>Jak sprawdzić:</strong>
+                  poprosić o pokazanie,
+                  które kontrole są wykonywane tylko w formularzu
+                  i co się stanie przy imporcie danych z pominięciem UI.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-5-2">5.2 Odejście od WYSIWYG: rozdzielenie interfejsu na zapis i odczyt</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                <p>
+                  Tryby podglądu i edycji
+                  są realizowane inaczej:
+                  inne zdarzenia, inne walidacje,
+                  inne obliczenia.
+                  Użytkownik widzi jedno,
+                  a system zapisuje drugie.
+                </p>
+
+                <p><strong>1C</strong></p>
+                <p>
+                  Różne tryby formularza i zdarzenia
+                  prowadzą do rozjazdów
+                  między prezentacją a zapisem.
+                </p>
+
+                <p><strong>SAP</strong></p>
+                <p>
+                  Wieloetapowe ekrany i statusy
+                  utrudniają zrozumienie,
+                  co dokładnie zostało utrwalone.
+                </p>
+
+                <p><strong>Microsoft Dynamics</strong></p>
+                <p>
+                  Część pól jest wyliczana lub aktualizowana asynchronicznie,
+                  co tworzy efekt „wizualnego utrwalenia”.
+                </p>
+
+                <p><strong>Odoo</strong></p>
+                <p>
+                  Bazowo WYSIWYG jest zachowany,
+                  ale przy komplikacji formularzy pojawiają się rozjazdy.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  użytkownik jest pewien, że dane są zapisane,
+                  ale system później je zmienia lub cofa.
+                </p>
+
+                <p>
+                  <strong>Jak sprawdzić:</strong>
+                  poprosić o pokazanie,
+                  czy wartość pola na ekranie
+                  pokrywa się z tym, co faktycznie zostało zapisane w bazie
+                  w momencie zapisu.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-5-3">5.3 Brak możliwości odwoływania się na listach do atrybutów formularzy i bieżących wartości innych list</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                <p>
+                  Listy i formularze żyją w różnych kontekstach.
+                  Logika listy jest ograniczona do dostępnych pól danych,
+                  a bieżące wartości formularza lub innych list
+                  nie są bezpośrednio dostępne.
+                </p>
+
+                <p><strong>Skutek</strong></p>
+                <p>
+                  Reguły kontekstowe (zależne od bieżącego wyboru,
+                  stanu formularza, powiązanych list)
+                  realizuje się obejściami albo dubluje.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  interfejs nie potrafi poprawnie odzwierciedlić
+                  realnych ograniczeń i reguł,
+                  pojawiają się „niezrozumiałe” zakazy.
+                </p>
+
+                <p>
+                  <strong>Jak sprawdzić:</strong>
+                  poprosić o realizację reguły
+                  zależnej od stanu kilku list,
+                  bez dodatkowego kodu i obejść.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-5-4">5.4 Nadmiarowe poziomy abstrakcji w UI</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                <p>
+                  Dla uniwersalności i rozszerzalności
+                  interfejs buduje się przez kilka poziomów:
+                  metadane → formularze → konfiguracje → scenariusze.
+                  Każdy poziom dodaje elastyczność,
+                  ale zmniejsza przejrzystość.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  prosta zmiana zachowania formularza
+                  wymaga zrozumienia kilku poziomów abstrakcji
+                  i dotyka więcej miejsc, niż się spodziewasz.
+                </p>
+
+                <p>
+                  <strong>Jak sprawdzić:</strong>
+                  poprosić o pokazanie,
+                  przez jakie warstwy przechodzi zmiana
+                  jednej reguły UI
+                  i gdzie dokładnie jest utrwalona.
+                </p>
+
+              </section>
+
+                <!-- ===================================================== -->
+                <section class="post-content" id="language-architecture">
+
+                  <h2 id="language-architecture-title">6. Architektura języka i rozszerzalność</h2>
+                  <p>
+                    Ten rozdział dotyczy tego, <strong>na ile ERP jest w ogóle platformą inżynierską</strong>,
+                    a nie zestawem narzędzi do konfiguracji.
+                    Tutaj rozstrzyga się, czy system da się rozwijać jako bazę kodu
+                    z przewidywalnymi zmianami,
+                    czy nieuchronnie zamienia się w artefakt wdrożenia,
+                    zależny od konkretnych ludzi i ustaleń.
+                  </p>
+
+                  <hr>
+
+                  <!-- ===================================================== -->
+                  <h3 id="limit-6-1">6.1 Brak dziedziczenia i polimorfizmu</h3>
+
+                  <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                  <p>
+                    ERP prawie zawsze operuje rodzinami encji:
+                    umowy, zamówienia, usługi, projekty.
+                    Jednak w wielu platformach
+                    brakuje pełnego modelu dziedziczenia encji biznesowych.
+                    W efekcie podobna logika jest kopiowana,
+                    a różnice realizuje się przez warunki.
+                  </p>
+
+                  <p><strong>1C</strong></p>
+                  <p>
+                    Dziedziczenie jest ograniczone.
+                    Typowe podejście — kopiowanie obiektów
+                    i późniejsze modyfikacje.
+                  </p>
+
+                  <p><strong>SAP</strong></p>
+                  <p>
+                    Możliwości są szersze,
+                    ale złożoność modelu prowadzi do tego,
+                    że logika encji bazowych i pochodnych
+                    rozchodzi się po rozszerzeniach.
+                  </p>
+
+                  <p><strong>Microsoft Dynamics</strong></p>
+                  <p>
+                    Rozszerzanie encji jest możliwe,
+                    ale polimorfizm częściej się imituje
+                    wtyczkami i warunkami.
+                  </p>
+
+                  <p><strong>Odoo</strong></p>
+                  <p>
+                    Dziedziczenie jest mocną stroną,
+                    ale przy aktywnych override’ach
+                    ważne jest kontrolowanie punktów zmiany zachowania.
+                  </p>
+
+                  <p>
+                    <strong>Symptom eksploatacyjny:</strong>
+                    reguły się dublują,
+                    zmiany w „bazowej logice”
+                    wymagają ręcznej synchronizacji.
+                  </p>
+
+                  <hr>
+
+                  <!-- ===================================================== -->
+                  <h3 id="limit-6-2">6.2 Brak jawnego typowania w kodzie</h3>
+
+                  <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                  <p>
+                    Jawne typowanie często jest nieobecne
+                    albo osłabione dla elastyczności.
+                    Błędy ujawniają się w runtime,
+                    a analiza logiki jest możliwa
+                    głównie przez doświadczenie.
+                  </p>
+
+                  <p><strong>1C</strong></p>
+                  <p>
+                    Słabe typowanie utrudnia analizę
+                    dużych konfiguracji
+                    i bezpieczny refactoring.
+                  </p>
+
+                  <p><strong>SAP</strong></p>
+                  <p>
+                    Typowanie jest mocniejsze,
+                    ale ceną jest wysoka złożoność
+                    i wymagania wobec kompetencji zespołu.
+                  </p>
+
+                  <p><strong>Microsoft Dynamics</strong></p>
+                  <p>
+                    Typy są,
+                    ale przy mieszaniu low-code i wtyczek
+                    kontrakt zachowania się rozmywa.
+                  </p>
+
+                  <p><strong>Odoo</strong></p>
+                  <p>
+                    Dynamiczny Python
+                    wymaga ścisłych konwencji,
+                    inaczej błędy wychodzą późno.
+                  </p>
+
+                  <p>
+                    <strong>Symptom eksploatacyjny:</strong>
+                    zmiany są weryfikowane „na oko”,
+                    rośnie liczba błędów regresyjnych.
+                  </p>
+
+                  <hr>
+
+                  <!-- ===================================================== -->
+                  <h3 id="limit-6-3">6.3 Brak modułowości</h3>
+
+                  <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                  <p>
+                    Formalny podział na moduły
+                    nie gwarantuje izolacji architektonicznej.
+                    Zależności stają się niejawne,
+                    a zmiana jednego bloku
+                    dotyka sąsiednich.
+                  </p>
+
+                  <p><strong>1C</strong></p>
+                  <p>
+                    Moduły wspólne rosną,
+                    granice odpowiedzialności się rozmywają.
+                  </p>
+
+                  <p><strong>SAP</strong></p>
+                  <p>
+                    Modułowość istnieje na poziomie procesów,
+                    ale konfiguracja i rozszerzenia
+                    rozmywają granice.
+                  </p>
+
+                  <p><strong>Microsoft Dynamics</strong></p>
+                  <p>
+                    Kompozycyjność działa
+                    do pewnej skali,
+                    potem lokalność zmian zanika.
+                  </p>
+
+                  <p><strong>Odoo</strong></p>
+                  <p>
+                    Modułowość jest z natury mocna,
+                    ale słaba kontrola zależności
+                    zamienia aktualizacje w projekt.
+                  </p>
+
+                  <p>
+                    <strong>Symptom eksploatacyjny:</strong>
+                    „małe” zmiany
+                    przestają być małe,
+                    rośnie zakres regresji.
+                  </p>
+
+                  <hr>
+
+                  <!-- ===================================================== -->
+                  <h3 id="limit-6-4">6.4 Stawianie na programowanie wizualne</h3>
+
+                  <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                  <p>
+                    Low-code i schematy wizualne
+                    przyspieszają start,
+                    ale słabo się skalują
+                    jako nośnik logiki biznesowej.
+                    Zależności trudno analizować,
+                    reguły trudno testować.
+                  </p>
+
+                  <p><strong>1C</strong></p>
+                  <p>
+                    Mechanizmy wizualne
+                    mieszają się z kodem,
+                    logika się rozprasza.
+                  </p>
+
+                  <p><strong>SAP</strong></p>
+                  <p>
+                    Workflow i konfiguracje są mocne,
+                    ale śledzenie „dlaczego zadziałało”
+                    staje się nietrywialne.
+                  </p>
+
+                  <p><strong>Microsoft Dynamics</strong></p>
+                  <p>
+                    Flow są wygodne,
+                    ale wraz ze wzrostem zamieniają się
+                    w trudny do zarządzania zestaw scenariuszy.
+                  </p>
+
+                  <p><strong>Odoo</strong></p>
+                  <p>
+                    Narzędzia wizualne są mniej agresywne,
+                    ale przenoszenie logiki z kodu do ustawień
+                    daje te same efekty.
+                  </p>
+
+                  <p>
+                    <strong>Symptom eksploatacyjny:</strong>
+                    reguły istnieją jako „schematy”,
+                    a nie jako jeden model,
+                    utrzymanie zależy od konkretnych osób.
+                  </p>
+
+                </section>
+
+              <!-- ===================================================== -->
+              <section class="post-content" id="physical-model">
+
+                <h2 id="physical-model-title">7. Model fizyczny i otwartość systemu</h2>
+                <p>
+                  Ten rozdział dotyczy tego, <strong>na ile ERP jest przejrzyste jako system inżynierski</strong>.
+                  Nawet przy schludnej logice, dobrych formularzach i dyscyplinie wytwarzania
+                  zamknięty lub sztywny fizyczny model danych
+                  gwałtownie podnosi koszt zmian, diagnostyki i integracji.
+                </p>
+                <p>
+                  Tu pojawiają się ograniczenia, których nie da się „obejść ładnym kodem” —
+                  wynikają z samej konstrukcji platformy.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-7-1">7.1 Zamknięty model fizyczny danych</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                <p>
+                  W wielu ERP fizyczny model danych jest albo ukryty,
+                  albo dostępny tylko przez abstrakcje platformy.
+                  Programista pracuje z modelem logicznym,
+                  nie mając pełnej kontroli nad tym,
+                  jak dane są realnie przechowywane i powiązane.
+                </p>
+
+                <p><strong>1C</strong></p>
+                <p>
+                  Fizyczna struktura bazy jest generowana przez platformę.
+                  Bezpośrednia analiza i optymalizacja są możliwe,
+                  ale nie są traktowane jako standardowy sposób pracy.
+                </p>
+
+                <p><strong>SAP</strong></p>
+                <p>
+                  Model danych jest formalnie otwarty,
+                  ale ekstremalnie złożony.
+                  Bez głębokiej ekspertyzy ingerencja jest ryzykowna.
+                </p>
+
+                <p><strong>Microsoft Dynamics</strong></p>
+                <p>
+                  W modelu SaaS fizyczna baza jest ukryta.
+                  Praca odbywa się przez Dataverse, API i witryny.
+                </p>
+
+                <p><strong>Odoo</strong></p>
+                <p>
+                  Model fizyczny jest dostępny,
+                  ale moduły i kastomizacja
+                  szybko komplikują realny obraz.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  diagnostyka problemów i analiza skutków zmian
+                  wymagają specjalistycznej wiedzy lub dostępu,
+                  który ma nie zespół, a dostawca albo integrator.
+                </p>
+
+                <p>
+                  <strong>Jak sprawdzić:</strong>
+                  zapytać,
+                  czy można bez obejść
+                  przeanalizować realne tabele,
+                  indeksy i relacje dla konkretnego wyliczenia.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-7-2">7.2 Statyczny model fizyczny danych</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                <p>
+                  Model fizyczny jest zoptymalizowany pod typowe scenariusze.
+                  Zmiana struktury danych
+                  albo jest niemożliwa,
+                  albo wymaga złożonych migracji i uzgodnień.
+                </p>
+
+                <p><strong>1C</strong></p>
+                <p>
+                  Zmiany struktury są możliwe,
+                  ale przy dużych wolumenach danych
+                  stają się osobnymi projektami.
+                </p>
+
+                <p><strong>SAP</strong></p>
+                <p>
+                  Zmiany są dopuszczalne,
+                  ale dotykają wielu zależnych obiektów
+                  i wymagają ścisłej procedury.
+                </p>
+
+                <p><strong>Microsoft Dynamics</strong></p>
+                <p>
+                  Rozszerzanie schematu jest możliwe,
+                  ale w ramach ograniczeń platformy SaaS.
+                </p>
+
+                <p><strong>Odoo</strong></p>
+                <p>
+                  Model można zmieniać,
+                  ale wpływa to na aktualizowalność i kompatybilność modułów.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  zmiana modelu danych jest odkładana,
+                  kumulują się „tymczasowe” rozwiązania i dodatkowe tabele.
+                </p>
+
+                <p>
+                  <strong>Jak sprawdzić:</strong>
+                  poprosić o pokazanie,
+                  jak dodaje się nowy wymiar lub encję
+                  z uwzględnieniem danych historycznych.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-7-3">7.3 Zamknięte źródła i licencje</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                <p>
+                  Kod źródłowy i wewnętrzne mechanizmy
+                  są częściowo lub całkowicie zamknięte.
+                  Możliwości analizy i zmian
+                  są ograniczone warunkami licencji.
+                </p>
+
+                <p><strong>1C</strong></p>
+                <p>
+                  Platforma jest zamknięta,
+                  zachowania wielu mechanizmów nie da się zbadać bezpośrednio.
+                </p>
+
+                <p><strong>SAP</strong></p>
+                <p>
+                  Kod jest dostępny w ograniczonym zakresie,
+                  zmiany wymagają przestrzegania ścisłych zasad.
+                </p>
+
+                <p><strong>Microsoft Dynamics</strong></p>
+                <p>
+                  Model SaaS wzmacnia zależność od dostawcy
+                  i ogranicza kontrolę niskopoziomową.
+                </p>
+
+                <p><strong>Odoo</strong></p>
+                <p>
+                  Open-source rdzeń obniża barierę,
+                  ale moduły komercyjne i ekosystem
+                  mogą tworzyć nowy lock-in.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  zespół nie może samodzielnie zrozumieć
+                  przyczyn zachowania systemu
+                  i musi polegać na wsparciu lub partnerach.
+                </p>
+
+                <p>
+                  <strong>Jak sprawdzić:</strong>
+                  zapytać,
+                  które części systemu można analizować,
+                  debugować i zmieniać bez udziału dostawcy.
+                </p>
+
+              </section>
+
+              <!-- ===================================================== -->
+              <section class="post-content" id="operational-constraints">
+
+                <h2 id="operational-constraints-title">8. Ograniczenia operacyjne i kulturowe</h2>
+                <p>
+                  Ten rozdział dotyczy ograniczeń, które formalnie nie są „architekturą”,
+                  ale w praktyce <strong>decydują, jaką architekturę system może mieć</strong>.
+                  Licencjonowanie, zasady użycia i postawa dostawcy
+                  bezpośrednio wpływają na testowanie, automatyzację,
+                  tempo zmian i zależność od uczestników zewnętrznych.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-8-1">8.1 Licencjonowanie i branding nieprzyjazne dla programistów</h3>
+
+                <p><strong>Jak to zwykle bywa zrealizowane w standardowych ERP</strong></p>
+                <p>
+                  Licencjonowanie często jest zbudowane wokół użytkowników,
+                  środowisk i osobnych komponentów.
+                  To ogranicza liczbę środowisk testowych,
+                  komplikuje CI/CD i czyni eksperymenty drogimi.
+                  Branding i sztywne zasady użycia
+                  podkreślają zależność od dostawcy.
+                </p>
+
+                <p><strong>1C</strong></p>
+                <p>
+                  Licencje na użytkowników i serwery
+                  ograniczają liczbę pełnowartościowych środowisk.
+                  Często istnieje jedno „żywe” środowisko,
+                  na którym testuje się zmiany.
+                </p>
+
+                <p><strong>SAP</strong></p>
+                <p>
+                  Koszt licencji i środowisk
+                  sprawia, że każde dodatkowe środowisko wymaga uzgodnień.
+                  Automatyzacja testów jest ograniczona.
+                </p>
+
+                <p><strong>Microsoft Dynamics</strong></p>
+                <p>
+                  Licencjonowanie SaaS ogranicza dostęp
+                  do mechanizmów niskopoziomowych
+                  i utrudnia izolowanie eksperymentów.
+                </p>
+
+                <p><strong>Odoo</strong></p>
+                <p>
+                  Open-source obniża barierę wejścia,
+                  ale moduły komercyjne i usługi
+                  mogą narzucać podobne ograniczenia.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  mniej środowisk testowych,
+                  poprawki są sprawdzane „na produkcji”,
+                  wdrożenia wychodzą rzadziej i ostrożniej,
+                  niż potrzebuje biznes.
+                </p>
+
+                <p>
+                  <strong>Jak sprawdzić:</strong>
+                  zapytać,
+                  ile pełnych środowisk
+                  można utrzymywać bez dodatkowych licencji
+                  i które z nich nadają się do testów automatycznych.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="limit-8-2">8.2 Krytyczna wada jako suma decyzji architektonicznych</h3>
+
+                <p>
+                  Żadne z opisanych ograniczeń
+                  nie jest krytyczne samo w sobie.
+                  Problem pojawia się,
+                  gdy nakładają się na siebie.
+                </p>
+
+                <ul>
+                  <li>reguły są rozmazane po obiektach, formularzach i zapytaniach;</li>
+                  <li>warstwa zapytań nie jest źródłem prawdy;</li>
+                  <li>brak jasnych gwarancji przepływu wykonania;</li>
+                  <li>model danych jest zamknięty albo mało elastyczny;</li>
+                  <li>eksperymenty i testowanie są drogie.</li>
+                </ul>
+
+                <p>
+                  W takim systemie każda zmiana —
+                  nawet logicznie prosta —
+                  zamienia się w projekt:
+                  z analizą skutków,
+                  ręczną regresją
+                  i zależnością od konkretnych osób.
+                </p>
+
+                <p>
+                  <strong>Symptom eksploatacyjny:</strong>
+                  zespół unika zmian,
+                  biznes przestaje zadawać pytania „czy da się inaczej”,
+                  ERP utrwala obecny sposób pracy
+                  zamiast wspierać rozwój.
+                </p>
+
+              </section>
+
+              <!-- ===================================================== -->
+              <section class="post-content" id="demo-pilot-check">
+
+                <h2 id="demo-pilot-check-title">9. Jak sprawdzać ograniczenia architektoniczne na demo i pilocie</h2>
+                <p>
+                  Ograniczenia architektoniczne prawie nigdy nie są widoczne
+                  w prezentacjach i typowych scenariuszach.
+                  Na demo pokazuje się „co system potrafi”,
+                  a nie „ile kosztuje zmiana reguł”.
+                </p>
+                <p>
+                  Jedyny wiarygodny sposób —
+                  sprawdzać ERP nie po funkcjach,
+                  lecz po <strong>reakcji na zmiany</strong>.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="demo-what-to-ask">9.1 Trzy zmiany, które warto poprosić o pokazanie</h3>
+
+                <p>
+                  Do weryfikacji wystarczą trzy scenariusze.
+                  Ważne nie jest to, że „wyszło”,
+                  lecz <strong>jak dokładnie to zrobiono</strong>.
+                </p>
+
+                <ol>
+                  <li>
+                    <strong>Zmiana reguły z wyjątkami</strong><br>
+                    Na przykład: rabat lub limit,
+                    zależne od kilku warunków
+                    (typ klienta, obrót, ryzyko, historia).
+                  </li>
+                  <li>
+                    <strong>Zmiana procesu</strong><br>
+                    Akceptacja nie „po stanowisku”,
+                    lecz po danych:
+                    kwota, marża, ryzyko, odchylenie od normy.
+                  </li>
+                  <li>
+                    <strong>Dodanie nowego typu encji</strong><br>
+                    Nowa umowa, usługa lub model rozliczeń,
+                    który ma:
+                    uczestniczyć w transakcjach,
+                    trafiać do raportów
+                    i podlegać tym samym regułom kontroli.
+                  </li>
+                </ol>
+
+                <p>
+                  Te scenariusze dotykają:
+                  modelu danych,
+                  obliczeń,
+                  formularzy,
+                  zapytań,
+                  kontroli i integracji —
+                  właśnie tam ujawniają się ograniczenia.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="demo-what-to-watch">9.2 Na co patrzeć podczas demonstracji</h3>
+
+                <ul>
+                  <li>
+                    <strong>Ile warstw trzeba było zmienić</strong><br>
+                    Jeden moduł albo formularz —
+                    to zmiana reguły.
+                    Kilka warstw —
+                    to zmiana systemu.
+                  </li>
+                  <li>
+                    <strong>Gdzie dokładnie opisana jest reguła</strong><br>
+                    Czy da się wskazać jedno miejsce,
+                    czy logika jest rozproszona
+                    między kodem, formularzami i zapytaniami.
+                  </li>
+                  <li>
+                    <strong>Jak wyjaśnia się wpływ na raporty</strong><br>
+                    Czy jest jasna odpowiedź,
+                    które wskaźniki się zmienią
+                    i dlaczego.
+                  </li>
+                  <li>
+                    <strong>Czy jest weryfikacja regresji</strong><br>
+                    Test, scenariusz albo chociaż formalna checklista,
+                    a nie „potem zobaczymy”.
+                  </li>
+                </ul>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="demo-red-flags">9.3 Typowe „czerwone flagi”</h3>
+
+                <ul>
+                  <li>„Lepiej zrobić to po wdrożeniu”</li>
+                  <li>„W realnym projekcie zrobilibyśmy inaczej”</li>
+                  <li>„Tu jest dużo niuansów, na demo się nie da”</li>
+                  <li>„Da się, ale potrzebny jest osobny projekt”</li>
+                  <li>„Trzeba sprawdzić, jak to wpłynie na raporty”</li>
+                </ul>
+
+                <p>
+                  Te frazy nie oznaczają,
+                  że system jest zły.
+                  Oznaczają,
+                  że koszt zmian
+                  jest jeszcze nieznany i niekontrolowany.
+                </p>
+
+                <hr>
+
+                <!-- ===================================================== -->
+                <h3 id="demo-result">9.4 Co uznać za dobry wynik pilota</h3>
+
+                <p>
+                  Dobry wynik —
+                  nie „wszystko zrobiliśmy”,
+                  lecz:
+                </p>
+
+                <ul>
+                  <li>reguła jest opisana w jednym miejscu albo jednym typie mechanizmu;</li>
+                  <li>widać, jakie dane i obliczenia obejmuje;</li>
+                  <li>wiadomo, jak sprawdzić regresję;</li>
+                  <li>zmiana nie wymaga „tajemnej wiedzy” jednej osoby.</li>
+                </ul>
+
+                <p>
+                  Jeśli po pilocie da się odpowiedzieć na pytanie
+                  <strong>„ile kosztuje kolejna zmiana”</strong>,
+                  to znaczy, że architekturą da się zarządzać.
+                </p>
+
+              </section>
+              <!-- ===================================================== -->
+             <section class="post-content" id="conclusion">
+
+              <h2 id="conclusion-title">10. Podsumowanie</h2>
+
+              <p>
+                Ta analiza nie jest o „dobrych” i „złych” ERP.
+                1C, SAP, Microsoft Dynamics i Odoo z powodzeniem działają w tysiącach firm.
+                Problemy zaczynają się nie na etapie wdrożenia, lecz wtedy, gdy biznes zaczyna <strong>zmieniać reguły</strong>.
+              </p>
+
+              <p>
+                Ograniczenia architektoniczne rzadko wyglądają krytycznie pojedynczo.
+                Kumulują się:
+                przez dodatkowe walidacje,
+                punktowe modyfikacje,
+                wyjątki i tymczasowe obejścia.
+                Z czasem to one definiują realny koszt zmian.
+              </p>
+
+              <p>
+                Kluczowy wniosek:
+                <strong>drogie stają się nie złożone reguły, lecz słabo sformalizowane</strong>.
+                Gdy logika jest rozproszona między obiektami, formularzami, zapytaniami,
+                scenariuszami wizualnymi i integracjami,
+                system przestaje być zarządzalny jako spójna całość.
+              </p>
+
+              <p>
+                W takiej architekturze powstaje praktyczny lock-in —
+                nie tyle od dostawcy,
+                co od konkretnych ludzi,
+                którzy „pamiętają, jak to działa”.
+              </p>
+
+              <p>
+                W kontekście ERP rolę AI często rozumie się zbyt powierzchownie —
+                jako narzędzie podpowiedzi, generowania kodu albo przyspieszania pojedynczych zadań.
+                Ale jego realny efekt architektoniczny ujawnia się gdzie indziej.
+              </p>
+
+              <p>
+                AI staje się strategicznym aktywem wtedy, gdy platforma
+                pozwala <strong>uczyć model na własnej logice biznesowej</strong>,
+                a nie używać go wyłącznie jako zewnętrznego pomocnika.
+              </p>
+
+              <div class="callout">
+                <strong>Kluczowa idea</strong>
+                <p>
+                  Jeśli język i model danych ERP są wystarczająco uporządkowane,
+                  zwarte i jednoznaczne, firma może nauczyć AI na swoim kodzie
+                  i regułach — a potem rozwijać system siłami własnego zespołu,
+                  bez stałej zależności od dostawcy lub wąskich specjalistów.
+                </p>
+              </div>
+
+              <p>
+                Do tego platforma musi mieć kilka krytycznych właściwości:
+              </p>
+
+              <ul>
+                <li><strong>Wysoka gęstość znaczenia</strong> — reguły biznesowe wyraża się krótko, bez nadmiarowego kodu.</li>
+                <li><strong>Deklaratywność</strong> — reguły opisują „co ma być”, a nie „jak dokładnie wykonać”.</li>
+                <li><strong>Jeden model</strong> — dane, reguły i obliczenia opisuje się w jednym formalizmie.</li>
+                <li><strong>Brak „magii”</strong> — minimalna liczba niejawnych handlerów, zdarzeń i wyjątków.</li>
+              </ul>
+
+              <p>
+                W takim systemie AI uczy się szybciej i dokładniej:
+                nie musi analizować tysięcy linii kodu proceduralnego,
+                rozproszonych formularzy, tekstowych zapytań i scenariuszy wizualnych.
+                Model widzi <strong>strukturę reguł</strong>, a nie historię wdrożenia.
+              </p>
+
+              <p>
+                Praktyczna konsekwencja tego podejścia —
+                gwałtowny spadek „kosztu posiadania wiedzy”:
+              </p>
+
+              <ul>
+                <li>mniej tokenów i mocy obliczeniowej do trenowania i utrzymania modeli,</li>
+                <li>wyższa dokładność analizy zmian i skutków,</li>
+                <li>mniejsza zależność od konkretnych osób i wykonawców,</li>
+                <li>możliwość utrzymania i rozwoju ERP przez wewnętrzny zespół.</li>
+              </ul>
+
+              <p>
+                W przeciwnym przypadku — gdy logika biznesowa jest rozmazana
+                po obiektach, formularzach, tekstowych zapytaniach, schematach wizualnych
+                i historycznych wyjątkach — AI nie staje się aktywem strategicznym.
+                Jedynie przyspiesza pracę z chaotycznym systemem, ale nie obniża jego kosztu.
+              </p>
+
+              <div class="callout">
+                <strong>Wniosek</strong>
+                <p>
+                  Architektura zrozumiała nie tylko dla ludzi, ale i dla maszyn,
+                  to nie „moda” ani marketing.
+                  To bezpośrednia droga do obniżenia vendor lock-in
+                  i do tego, by ERP rozwijało się razem z biznesem,
+                  a nie wymagało za każdym razem zewnętrznej interwencji.
+                </p>
+              </div>
+
+            </section>
+
+
+
+
+              <hr>
+
+              <h2 id="sources">Źródła i linki</h2>
+              <ul>
+                <li>
+                  <a href="https://habr.com/ru/companies/lsfusion/articles/544982/" target="_blank" rel="noopener noreferrer">
+                    “ERP, która nie psuje się od zmian” (Habr) ↗
+                  </a>
+                </li>
+                <li>
+                  <a href="https://habr.com/ru/companies/lsfusion/articles/468415/" target="_blank" rel="noopener noreferrer">
+                    “Ograniczenia 1C:Enterprise” (Habr) ↗
+                  </a>
+                </li>
+              </ul>
+
+              <h2 id="related-posts">Podobne artykuły</h2>
+              <div class="callout">
+                <strong>Czytaj dalej:</strong>
+                <p>
+                  Jeśli ważne są praktyczne konsekwencje architektury ERP i ograniczenie zależności od wykonawców —
+                  oto kolejne materiały na DevLab Blog:
+                </p>
+                <ul>
+                  <li>
+                    <a href="https://pl.devlab.blog/posts/post13-open-source-erp-low-code.html" target="_blank" rel="noopener noreferrer">
+                      Open-source ERP i low-code: jakie systemy biznesowe naprawdę wykorzystują firmy ↗
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://pl.devlab.blog/main-erp-stack-2032-ai-readable-architectures.html" target="_blank" rel="noopener noreferrer">
+                      Dlaczego ERP przyszłości będą modułowe, deklaratywne i czytelne dla AI ↗
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <footer class="post-footer-extended">
+              <div class="post-footer-meta">
+                <div class="post-meta-tags">
+                  <span class="post-tag">ERP</span>
+                  <span class="post-tag">Architektura</span>
+                  <span class="post-tag">Utrzymanie</span>
+                  <span class="post-tag">1C</span>
+                  <span class="post-tag">SAP</span>
+                  <span class="post-tag">Dynamics</span>
+                  <span class="post-tag">Odoo</span>
+                  <span class="post-tag">Integracje</span>
+                  <span class="post-tag">Vendor lock-in</span>
+                  <span class="post-tag">Low-code</span>
+                </div>
+
+                <div class="post-meta-secondary">
+                  <span>Opublikowano: 22 sty 2026</span>
+                  <span>·</span>
+                  <span>Około 10–12 min czytania</span>
+                  <span>·</span>
+                  <span class="post-views">Wyświetlenia: <span class="count">—</span></span>
+                </div>
+              </div>
+            </footer>
+
+            <!-- Inline newsletter -->
+            <section class="sidebar-block">
+              <p class="sidebar-text">
+                Bez spamu — tylko rzadkie notatki o ERP, automatyzacji i nowych artykułach.
+              </p>
+              <form class="newsletter-form"
+                    action="https://formsubmit.co/info@devlab.blog"
+                    method="POST">
+                <input type="hidden" name="_next" value="https://ru.devlab.blog/thank-you.html">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none">
+
+                <input type="email" name="email" class="field" placeholder="Twój e-mail" required>
+                <button class="btn btn-primary" type="submit">Zapisz się</button>
+
+                <p class="newsletter-note">
+                  Otrzymasz e-mail potwierdzający.<br>
+                  Działa przez FormSubmit.
+                </p>
+              </form>
+
+              <h2 id="feedback">Szybki feedback</h2>
+              <div class="callout">
+                <strong>Przydatne?</strong>
+                <p>Krótki sygnał pomaga nam wybierać kolejne tematy.</p>
+
+                <div class="hero-actions">
+                  <button class="btn btn-primary" type="button" data-vote="like">
+                    👍 Tak <span class="count" data-count="like">—</span>
+                  </button>
+
+                  <button class="btn btn-outline" type="button" data-vote="dislike">
+                    👎 Niezbyt <span class="count" data-count="dislike">—</span>
+                  </button>
+                </div>
+
+                <p class="sidebar-text">Bez komentarzy i kont.</p>
+              </div>
+            </section>
+
+            <div class="post-nav-links">
+              <a class="back" href="/#posts" style="margin-left: 0;">← Wróć do wszystkich artykułów</a>
+              <a class="back" href="/#categories" style="margin-right: 0;">Kategorie →</a>
+            </div>
+          </article>
+
+          <!-- SIDEBAR -->
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title" id="topic-question-title">Zaproponuj temat</h3>
+              <p class="sidebar-text">
+                Masz pytanie lub pomysł na kolejny artykuł?
+                <a class="post-read" href="mailto:info@devlab.blog?subject=Pomys%C5%82%20lub%20pytanie%20dla%20DevLab%20Blog">
+                  Napisz do nas →
+                </a>
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">O blogu</h3>
+              <p class="sidebar-text">
+                DevLab Blog — notatki o open-source ERP, podejściach modułowych, integracjach i praktyce automatyzacji.
+                Piszemy o tym, co psuje się w realnych wdrożeniach i jak podejmować decyzje technologiczne bez „religii”.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">Więcej</h3>
+              <p class="sidebar-text">
+                Wróć na stronę główną albo wybierz kategorię:
+              </p>
+              <ul>
+                <li><a href="/">Wszystkie artykuły</a></li>
+                <li><a href="/#categories">Kategorie</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Główna strona DevLab</a></li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Artykuły</a>
+            <a href="/#categories">Kategorie</a>
+            <a href="/#about">O blogu</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Strona główna</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog – notatki o open-source ERP, architekturach modułowych i automatyzacji.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
