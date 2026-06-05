@@ -1,30 +1,32 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <title>KSeF w 2026: terminy, limit 10 000 zł i praktyczna checklista – DevLab Blog</title>
+  <title>KSeF 2026: kompletny przewodnik — FA(3), ZAW-FA, kary do 100% VAT, kody błędów i checklista – DevLab Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Praktyczne wyjaśnienie KSeF w 2026: kluczowe terminy, jak działa miesięczny wyjątek 10 000 zł do końca 2026, typowe problemy po starcie oraz checklista przygotowań (procesy, dane, ERP/integracje)."
+    content="Pogłębiony przewodnik po KSeF 2026: terminy, FA(3), ZAW-FA(3), metody uwierzytelniania, typowe kody błędów z poprawkami, limit 10 000 zł, kary do 100% VAT od 2027, faktury korygujące oraz checklista 30/60/90 dni."
   />
+  <meta name="keywords" content="KSeF, KSeF 2026, KSeF 2.0, FA(3), ZAW-FA, ZAW-FA 3, faktura korygująca, e-faktura Polska, KSeF kary, KSeF limit 10000, KSeF błędy, KSeF kody błędów, automatyzacja faktur" />
 
   <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
   <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">                  
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
 
-  gtag('consent','default',{
-    analytics_storage:'denied',
-    ad_storage:'denied',
-    ad_user_data:'denied',
-    ad_personalization:'denied',
-    functionality_storage:'granted',
-    security_storage:'granted'
-  });
-</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{
+      analytics_storage:'denied',
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      functionality_storage:'granted',
+      security_storage:'granted'
+    });
+  </script>
 
   <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
   <script src="https://uk.devlab.blog/js/script.js" defer></script>
@@ -37,8 +39,8 @@
       "@type": "WebPage",
       "@id": "https://pl.devlab.blog/posts/post14-ksef-2026-limit-10000-checklist.html"
     },
-    "headline": "KSeF w 2026: terminy, limit 10 000 zł i praktyczna checklista",
-    "description": "Praktyczne wyjaśnienie KSeF w 2026: kluczowe terminy, jak działa miesięczny wyjątek 10 000 zł do końca 2026, typowe problemy po starcie oraz checklista przygotowań (procesy, dane, ERP/integracje).",
+    "headline": "KSeF 2026: kompletny przewodnik — FA(3), ZAW-FA, kary do 100% VAT, kody błędów i checklista",
+    "description": "Pogłębiony przewodnik po KSeF 2026: terminy, FA(3), ZAW-FA(3), metody uwierzytelniania, typowe kody błędów z poprawkami, limit 10 000 zł, kary do 100% VAT od 2027, faktury korygujące oraz checklista 30/60/90 dni.",
     "author": { "@type": "Organization", "name": "DevLab Blog" },
     "publisher": {
       "@type": "Organization",
@@ -46,7 +48,7 @@
       "logo": { "@type": "ImageObject", "url": "https://uk.devlab.blog/img/devlab-logo.svg" }
     },
     "datePublished": "2026-01-06",
-    "dateModified": "2026-01-06"
+    "dateModified": "2026-06-04"
   }
   </script>
 
@@ -79,10 +81,10 @@
 
           <div class="nav-group">
             <div class="nav-links">
-              <a href="/#posts">Wpisy</a>
+              <a href="/#posts">Artykuły</a>
               <a href="/#categories">Kategorie</a>
               <a href="/#about">O blogu</a>
-              <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer noreferrer">Strona główna</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Strona główna</a>
             </div>
             <div class="nav-lang">
               <a href="https://en.devlab.blog/">EN</a>
@@ -93,7 +95,7 @@
           </div>
 
           <div class="nav-cta">
-            <a href="/#posts" class="btn btn-outline">Przeglądaj wpisy</a>
+            <a href="/#posts" class="btn btn-outline">Do artykułów</a>
             <a href="/#about" class="btn btn-primary">Co to jest?</a>
           </div>
 
@@ -109,440 +111,865 @@
           <article id="post14-ksef-2026-limit-10000-checklist">
             <div class="section-title">
               <span>Artykuł</span>
-              <small><a href="/">← Wróć do wszystkich wpisów</a></small>
+              <small><a href="/">← Wszystkie artykuły</a></small>
             </div>
 
             <header>
               <div class="post-meta">
-                <span>Polska / KSeF</span>
+                <span>Polska · KSeF · Compliance</span>
                 <span>&middot;</span>
-                <span>Około 10 min czytania</span>
+                <span>Czytanie: ~18 min</span>
                 <span>&middot;</span>
-                <span>Nowe: 6 sty 2026</span>
+                <span>Aktualizacja: 4 czerwca 2026</span>
               </div>
 
               <h1 class="hero-title">
-                KSeF w 2026: terminy, limit 10 000 zł i praktyczna checklista
+                KSeF 2026: kompletny przewodnik — FA(3), ZAW-FA, kary do 100% VAT, kody błędów i checklista
               </h1>
 
               <p class="hero-text">
-                Krótko i konkretnie: co zmienia się w 2026 roku, jak działa miesięczny wyjątek 10 000 zł do końca 2026,
-                i co przygotować w procesach oraz danych, aby KSeF nie zamienił się po kilku miesiącach w ręczny chaos.
+                Wszystko, co musisz wiedzieć o KSeF w jednym miejscu: kiedy i kogo dotyczy, jak prawidłowo złożyć ZAW-FA(3),
+                metody uwierzytelniania, realne kody błędów z poprawkami, limit 10 000 zł, kary od 2027
+                oraz czym różnią się faktury korygujące. Bez lania wody — tylko to, co realnie się psuje w praktyce.
               </p>
 
               <figure class="post-hero">
                 <img
                   src="https://uk.devlab.blog/img/post14-ksef-2026-limit-10000-checklist.webp"
-                  alt="KSeF 2026: terminy, limit 10 000 zł, checklista przygotowań"
+                  alt="KSeF 2026: przewodnik po FA(3), ZAW-FA, karach, kodach błędów i checklista przygotowania"
                 >
               </figure>
             </header>
 
+            <section class="post-content">
 
-<section class="post-content">
-            <h2 id="intro">Wprowadzenie</h2>
-
-                <p>
-                <strong>KSeF (Krajowy System e-Faktur)</strong> to nie tylko „nowy format e-faktur”.
-                Od 2026 roku staje się obowiązkowym kanałem fakturowania w Polsce — zmieniając procesy, role i wymagania dotyczące danych.
-                </p>
-
-                <p>
-                Większość problemów nie pojawia się w dniu startu. Wychodzą po kilku miesiącach —
-                kiedy okazuje się, że dane są niekompletne, procesy rozproszone, a ręczne wyjątki przestają działać.
-                </p>
-
-                <p>
-                W tym artykule: praktyczne wyjaśnienie, co dokładnie zmienia się w 2026 roku, kto i kiedy musi wejść do KSeF,
-                jak działa wyjątek 10 000 zł i co realnie trzeba przygotować — bez marketingu i ogólników.
-                 <a class="post-read back" href="https://chat.whatsapp.com/JIUVcd2tLne9o6V2CASFE7" target="_blank" rel="noopener noreferrer noreferrer"> KSeF: dołącz do grupy roboczej ↑</a>
-                </p>
-
-
-                <div class="post-toc" aria-label="Spis treści">
-                <div class="post-toc__title">W tym artykule</div>
-                  <ol class="post-toc__list">
-                          <li><a class="post-read" href="#deadlines">Kiedy KSeF staje się obowiązkowy: kluczowe daty</a></li>
-                          <li><a class="post-read" href="#limit-10000">Wyjątek 10 000 zł do końca 2026: jak działa</a></li>
-                          <li><a class="post-read" href="#ksef-20">KSeF 2.0: co często umyka w planowaniu</a></li>
-                          <li><a class="post-read" href="#checklist">Praktyczna lista kontrolna przygotowań</a></li>
-                          <li><a class="post-read" href="#mistakes">Typowe błędy po uruchomieniu</a></li>
-                          <li><a class="post-read" href="#plan-30-60-90">Plan wdrożenia 30 / 60 / 90 dni</a></li>
-                          <li><a class="post-read" href="#automation">Automatyzacja wokół KSeF: darmowe / open-source opcje</a></li>
-                          <li><a class="post-read" href="#conclusion">Wnioski</a></li>
-                          <li><a class="post-read" href="#sources">Źródła oficjalne</a></li>
-                      </ol>
-                </div>
-
-                <hr>
-
-                <h2 id="deadlines">Kiedy KSeF staje się obowiązkowy: kluczowe daty</h2>
-
-                <p>
-                Obowiązkowe korzystanie z KSeF jest wprowadzane etapami:
-                </p>
-
-                <ul>
-                <li><strong>od 1 lutego 2026</strong> — firmy, których obrót w 2024 roku przekroczył <strong>200 mln zł</strong> (z VAT)</li>
-                <li><strong>od 1 kwietnia 2026</strong> — pozostali podatnicy VAT</li>
-                </ul>
-
-                <p>
-                W praktyce: nawet jeśli „start” masz w kwietniu, i tak musisz przygotować się wcześniej —
-                bo będziesz musiał <em>odbierać</em> i przetwarzać faktury od kontrahentów, którzy wejdą w KSeF przed Tobą.
-                </p>
-
-                <hr>
-
-                <h2 id="limit-10000">Wyjątek 10 000 zł do końca 2026 — jak to działa w praktyce</h2>
-
-                <p>
-                Do <strong>31 grudnia 2026</strong> dopuszcza się wystawianie faktur poza KSeF (papierowych lub „zwykłych” elektronicznych),
-                jeśli łączna kwota takich faktur <strong>w danym miesiącu</strong> nie przekracza <strong>10 000 zł brutto</strong>.
-                </p>
-
-                <p><strong>Warto pamiętać:</strong></p>
-                <ul>
-                <li>limit liczony jest <strong>miesięcznie</strong>, a nie rocznie;</li>
-                <li>po przekroczeniu limitu w danym miesiącu dalsze wystawianie poza KSeF staje się problematyczne (trzeba przejść na KSeF);</li>
-                <li>wyjątek dotyczy <strong>wystawiania</strong>, ale <strong>nie</strong> znosi potrzeby zrozumienia procesu <strong>odbioru</strong> i obsługi dokumentów.</li>
-                </ul>
-
-                <p>
-                Wniosek praktyczny: nawet mniejsze firmy powinny wcześnie zdefiniować dostępy, role i scenariusze obsługi —
-                inaczej „ulga” zamienia się w ręczne obejścia, które się nie skalują.
-                </p>
-
-                <hr>
-
-                <h2 id="ksef-20">KSeF 2.0: co często umyka w planowaniu</h2>
-
-                <h3 id="ksef-not-only-api">1) To nie tylko API i integracja</h3>
-                <p>
-                Wraz z KSeF pojawiają się reguły organizacyjne: dostępy i uprawnienia, odpowiedzialność za błędy,
-                obsługa odrzuceń, korekt, kontrola danych i powiązanie z raportowaniem (np. JPK).
-                Często robi się „techniczne wysyłanie”, ale nie odpowiada na kluczowe pytanie:
-                <em>kto jest właścicielem procesu end-to-end</em>.
-                </p>
-
-                <h3 id="ksef-attachments">2) Faktury z załącznikami to osobny proces</h3>
-                <p>
-                Jeśli do faktur dołączasz załączniki (specyfikacje, kalkulacje, pliki techniczne),
-                zaplanuj to jako osobny scenariusz: terminy, zasady, przechowywanie i obsługa operacyjna.
-                W przeciwnym razie „drobiazg” zaczyna psuć terminy wystawiania i wewnętrzne SLA.
-                </p>
-
-                <hr>
-
-                <h2 id="checklist">Praktyczna lista kontrolna przygotowań do KSeF</h2>
-
-                <h3 id="checklist-process">Procesy i odpowiedzialność (finanse / księgowość)</h3>
-                <ul>
-                <li>Jakie typy faktur realnie wystawiasz (B2B, B2C, korekty, zaliczki)?</li>
-                <li>W którym momencie faktura jest uznawana za wystawioną w sensie prawnym?</li>
-                <li>Kto odpowiada za dostępy, role, podpis/wysyłkę i obsługę faktur odrzuconych?</li>
-                <li>Ile jest wyjątków i niestandardowych scenariuszy (nie „na papierze”, tylko w praktyce)?</li>
-                </ul>
-
-                <h3 id="checklist-data">Dane i systemy (ERP / IT / integracje)</h3>
-                <ul>
-                <li>Na ile kompletne i spójne są dane: NIP, adresy, warunki płatności, stawki VAT?</li>
-                <li>Z ilu systemów faktycznie powstają faktury?</li>
-                <li>Czy masz kolejkę wysyłki, ponawianie, logowanie i monitoring statusów?</li>
-                <li>Jak będziesz obsługiwać załączniki (jeśli występują)?</li>
-                </ul>
-
-                <hr>
-
-                <h2 id="mistakes">Typowe błędy, które wychodzą po uruchomieniu</h2>
-                <ul>
-                <li>„Wszystko jest w ERP” — a jednak część faktur okazuje się ręczna.</li>
-                <li>Brak właściciela procesu end-to-end (błędy giną „pomiędzy działami”).</li>
-                <li>Korekty i wyjątki nie zostały przetestowane.</li>
-                <li>Skupienie na wysyłce, a odbiór i obsługa faktur przychodzących odkładane „na później”.</li>
-                </ul>
-
-                <hr>
-
-                <h2 id="plan-ksef">Plan wdrożenia 30 / 60 / 90 dni</h2>
-
-                <h3 id="plan-0-30">0–30 dni — zobaczyć realny obraz</h3>
-                <ul>
-                <li>Pełna lista źródeł faktur</li>
-                <li>Audyt danych i słowników</li>
-                <li>Wyznaczenie właściciela procesu</li>
-                </ul>
-
-                <h3 id="plan-31-60">31–60 dni — zbudować działający szkielet</h3>
-                <ul>
-                <li>Podstawowa integracja z KSeF</li>
-                <li>Konfiguracja ról i dostępów</li>
-                <li>Testy scenariuszy niestandardowych</li>
-                </ul>
-
-                <h3 id="plan-61-90">61–90 dni — stabilizacja</h3>
-                <ul>
-                <li>Procedury na wypadek błędów i odrzuceń</li>
-                <li>Metryki odrzuceń i opóźnień</li>
-                <li>Gotowość na załączniki i szczytowe obciążenia</li>
-                </ul>
-
-                <hr>
-
-                <h2 id="automation">Automatyzacja wokół KSeF: darmowe / open-source opcje</h2>
-
-                <p>
-                KSeF zamyka prawny kanał e-faktur, ale nie rozwiązuje zadań operacyjnych:
-                walidacji danych, kolejek wysyłki, logiki ponowień, monitoringu, wewnętrznych ekranów do ręcznej weryfikacji,
-                routingu po rolach i kontroli wyjątków.
-                </p>
-
-                <p>
-                Dlatego często wykorzystuje się platformy low-code / internal tools — żeby szybko zbudować „warstwę operacyjną” wokół KSeF
-                bez drogiego developmentu na zamówienie.
-                </p>
-
-                <h3 id="automation-open-source">Open-source / darmowe narzędzia do “warstwy operacyjnej”</h3>
-                <ul>
-                <li>
-                    <strong>Appsmith (open-source)</strong> — wewnętrzne panele, ręczna obsługa błędów, kontrola statusów.
-                    <br>
-                    <a href="https://www.appsmith.com/" target="_blank" rel="noopener noreferrer noreferrer">Site</a> ·
-                    <a href="https://github.com/appsmithorg/appsmith" target="_blank" rel="noopener noreferrer noreferrer">GitHub</a>
-                </li>
-                <li>
-                    <strong>ToolJet (open-source)</strong> — szybkie interfejsy nad API/BD, wygodne do monitoringu i operacji.
-                    <br>
-                    <a href="https://www.tooljet.com/" target="_blank" rel="noopener noreferrer noreferrer">Site</a> ·
-                    <a href="https://github.com/tooljet/tooljet" target="_blank" rel="noopener noreferrer noreferrer">GitHub</a>
-                </li>
-                <li>
-                    <strong>MyCompany (lsFusion) (open-source)</strong> — podejście platformowe: logika biznesowa jest deklaratywna,
-                    dobre przy zmiennych procesach i gdy liczy się kontrola zmian.
-                    <br>
-                    <a href="https://mycompany.lsfusion.org/pl" target="_blank" rel="noopener noreferrer noreferrer">Site</a> ·
-                    <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank" rel="noopener noreferrer noreferrer">GitHub</a> 
-                </li>
-                <li>
-                    <strong>Budibase (community/open-source)</strong> — narzędzia administracyjne, aplikacje wewnętrzne, proste workflow.
-                    <br>
-                    <a href="https://budibase.com/" target="_blank" rel="noopener noreferrer noreferrer">Site</a> ·
-                    <a href="https://github.com/Budibase/budibase" target="_blank" rel="noopener noreferrer noreferrer">GitHub</a>
-                </li>
-                <li>
-                    <strong>NocoBase (open-source)</strong> — rozszerzalny low-code z pluginami, aplikacje CRUD + procesy.
-                    <br>
-                    <a href="https://www.nocobase.com/" target="_blank" rel="noopener noreferrer noreferrer">Site</a> ·
-                    <a href="https://github.com/nocobase/nocobase" target="_blank" rel="noopener noreferrer noreferrer">GitHub</a>
-                </li>
-                </ul>
-
-                <p>
-                Te narzędzia nie „zastępują KSeF”, ale czynią proces odpornym:
-                mniej ręcznych wyjątków, większa przejrzystość, szybsza reakcja na błędy i zmiany wymagań.
-                </p>
-
-                <hr>
-
-                <h2 id="conclusion">Wnioski</h2>
-
-                <p>
-                KSeF to projekt operacyjny, a nie „format XML”. Najlepiej przechodzą na KSeF ci, którzy wcześniej:
-                porządkują dane, przypisują odpowiedzialność i budują sterowalny proces obsługi faktur end-to-end.
-                </p>
-
-                <p><strong>Dlaczego automatyzacja jest naprawdę potrzebna (nawet przy “małych wolumenach”)</strong></p>
-                <ul>
-                <li>
-                    <strong>Bo wyjątki rosną.</strong> Pierwsze tygodnie mogą wyglądać spokojnie, a potem pojawiają się przypadki „niestandardowe”:
-                    korekty, zaliczki, różne źródła danych, faktury z załącznikami, faktury ręczne, zwroty, rozbieżności stawek VAT.
-                    Bez warstwy operacyjnej robi się z tego chat + Excel + “zapytaj księgowość”.
-                </li>
-                <li>
-                    <strong>Bo potrzebujesz widoczności, a nie zgadywania.</strong> Trzeba wiedzieć, co wysłano, co przyjęto, co odrzucono,
-                    gdzie utknęło, kto ma zareagować i ile to trwa. Monitoring + kolejka + alerty zwykle dają większą wartość
-                    niż „kolejna integracja”.
-                </li>
-                <li>
-                    <strong>Bo zmniejsza ryzyko opóźnień i ekspozycję na zgodność.</strong> Awaria częściej wynika z danych i procesu niż z API:
-                    zły kontrahent, niepełny adres, niespójne słowniki, duplikaty dokumentów.
-                    Walidacje przed wysyłką i przewidywalna obsługa błędów znacząco redukują ryzyko operacyjne.
-                </li>
-                <li>
-                    <strong>Bo pozwala rosnąć bez zatrudniania osób do ręcznej kontroli.</strong> Wzrost, nowy oddział,
-                    nowy moduł ERP lub nowy typ dokumentu najszybciej łamie schematy ręczne.
-                    Automatyzacja to odporność i kontrola zmian.
-                </li>
-                </ul>
-
-                  <p class="post-nav-links">
-                    <a class="post-read back" href="https://chat.whatsapp.com/JIUVcd2tLne9o6V2CASFE7" target="_blank" rel="noopener noreferrer noreferrer"> KSeF: dołącz do grupy roboczej ↑</a>
-                </p>
-
-                <hr>
-
-                <h2 id="sources">Źródła oficjalne</h2>
-                <ul>
-                <li>
-                    <a href="https://ksef.podatki.gov.pl/" target="_blank" rel="noopener noreferrer noreferrer">KSeF na podatki.gov.pl</a>
-                </li>
-                <li>
-                    <a href="https://www.gov.pl/web/finanse/krajowy-system-e-faktur-ksef" target="_blank" rel="noopener noreferrer noreferrer">
-                    KSeF na gov.pl (Ministerstwo Finansów)
-                    </a>
-                </li>
-                </ul>
-
-                <h2 id="feedback">Szybka opinia</h2>
-              <div class="callout">
-                <strong>Czy to było pomocne?</strong>
-                <p>
-                  Krótki sygnał pomaga nam ustalić priorytety kolejnych tematów.
-                </p>
-
-                <div class="hero-actions">
-                  <button class="btn btn-primary" type="button" data-vote="like">
-                    👍 Pomocne <span class="count" data-count="like">—</span>
-                  </button>
-
-                  <button class="btn btn-outline" type="button" data-vote="dislike">
-                    👎 Raczej nie <span class="count" data-count="dislike">—</span>
-                  </button>
-                </div>
-
-                <p class="sidebar-text">
-                  Bez komentarzy, bez kont.
+              <!-- TL;DR -->
+              <div class="post-quick">
+                <p class="post-quick__title">W skrócie (60 sekund)</p>
+                <p class="post-quick__text">
+                  <strong>Terminy.</strong> KSeF obowiązkowy od 1 lutego 2026 dla obrotów &gt;200 mln zł, od 1 kwietnia — dla pozostałych podatników VAT, od 1 stycznia 2027 — dla mikroprzedsiębiorców.
+                  <strong>Kary.</strong> 2026 — okres przejściowy bez sankcji finansowych. Od 2027 — do 100% VAT za fakturę poza KSeF, do 18,7% od kwoty bez VAT, osobno 500 zł za błąd w JPK_VAT (obowiązuje od marca 2026).
+                  <strong>Dostęp.</strong> ZAW-FA(3) od 1 lutego 2026 (zastępuje ZAW-FA(2)). Składanie przez e-Urząd Skarbowy lub e-Doręczenia — <em>nie przez ePUAP</em>.
+                  <strong>Wyjątek 10 000 zł.</strong> Do końca 2026, liczone miesięcznie z VAT.
+                  <strong>Najbardziej bolesne.</strong> Nie API, lecz dane: NIP z myślnikami, stawki VAT jako liczba zamiast kodu, BOM w UTF-8 XML, niespójne słowniki.
                 </p>
               </div>
 
-                <h2 id="related-posts">Powiązane posty</h2>
+              <h2 id="intro">Dlaczego ten artykuł to nie „kolejny przegląd KSeF"</h2>
 
-                    <div class="callout">
-                    <strong>Przeglądaj dalej:</strong>
-                    <p>
-                        Więcej praktycznych notatek o KSeF i automatyzacji operacyjnej.
-                    </p>
+              <p>
+                <strong>KSeF (Krajowy System e-Faktur)</strong> — to model <em>clearance</em> dla faktur elektronicznych.
+                Faktura prawnie nie istnieje, dopóki centralny system Ministerstwa Finansów jej nie odbierze i nie zwaliduje.
+                Żadnych papierów, PDF na maila, ani arkuszy Excel. Wyłącznie ustrukturyzowany XML w schemacie FA(3) — albo dokumentu nie ma.
+              </p>
 
-                    <ul>
-                        <li>
-                        <a href="/posts/post15-ksef-after-go-live-15-issues.html">
-                            KSeF po uruchomieniu: 15 problemów, które wychodzą po 2–3 miesiącach (i jak uniknąć chaosu w fakturowaniu)&nbsp;↗
-                        </a>
-                        </li>
-                        <li>
-                        <a href="/posts/post12-ksef-low-code.html">
-                            KSeF + low-code: jak polskie firmy mogą przygotować się na e-faktury minimalnym kosztem ↗
-                        </a>
-                        </li>
-                    </ul>
-                    </div>
+              <p>
+                Większość przeglądów KSeF kończy się na „terminy + 10 000 zł + ogólne porady".
+                W 2024 to wystarczało. W 2026, gdy system już działa i firmy zderzają się z rzeczywistością,
+                pytanie jest inne: <strong>jak to nie zepsuje mi księgowości w 3. miesiącu</strong>. A na to ogólne przeglądy nie odpowiadają.
+              </p>
 
-                    </section>
+              <p>Ten artykuł — o tym, co realnie boli:</p>
 
-                    <div class="post-nav-links">
-                    <a class="back" href="/#posts" style="margin-left: 0;">← Powrót do wszystkich postów</a>  
-                    <a class="back" href="/#categories" style="margin-right: 0;"> Przeglądaj wszystkie kategorie →</a>
-                    </div>
+              <ul>
+                <li>Jak prawidłowo złożyć ZAW-FA(3) i dlaczego ePUAP już nie działa</li>
+                <li>Jakie są metody uwierzytelniania i kiedy którą wybrać (z realnymi cenami)</li>
+                <li>Czym FA(3) różni się od poprzedniej FA(2) i co się psuje przy migracji</li>
+                <li>Konkretne kody błędów KSeF — z przykładami i poprawkami, a nie „skontaktuj się ze wsparciem"</li>
+                <li>Faktury korygujące w KSeF — osobna pułapka</li>
+                <li>Specjalne przypadki: B2C, eksport stawką zerową, split payment, barter</li>
+                <li>Rozwiązania komercyjne (Comarch, Symfonia, Sage, Enova) vs open-source — uczciwe porównanie</li>
+              </ul>
 
-                <footer class="post-footer-extended">
+              <div class="post-toc" aria-label="Spis treści">
+                <div class="post-toc__title">W tym artykule</div>
+                <ul class="post-toc__list">
+                  <li><a href="#deadlines">Kluczowe daty 2026–2027</a></li>
+                  <li><a href="#penalties">Kary: dlaczego 2026 to nie „darmowy rok"</a></li>
+                  <li><a href="#limit-10000">Limit 10 000 zł: 3 typowe błędy interpretacji</a></li>
+                  <li><a href="#zaw-fa">ZAW-FA(3): jak uzyskać dostęp i nie utknąć na 3 tygodnie</a></li>
+                  <li><a href="#auth">Metody uwierzytelniania: kiedy którą wybrać</a></li>
+                  <li><a href="#fa3">FA(3) vs FA(2): co się zmieniło i co się psuje</a></li>
+                  <li><a href="#errors">Kody błędów KSeF z poprawkami (realne doświadczenie)</a></li>
+                  <li><a href="#korekta">Faktury korygujące: osobna pułapka</a></li>
+                  <li><a href="#special-cases">Specjalne przypadki: B2C, eksport, split payment</a></li>
+                  <li><a href="#missed">5 zmian KSeF 2.0, które są pomijane w planach</a></li>
+                  <li><a href="#7-traps">7 pułapek, które ujawniają się w 3. miesiącu</a></li>
+                  <li><a href="#comparison">Rozwiązania komercyjne vs open-source: uczciwe porównanie</a></li>
+                  <li><a href="#checklist">Checklista 30 / 60 / 90 dni</a></li>
+                  <li><a href="#conclusion">Wniosek: co zrobić w tym tygodniu</a></li>
+                  <li><a href="#sources">Oficjalne źródła</a></li>
+                </ul>
+              </div>
+
+              <hr>
+
+              <h2 id="deadlines">Kluczowe daty 2026–2027</h2>
+
+              <p>Zapamiętaj te sześć dat — wokół nich budujesz całą strategię przejścia:</p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Data</th><th>Co się dzieje</th><th>Kogo dotyczy</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>1 sty 2026</strong></td>
+                      <td>ePUAP nie dostarcza już ZAW-FA</td>
+                      <td>Wszyscy — przechodzimy na e-US lub e-Doręczenia</td>
+                    </tr>
+                    <tr>
+                      <td><strong>1 lut 2026</strong></td>
+                      <td>KSeF obowiązkowy; FA(3) zastępuje FA(2); ZAW-FA(3) wchodzi w życie</td>
+                      <td>Duzi podatnicy: obrót za 2024 rok &gt; <strong>200 mln zł</strong> (z VAT). <em>Odbiór — dla wszystkich</em></td>
+                    </tr>
+                    <tr>
+                      <td><strong>1 mar 2026</strong></td>
+                      <td>Kara 500 zł za błędy w oznaczeniach KSeF w JPK_VAT</td>
+                      <td>Wszyscy składający JPK_VAT</td>
+                    </tr>
+                    <tr>
+                      <td><strong>1 kwi 2026</strong></td>
+                      <td>KSeF obowiązkowy dla pozostałych</td>
+                      <td>MŚP, JDG, czynni i zwolnieni podatnicy VAT</td>
+                    </tr>
+                    <tr>
+                      <td><strong>1 sie 2026</strong></td>
+                      <td>KSeF ID w przelewach bankowych (szczególnie split payment)</td>
+                      <td>Wszyscy — do dopasowywania płatności do faktur</td>
+                    </tr>
+                    <tr>
+                      <td><strong>1 sty 2027</strong></td>
+                      <td>Kary w mocy; mikroprzedsiębiorcy też zobowiązani</td>
+                      <td>Wszyscy bez wyjątku</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="callout">
+                <strong>Bardzo ważny szczegół, który często się pomija.</strong>
+                <p>
+                  Od 1 lutego 2026 <em>odbierać</em> faktury KSeF muszą <strong>wszyscy</strong>, niezależnie od wielkości firmy.
+                  Wystawiać — etapami, ale odbierać — wszyscy od razu. To znaczy, że nawet mikrofirma w lutym 2026
+                  może już otrzymać fakturę KSeF od dużego dostawcy — i musi wiedzieć, co z nią zrobić.
+                </p>
+              </div>
+
+              <hr>
+
+              <h2 id="penalties">Kary: dlaczego 2026 to nie „darmowy rok"</h2>
+
+              <p>
+                Ministerstwo Finansów uczyniło 2026 rok okresem przejściowym — <strong>kary finansowe za naruszenia KSeF nie są naliczane przez cały 2026 rok</strong>.
+                Brzmi jak prezent. To nie prezent — to pułapka dla tych, którzy potraktują to dosłownie.
+              </p>
+
+              <p>Od 1 stycznia 2027 obowiązują sankcje z art. 106ni ustawy o VAT:</p>
+
+              <ul>
+                <li><strong>Do 100% kwoty VAT</strong> z faktury wystawionej poza KSeF (dla faktur, które powinny były iść przez KSeF).</li>
+                <li><strong>Do 18,7% od kwoty faktury</strong> — gdy nie ma VAT (eksport stawką zerową, usługi w UE itd.).</li>
+                <li><strong>500 zł za błąd</strong> — obowiązuje od marca 2026 za nieprawidłowe oznaczenia KSeF w plikach JPK_VAT. To już nie „od 2027", to teraz.</li>
+              </ul>
+
+              <p>
+                Ministerstwo Finansów wskazało, że maksymalne sankcje <strong>nie będą stosowane automatycznie</strong> —
+                każdy przypadek będzie rozpatrywany indywidualnie. Dobra wiadomość, ale działa tylko dla tych,
+                którzy udokumentują, że w dobrej wierze próbowali spełnić wymagania. Dla pozostałych formuła „100% VAT" jest realnym punktem odniesienia.
+              </p>
+
+              <p>
+                <strong>Prosty przykład.</strong> Faktura 100 000 zł netto + 23 000 zł VAT, wystawiona poza KSeF w 2027,
+                może kosztować dodatkowo <strong>23 000 zł kary</strong>. Jedna taka faktura — i cała oszczędność
+                z „wdrożymy później" znika.
+              </p>
+
+              <div class="callout">
+                <strong>Ukryte zagrożenie 2026: nie kara, a utrata odliczenia VAT.</strong>
+                <p>
+                  Nawet w przejściowym 2026 faktura, która powinna była iść przez KSeF, ale wystawiona poza nim,
+                  ryzykuje <em>odrzucenie do celów odliczenia VAT</em> przez nabywcę.
+                  Kary nie ma — ale klient odmawia zapłaty, dopóki nie wystawisz dokumentu poprawnie.
+                  Efekt finansowy identyczny.
+                </p>
+              </div>
+
+              <hr>
+
+              <h2 id="limit-10000">Limit 10 000 zł: 3 typowe błędy interpretacji</h2>
+
+              <p>
+                Do 31 grudnia 2026 obowiązuje <em>przejściowe złagodzenie</em>: można wystawiać faktury poza KSeF
+                (papierowe lub zwykłe elektroniczne), jeśli suma takich faktur w <strong>konkretnym miesiącu kalendarzowym</strong>
+                nie przekracza <strong>10 000 zł z VAT</strong>.
+                <strong>Ważne zastrzeżenie:</strong> interpretacja tego przepisu w źródłach jest niejednoznaczna. Według jednej wersji to ogólne
+                złagodzenie dla wszystkich podatników VAT, według bardziej restrykcyjnej — dotyczy wyłącznie mikroprzedsiębiorców
+                z dodatkowym warunkiem (pojedyncza faktura nie przekracza 450 zł). Przed zastosowaniem sprawdź swój przypadek
+                u doradcy podatkowego. Typowych błędów interpretacji — trzy.
+              </p>
+
+              <h3>Błąd nr 1. „Limit jest roczny"</h3>
+              <p>
+                Nie. Limit zeruje się co miesiąc. W styczniu — 10 000, w lutym kolejne 10 000, ale w ramach każdego miesiąca osobno.
+                Rok to 12 osobnych limitów, a nie 120 000 zł razem.
+              </p>
+
+              <h3>Błąd nr 2. „Przekroczyliśmy — zapłacimy karę"</h3>
+              <p>
+                W 2026 kary nie ma, ale gdy tylko przekroczysz limit w danym miesiącu —
+                <strong>wszystkie kolejne faktury w tym miesiącu muszą iść przez KSeF</strong>. Jeśli są wystawiane poza KSeF,
+                nabywca ma prawo nie przyjąć faktury i nie płacić, dopóki nie otrzyma wersji KSeF.
+                Od 2027 dochodzi jeszcze kara.
+              </p>
+
+              <h3>Błąd nr 3. „Wyjątek obejmuje cały proces"</h3>
+              <p>
+                Wyjątek dotyczy tylko <em>wystawiania</em>. <strong>Odbiór i obsługę</strong> faktur KSeF
+                od dostawców i tak musisz skonfigurować — nawet jeśli sam wystawiasz 5 000 zł miesięcznie.
+                To najczęstsza pułapka małego biznesu.
+              </p>
+
+              <hr>
+
+              <h2 id="zaw-fa">ZAW-FA(3): jak uzyskać dostęp i nie utknąć na 3 tygodnie</h2>
+
+              <p>
+                <strong>ZAW-FA</strong> — to formularz, przez który osoba prawna wyznacza <em>superadministratora</em>,
+                który otrzyma uprawnienia właścicielskie w KSeF (nadawanie i odbieranie uprawnień innym użytkownikom).
+                Od 1 lutego 2026 obowiązuje nowa wersja: <strong>ZAW-FA(3)</strong>, poprzednia ZAW-FA(2) została wycofana.
+              </p>
+
+              <h3>Co się zmieniło w ZAW-FA(3)</h3>
+              <ul>
+                <li>Doprecyzowano listę danych identyfikacyjnych pełnomocnika i mocodawcy</li>
+                <li>Skorygowano proces dla pełnomocnika ogólnego (adwokat/radca prawny) i UKO (użytkownika konta organizacji)</li>
+                <li>Interaktywny PDF — mniej szans na pominięcie wymaganego pola</li>
+              </ul>
+
+              <h3>Jak złożyć ZAW-FA(3) — i dlaczego ePUAP to już nie opcja</h3>
+
+              <p><strong>Od 1 stycznia 2026 ZAW-FA złożona przez ePUAP nie jest uznawana za doręczoną urzędowi skarbowemu.</strong> To nie błąd — to celowa zmiana. Alternatywy:</p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Kanał</th><th>Czas</th><th>Komentarz</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>e-Urząd Skarbowy</strong> (e-US)</td>
+                      <td>1–3 dni</td>
+                      <td>Najszybszy kanał. Interaktywny formularz, walidacja online</td>
+                    </tr>
+                    <tr>
+                      <td><strong>e-Doręczenia</strong></td>
+                      <td>2–7 dni</td>
+                      <td>Alternatywa dla tych, którzy już mają konto e-Doręczenia</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Papier (osobiście lub pocztą)</strong></td>
+                      <td>2–3 tygodnie</td>
+                      <td>I kwartał 2026 — przeciążenie urzędów, realne terminy mogą być dłuższe</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>Alternatywa dla ZAW-FA: kwalifikowana pieczęć elektroniczna z NIP</h3>
+              <p>
+                Jeśli firma ma już <strong>kwalifikowaną pieczęć elektroniczną</strong> z numerem NIP — ZAW-FA nie trzeba składać.
+                Logowanie pieczęcią automatycznie daje uprawnienia właścicielskie w KSeF. Jest szybciej, ale ma swoją cenę:
+                <strong>~1 000–3 000 zł rocznie</strong> za certyfikat. Rozwiązanie często optymalne dla średnich firm,
+                które nie chcą zależeć od procedur papierowych.
+              </p>
+
+              <div class="callout">
+                <strong>Praktyczna rada.</strong>
+                <p>
+                  Składaj ZAW-FA(3) <em>jak najwcześniej</em>. Jeśli twój termin to 1 kwietnia, nie czekaj do marca:
+                  w I kwartale 2026 urzędy są przeciążone, a kanał papierowy może zająć 3+ tygodnie.
+                  Jeśli twój termin to 1 lutego i jeszcze nie złożyłeś — przez e-US to 1–3 dni (działa już teraz).
+                </p>
+              </div>
+
+              <hr>
+
+              <h2 id="auth">Metody uwierzytelniania: kiedy którą wybrać</h2>
+
+              <p>Osoby prawne (nie osoby fizyczne) mogą uwierzytelniać się w KSeF na trzy sposoby. Każdy ma swój scenariusz zastosowania:</p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Metoda</th><th>Koszt</th><th>Kiedy pasuje</th><th>Ograniczenia</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Pieczęć kwalifikowana</strong> (z NIP)</td>
+                      <td>1 000–3 000 zł/rok</td>
+                      <td>Średnie firmy, stałe użycie; ZAW-FA niepotrzebne</td>
+                      <td>Trzeba odnawiać co rok, przypisana do konkretnej organizacji</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Token</strong></td>
+                      <td>0 zł</td>
+                      <td>Integracja API, testy, proste scenariusze</td>
+                      <td><strong>Dostępny tylko do końca 2026</strong> — później planowane wycofanie</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Certyfikat KSeF</strong></td>
+                      <td>0 zł (generowany bezpłatnie)</td>
+                      <td>Długoterminowa integracja API, systemy ERP/księgowe</td>
+                      <td>Wymaga konfiguracji po stronie systemu, okresowe odnawianie</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>
+                Dla większości firm logika jest taka: <strong>jeśli masz integrację ERP</strong> — bierz certyfikat KSeF i konfiguruj przez dostawcę ERP.
+                <strong>Jeśli masz tylko księgową z laptopem</strong> — pieczęć kwalifikowana daje najmniej tarcia.
+                <strong>Token — tylko do testów</strong>: zniknie, nie buduj na nim procesów produkcyjnych.
+              </p>
+
+              <hr>
+
+              <h2 id="fa3">FA(3) vs FA(2): co się zmieniło i co się psuje</h2>
+
+              <p>
+                Od 1 lutego 2026 format faktury w KSeF to <strong>FA(3)</strong>.
+                Struktura FA(2), która obowiązywała wcześniej, nie jest już akceptowana.
+                Jeśli twój ERP nie został zaktualizowany do FA(3) — faktury będą odrzucane bez wyjątku.
+              </p>
+
+              <h3>Co nowego w FA(3)</h3>
+              <ul>
+                <li><strong>Rozszerzony zestaw pól opcjonalnych</strong> — dla transakcji specyficznych (np. usługi w walucie, ograniczenia faktoringu).</li>
+                <li><strong>Doprecyzowane zasady dla kodów GTU</strong> (Grupowanie Towarów i Usług) — obowiązkowe dla określonych kategorii towarów/usług.</li>
+                <li><strong>Bardziej restrykcyjne zasady dla rozliczeń z różnymi stawkami VAT</strong> w jednym dokumencie.</li>
+                <li><strong>Lepsza obsługa faktur korygujących</strong> (patrz sekcja poniżej).</li>
+              </ul>
+
+              <h3>Co się psuje przy migracji FA(2) → FA(3)</h3>
+              <p>
+                Najczęstszy scenariusz porażki: dostawca ERP powiedział „jesteśmy gotowi na FA(3)" — a okazuje się, że gotowy jest tylko <em>generator XML</em>.
+                Słowniki (kody GTU, stawki VAT jako kody literowe, formaty NIP) zostały stare, i KSeF odrzuca co drugą fakturę.
+                Pytaj dostawcę nie „wspieracie FA(3)?" (wszyscy odpowiedzą „tak"), tylko konkretnie: „<em>które pola FA(3) są mapowane z których pól ERP?</em>".
+                Jeśli odpowiedź jest niejasna — będziesz mieć problem.
+              </p>
+
+              <hr>
+
+              <h2 id="errors">Kody błędów KSeF z poprawkami (realne doświadczenie)</h2>
+
+              <p>
+                To najprzydatniejsza sekcja dla tych, którzy są już na produkcji. Poniżej — typowe błędy, z którymi borykają się
+                firmy w pierwszych miesiącach KSeF, z konkretnymi poprawkami:
+              </p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Błąd</th><th>Objaw</th><th>Poprawka</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Nieprawidłowy NIP</strong></td>
+                      <td>NIP z myślnikami, spacjami, prefiksem „PL" lub 9 cyfr zamiast 10</td>
+                      <td>Tylko 10 cyfr bez separatorów: <code>1234567890</code>, nie <code>PL123-456-78-90</code>. Prefiks PL — do osobnego pola VAT-UE. Dla kontrahentów z UE — kod kraju (DE, CZ, FR) do osobnego pola</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Stawka VAT jako liczba</strong></td>
+                      <td>Przekazano <code>23</code> zamiast kodu literowego</td>
+                      <td>KSeF akceptuje tylko z zamkniętej listy: <code>23</code>, <code>8</code>, <code>5</code>, <code>0</code>, <code>zw</code> (zwolnione), <code>np</code> (nie podlega), <code>oo</code> (odwrotne obciążenie). W ERP wybierane z dropdown — błąd pojawia się głównie przy własnych integracjach API</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Niepełny adres</strong></td>
+                      <td>Brakuje jednego z 5 wymaganych elementów</td>
+                      <td>Sprawdź, czy przekazywane są wszystkie: ulica, numer, kod pocztowy, miasto, kod kraju. KSeF nie „przyjmie i ostrzeże" — po prostu odrzuci</td>
+                    </tr>
+                    <tr>
+                      <td><strong>BOM marker w UTF-8 XML</strong></td>
+                      <td>Błąd walidacji XML bez widocznych problemów w pliku</td>
+                      <td>Niewidoczny 3-bajtowy prefiks na początku pliku. Notepad++: Encoding → UTF-8 (without BOM). VS Code: kliknięcie „UTF-8 with BOM" na dole → „Save with Encoding" → „UTF-8"</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Sekcje CDATA</strong></td>
+                      <td>Faktura przyjęta, ale w panelu MF wyświetla się pusta lub zniekształcona</td>
+                      <td>Formalnie CDATA to poprawny XML, ale systemy MF nie potrafią go prawidłowo wyrenderować. Nie używaj CDATA — escape'uj znaki specjalne normalnie przez <code>&amp;amp;</code>, <code>&amp;lt;</code> itd.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Brak kodu GTU</strong></td>
+                      <td>Odrzucenie dla kategorii wymagających GTU</td>
+                      <td>Kody GTU są obowiązkowe dla alkoholu, paliw, elektroniki, leków, odpadów i in. Sprawdź, które kody dotyczą twojego asortymentu, w wykazie GTU MF</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Duplikat dokumentu</strong></td>
+                      <td>Wysłano ponownie po timeout lub błędzie</td>
+                      <td>Zaimplementuj <em>idempotency key</em> w swojej integracji — KSeF nie aktualizuje dokumentów, on odrzuca duplikaty. Jeśli otrzymasz timeout, nie wysyłaj ponownie na ślepo — sprawdź status przez API</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="callout">
+                <strong>Realna obserwacja.</strong>
+                <p>
+                  Z obserwacji księgowych, którzy przeszli pierwsze miesiące obowiązkowego KSeF, odsetek odrzuceń
+                  w pierwszych tygodniach jest <strong>zauważalny</strong> — zwłaszcza dla transakcji nietypowych:
+                  waluty, mieszane stawki VAT, specyfika branżowa. Konkretny procent silnie zależy od jakości danych.
+                  Najważniejsze: to nie problem API — to problem <em>danych</em> w twoich słownikach i ERP.
+                  Wyczyszczenie danych <em>przed</em> pierwszym uruchomieniem oszczędza tygodnie chaosu później.
+                </p>
+              </div>
+
+              <hr>
+
+              <h2 id="korekta">Faktury korygujące: osobna pułapka</h2>
+
+              <p>
+                Faktura korygująca to nie „taka sama faktura, tylko poprawiona". W KSeF to osobny typ dokumentu
+                z własnymi regułami, które często nie są traktowane poważnie na etapie planowania. A psują praktycznie każde wdrożenie.
+              </p>
+
+              <h3>Czym różni się korekta w KSeF</h3>
+              <ul>
+                <li><strong>Powiązanie z oryginałem przez KSeF ID</strong>, a nie przez numer dokumentu. Jeśli oryginał wystawiony jest poza KSeF (np. w styczniu 2026 jeszcze na starej FA(2)) — jak zrobić korektę? To osobny proces.</li>
+                <li><strong>Podstawa korekty</strong> musi być wskazana z zamkniętej listy przyczyn (zwrot towaru, błąd w cenie, rabat post factum itd.). „Inne" — nie wspierane.</li>
+                <li><strong>Korekta z zerową lub ujemną kwotą</strong> ma swój format, którego wiele ERP nie potrafi wygenerować „z pudełka".</li>
+                <li><strong>Korekta korekty</strong> — osobny scenariusz, często nieprzetestowany. Księgowość przyzwyczajona do „wyrzucić niepoprawną i wystawić nową", w KSeF tak się nie da.</li>
+              </ul>
+
+              <h3>Dlaczego to bolesne</h3>
+              <p>
+                W typowej firmie korekty to <em>około</em> 5–15% całkowitego wolumenu dokumentów (zależy od branży).
+                Jeśli proces korekt nie jest skonfigurowany, te 5–15% trafia do obsługi ręcznej.
+                <em>Przykładowe wyliczenie:</em> przy 1000 faktur miesięcznie to 50–150 przypadków ręcznych, każdy zajmujący
+                księgowej 15–30 minut — czyli <strong>20–75 godzin pracy miesięcznie</strong>. Przy twojej skali liczby będą inne,
+                ale logika ta sama: nieprzetestowany proces korekt = osobny etat na pracę ręczną.
+              </p>
+
+              <hr>
+
+              <h2 id="special-cases">Specjalne przypadki: B2C, eksport, split payment</h2>
+
+              <h3>B2C — KSeF dobrowolny</h3>
+              <p>
+                <strong>Transakcje B2C (sprzedaż konsumentom końcowym) pozostają poza obowiązkowym KSeF.</strong> To osobna historia,
+                ze swoimi zasadami: kasy fiskalne, NIP nabywcy, żądania faktury od konsumentów. KSeF tutaj jest dobrowolny —
+                możesz wystawić, ale nie musisz. Data obowiązkowego wdrożenia dla B2C nie została zaplanowana.
+              </p>
+
+              <h3>Eksport ze stawką zerową VAT</h3>
+              <p>
+                Eksport poza UE oraz niektóre transakcje wewnątrz UE — stawka VAT <code>0</code> lub <code>oo</code> (odwrotne obciążenie).
+                Tutaj kara „100% VAT" nie działa (VAT zero), ale działa alternatywa: <strong>do 18,7% kwoty całkowitej</strong>.
+                Przy eksporcie 500 000 zł to 93 500 zł potencjalnej kary.
+              </p>
+
+              <h3>Split payment (MPP)</h3>
+              <p>
+                Split payment — specjalny mechanizm płatności dla wybranych kategorii (metale, paliwa, elektronika itd.), gdzie VAT
+                trafia na osobny rachunek VAT nabywcy. <strong>Od 1 sierpnia 2026 w przelewie MPP obowiązkowo musi być KSeF ID</strong> —
+                inaczej bank może odmówić realizacji przelewu. Duże polskie banki wdrażają obsługę tego pola,
+                ale proces postępuje nierównomiernie — <em>sprawdź u swojego systemu bankowości elektronicznej bezpośrednio</em>,
+                czy w szablonie polecenia przelewu jest pole KSeF ID. Jeśli nie — to osobne ryzyko, które
+                warto zamknąć przed sierpniem.
+              </p>
+
+              <h3>Barter i kompensaty</h3>
+              <p>
+                Barter (kompensata) w KSeF jest wystawiany jako dwie osobne faktury z powiązaniem przez dokumenty kompensaty.
+                Nie jako jedna „zerowa". To częsty błąd — wyłapuje go audyt, nie KSeF.
+              </p>
+
+              <hr>
+
+              <h2 id="missed">5 zmian KSeF 2.0, które są pomijane w planach</h2>
+
+              <h3>1. KSeF ID w przelewach bankowych (od 1 sierpnia 2026)</h3>
+              <p>
+                W danych przelewu bankowego trzeba podawać identyfikator faktury KSeF.
+                Jeśli twój system księgowy nie przekazuje ID do polecenia przelewu — klient nie będzie mógł dopasować płatności do faktury,
+                a u ciebie zacznie się chaos w uzgadnianiu. Szczególnie krytyczne dla split payment.
+              </p>
+
+              <h3>2. Tryb „Offline24" — teraz stały</h3>
+              <p>
+                W sytuacji awaryjnej (brak internetu, KSeF niedostępny) można wystawić fakturę offline i wysłać następnego dnia.
+                Do stałego użycia potrzebne jest <strong>specjalne pozwolenie</strong> (od 1 listopada 2025).
+                Jeśli planujesz offline jako normę — zacznij procedurę wcześniej.
+              </p>
+
+              <h3>3. Kod QR na kopiach papierowych / PDF</h3>
+              <p>
+                Jeśli drukujesz e-fakturę dla klienta, na kopii musi być kod QR w standardowym formacie.
+                To nie „dodaj obrazek" — to element obowiązkowy. Wpływa na szablony drukowania we wszystkich systemach ERP/CRM.
+              </p>
+
+              <h3>4. Faktury z załącznikami — osobny proces</h3>
+              <p>
+                Jeśli dodajesz do faktury specyfikacje, protokoły, opisy techniczne — to osobny scenariusz z własnymi regułami przechowywania,
+                terminów i obsługi operacyjnej. Psuje terminy wystawiania i wewnętrzne SLA, jeśli nie zostało to przewidziane wcześniej.
+              </p>
+
+              <h3>5. Przechowywanie 10 lat w KSeF</h3>
+              <p>
+                Wszystkie faktury, które przeszły przez KSeF, są przechowywane przez Ministerstwo Finansów przez <strong>10 lat</strong> —
+                dłużej niż standardowy okres przedawnienia VAT. Dostęp do archiwum działa przez API —
+                upewnij się, że twoje procesy audytu i kontroli to uwzględniają.
+              </p>
+
+              <hr>
+
+              <h2 id="7-traps">7 pułapek, które ujawniają się w 3. miesiącu</h2>
+
+              <ol>
+                <li>
+                  <strong>„U nas wszystko jest w ERP" — a okazuje się, że nie.</strong>
+                  Księgowość od czasu do czasu wystawiała „ręczne" faktury w Word/Excel — do korekt, zaliczek, nietypowych klientów.
+                  W KSeF ten kanał znika. Wszystkie faktury muszą iść przez jeden system.
+                </li>
+                <li>
+                  <strong>Brak właściciela procesu end-to-end.</strong>
+                  IT odpowiada za integrację, księgowość — za dane, prawnik — za ZAW-FA. Gdy faktura zostaje odrzucona, nikt nie reaguje. Błędy „między działami".
+                </li>
+                <li>
+                  <strong>Korekty nieprzetestowane.</strong>
+                  Standardowy przypadek — prosty. A korekty, zwroty, zaliczki, przypadki z wieloma stawkami — właśnie tam KSeF odrzuca.
+                </li>
+                <li>
+                  <strong>Niespójne słowniki.</strong>
+                  NIP klienta w ERP bez separatorów, w CRM — z myślnikami, w bilingu — z prefiksem PL. Na 100 fakturach to normalne. Na 10 000 — katastrofa.
+                </li>
+                <li>
+                  <strong>Odbiór ignorowany.</strong>
+                  Wszyscy przygotowywali się do „wysyłania". Prawie nikt nie przygotowywał się do „odbierania". Co robi twój pracownik z fakturą KSeF o 18:30 w piątek?
+                </li>
+                <li>
+                  <strong>Płatności się nie dopasowują.</strong>
+                  Od sierpnia 2026 KSeF ID musi być w przelewie bankowym. Jeśli system bankowości elektronicznej nie przekazuje ID, księgowość ręcznie szuka, która płatność do której faktury.
+                </li>
+                <li>
+                  <strong>Brak monitoringu statusów.</strong>
+                  Ile wysłane, ile odrzucone, ile w kolejce, kto odpowiada? Jeśli o problemie dowiadujesz się od klienta — już przegrałeś.
+                </li>
+              </ol>
+
+              <p>
+                <strong>6 z 7 pułapek — to nie API ani XML.</strong> To procesy, odpowiedzialność i dane.
+                Integracja to 20% pracy. Pozostałe 80% to warstwa operacyjna wokół niej.
+              </p>
+
+              <hr>
+
+              <h2 id="comparison">Rozwiązania komercyjne vs open-source: uczciwe porównanie</h2>
+
+              <p>
+                Jeśli nie masz wewnętrznego zespołu programistów — najprościej użyć gotowego rozwiązania komercyjnego.
+                Jeśli masz — open-source daje większą elastyczność przy niższym koszcie subskrypcji.
+                <em>Ceny poniżej to orientacyjne widełki na początek 2026 roku, aktualne stawki i zakres pakietów
+                sprawdź bezpośrednio u dostawców:</em>
+              </p>
+
+              <h3>Komercyjne</h3>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Rozwiązanie</th><th>Cena (orientacyjnie)</th><th>Mocna strona</th><th>Słaba strona</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Comarch ERP / Optima</strong></td>
+                      <td>Od 500 zł/mies. w zależności od modułów</td>
+                      <td>Pełnowartościowy ERP z modułem KSeF, duża sieć partnerów, lokalizacja</td>
+                      <td>Trudno konfigurować pod nietypowe procesy bez partnera</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Symfonia ERP</strong></td>
+                      <td>Od 400 zł/mies.</td>
+                      <td>Klasyczne polskie rozwiązanie, znane księgowym, dobra integracja z JPK</td>
+                      <td>Mniej elastyczności; API do nietypowych przypadków ograniczone</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Sage (SAP Business One / Sage 50)</strong></td>
+                      <td>Od 600 zł/mies.</td>
+                      <td>Międzynarodowa platforma, KSeF dodany przez moduł lokalny</td>
+                      <td>KSeF — jako „dodatkowa warstwa", nie natywnie; niektóre scenariusze wymagają dopracowania</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Enova365</strong></td>
+                      <td>Od 350 zł/mies.</td>
+                      <td>Niski próg wejścia, intuicyjny UI, moduł KSeF z pudełka</td>
+                      <td>Może brakować głębi dla firm średnich+</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Wdrożenie „pod klucz"</strong></td>
+                      <td>3 000–15 000 zł jednorazowo</td>
+                      <td>Wszystko robi integrator, dostajesz gotowy system</td>
+                      <td>Zależność od integratora; zmiany — też przez niego i za pieniądze</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>Open-source: „warstwa operacyjna" wokół KSeF</h3>
+
+              <p>
+                Narzędzia open-source nie zastępują systemu księgowego. Zamykają <strong>to, co rozwiązania oficjalne ignorują</strong>:
+                monitoring, routing odrzuconych faktur, ręczną obsługę wyjątków, własną logikę, interfejsy dla ludzi,
+                którzy codziennie pracują z fakturami.
+              </p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Narzędzie</th><th>Do czego</th><th>Linki</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>MyCompany (lsFusion)</strong></td>
+                      <td>Deklaratywna platforma ERP, w której KSeF to część ogólnej logiki biznesowej. Przeliczanie w czasie rzeczywistym, kontrola zmian, pełna lokalizacja polska (UI przełącza się jednym kliknięciem). Pasuje tym, którzy chcą nie „modułu KSeF do ERP", lecz ERP zbudowanego wokół własnych procesów</td>
+                      <td><a href="https://mycompany.lsfusion.org/pl/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Appsmith</strong></td>
+                      <td>Wewnętrzne panele do ręcznej obsługi błędów KSeF, monitoring statusów, ponowne wysyłki</td>
+                      <td><a href="https://www.appsmith.com/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/appsmithorg/appsmith" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>ToolJet</strong></td>
+                      <td>Szybkie wewnętrzne interfejsy nad API/bazą — do monitoringu i operacji</td>
+                      <td><a href="https://www.tooljet.com/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/tooljet/tooljet" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>n8n</strong></td>
+                      <td>Automatyzacja workflow: routing odrzuconych faktur, powiadomienia w Slack/Teams, eskalacje</td>
+                      <td><a href="https://n8n.io/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Budibase</strong></td>
+                      <td>Interfejsy administracyjne, proste workflow</td>
+                      <td><a href="https://budibase.com/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/Budibase/budibase" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>NocoBase</strong></td>
+                      <td>Rozszerzalna platforma low-code z wtyczkami</td>
+                      <td><a href="https://www.nocobase.com/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/nocobase/nocobase" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>Jak wybrać: macierz decyzji</h3>
+
+              <ul>
+                <li><strong>Mały biznes (do 100 faktur/mies.), bez zespołu IT</strong> → Enova365 lub Symfonia + księgowa</li>
+                <li><strong>Średni biznes (100–1000 faktur/mies.), standardowe procesy</strong> → Comarch lub Symfonia + pieczęć kwalifikowana</li>
+                <li><strong>Średni+ biznes z nietypowymi procesami</strong> → MyCompany (lsFusion) + własny zespół lub partner</li>
+                <li><strong>Dowolna wielkość z potrzebą elastyczności</strong> → komercyjny ERP + warstwa open-source (Appsmith / n8n) do monitoringu</li>
+                <li><strong>Duży biznes, złożona integracja</strong> → SAP/Comarch Enterprise + rozwój własny</li>
+              </ul>
+
+              <hr>
+
+              <h2 id="checklist">Checklista 30 / 60 / 90 dni</h2>
+
+              <div class="diagram-card">
+                <div class="diagram-title">
+                  Drabina wdrożenia
+                  <span class="diagram-hint">od „zobaczyć" do „ustabilizować"</span>
+                </div>
+                <ol>
+                  <li>
+                    <strong>0–30 dni — zobaczyć realny obraz.</strong>
+                    Pełna lista źródeł faktur (włącznie z „ręcznymi"). Audyt danych i słowników (NIP, adresy, stawki VAT, GTU).
+                    Złożyć ZAW-FA(3) przez e-US lub pozyskać pieczęć kwalifikowaną. Wyznaczyć właściciela procesu.
+                    Zinwentaryzować wszystkie nietypowe scenariusze z życia.
+                  </li>
+                  <li>
+                    <strong>31–60 dni — zbudować roboczy szkielet.</strong>
+                    Podstawowa integracja z API KSeF (środowisko testowe). Konfiguracja ról i uprawnień.
+                    Obowiązkowe testy: faktury korygujące, zaliczki, przypadki z wieloma stawkami VAT, eksport.
+                    Pierwsze wysyłki na produkcję.
+                  </li>
+                  <li>
+                    <strong>61–90 dni — stabilizacja i monitoring.</strong>
+                    Procedury na wypadek odrzuceń z kodami błędów. Panel monitoringu (Appsmith / ToolJet / wbudowany w ERP).
+                    Metryki: % odrzuceń, czas reakcji, ręczne korekty. Gotowość do załączników, KSeF ID w przelewach,
+                    kodów QR na kopiach drukowanych.
+                  </li>
+                </ol>
+              </div>
+
+              <hr>
+
+              <h2 id="conclusion">Wniosek: co zrobić w tym tygodniu</h2>
+
+              <p>
+                KSeF to <strong>projekt operacyjny</strong>, a nie „format XML". Tylko ci, którzy z wyprzedzeniem porządkują
+                dane, ustalają odpowiedzialność i budują zarządzalny proces end-to-end, przechodzą przez to bez bólu.
+              </p>
+
+              <p>Jeśli jeszcze nie masz planu — zrób te trzy rzeczy <em>w tym tygodniu</em>:</p>
+
+              <ol class="steps">
+                <li>
+                  <strong>Złóż ZAW-FA(3) przez e-US</strong> (lub zacznij proces uzyskiwania pieczęci kwalifikowanej).
+                  Nie przez ePUAP — od 1 stycznia 2026 już nie działa.
+                </li>
+                <li>
+                  <strong>Znajdź „cieniste" kanały wystawiania.</strong> Czy ktoś w twojej firmie wystawia faktury poza systemem głównym?
+                  To największe ryzyko. Dopóki nie zamkniesz tego kanału — KSeF nie będzie działał czysto.
+                </li>
+                <li>
+                  <strong>Zapytaj dostawcę ERP o trzy konkretne rzeczy:</strong> (1) które pola FA(3) są mapowane z których pól ERP,
+                  (2) jak przekazują KSeF ID do przelewów bankowych, (3) jaka jest procedura dla faktur odrzuconych.
+                  Jeśli odpowiedzi są niejasne — będziesz mieć problem. Szukaj alternatywy.
+                </li>
+              </ol>
+
+              <div class="callout">
+                <strong>Dlaczego automatyzacja jest naprawdę potrzebna — nawet przy małych wolumenach</strong>
+                <ul>
+                  <li><strong>Wyjątki się mnożą.</strong> Pierwsze tygodnie są spokojne, dalej — korekty, zaliczki, zwroty, faktury z załącznikami. Bez warstwy operacyjnej szybko staje się to czat + Excel + „zapytaj księgowość".</li>
+                  <li><strong>Potrzebna widoczność.</strong> Ile wysłane, ile przyjęte, ile odrzucone, gdzie utknęło. Monitoring + kolejka + alerty dają więcej pożytku niż kolejna integracja.</li>
+                  <li><strong>Zmniejsza ryzyko compliance.</strong> Problemy częściej są w danych niż w API. Autosprawdzenia <em>przed</em> wysłaniem znacznie obniżają ryzyko kary w 2027.</li>
+                  <li><strong>Daje skalowalność.</strong> Wzrost, nowy oddział, nowy typ dokumentu najszybciej rozwala schematy ręczne.</li>
+                </ul>
+              </div>
+
+              <hr>
+
+              <h2 id="sources">Oficjalne źródła</h2>
+              <ul>
+                <li><a href="https://ksef.podatki.gov.pl/" target="_blank" rel="noopener noreferrer">KSeF na podatki.gov.pl — portal oficjalny</a></li>
+                <li><a href="https://www.gov.pl/web/finanse/krajowy-system-e-faktur-ksef" target="_blank" rel="noopener noreferrer">KSeF na gov.pl — Ministerstwo Finansów</a></li>
+                <li><a href="https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/struktura-logiczna-fa-3/" target="_blank" rel="noopener noreferrer">Struktura logiczna FA(3) — specyfikacja</a></li>
+                <li><a href="https://ksef.podatki.gov.pl/wyjasnienia/formularz-zaw-fa-3-dostepny-w-e-us/" target="_blank" rel="noopener noreferrer">ZAW-FA(3) w e-Urzędzie Skarbowym</a></li>
+              </ul>
+
+              <h2 id="related-posts">Powiązane materiały</h2>
+
+              <div class="callout">
+                <strong>Co jeszcze warto przeczytać:</strong>
+                <p>Jeśli interesują cię praktyczne skutki KSeF, wyjątki i automatyzacja — więcej materiałów na DevLab Blog:</p>
+                <ul>
+                  <li><a href="/posts/post15-ksef-after-go-live-15-issues.html">KSeF po starcie: 15 problemów pojawiających się po 2–3 miesiącach ↗</a></li>
+                  <li><a href="/posts/post17-2026-02-06-erpnext-vs-mycompany-lsfusion-smb-tco.html">ERPNext vs MyCompany: porównanie na replenishment detalicznym z kodem ↗</a></li>
+                  <li><a href="/posts/post18-iot-for-business.html">IoT dla biznesu: gdzie zarabia, a gdzie pali budżet ↗</a></li>
+                </ul>
+              </div>
+
+              <footer class="post-footer-extended">
                 <div class="post-footer-meta">
-                    <div class="post-meta-tags">
+                  <div class="post-meta-tags">
                     <span class="post-tag">KSeF</span>
-                    <span class="post-tag">Polska</span>
+                    <span class="post-tag">Poland</span>
                     <span class="post-tag">VAT</span>
-                    <span class="post-tag">E-fakturowanie</span>
-                    <span class="post-tag">Automatyzacja</span>
-                    </div>
+                    <span class="post-tag">FA(3)</span>
+                    <span class="post-tag">ZAW-FA</span>
+                    <span class="post-tag">E-invoicing</span>
+                    <span class="post-tag">Compliance</span>
+                  </div>
 
-                    <div class="post-meta-secondary">
+                  <div class="post-meta-secondary">
                     <span>Opublikowano: 6 sty 2026</span>
                     <span>·</span>
-                    <span>Około 10 min czytania</span>
+                    <span>Aktualizacja: 4 czerwca 2026</span>
+                    <span>·</span>
+                    <span>Czytanie: ~18 min</span>
                     <span>·</span>
                     <span class="post-views">Wyświetlenia: <span class="count">—</span></span>
-                    </div>
+                  </div>
                 </div>
-                </footer>
+              </footer>
 
-                <section class="sidebar-block">
+              <section class="sidebar-block">
                 <p class="sidebar-text">
-                    Bez spamu — tylko okazjonalne notatki o ERP, automatyzacji i nowych wpisach.
+                  Bez spamu — tylko notatki o KSeF, ERP, automatyzacji i nowych artykułach.
                 </p>
                 <form class="newsletter-form"
-                        action="https://formsubmit.co/info@devlab.blog"
-                        method="POST">
-                    <input type="hidden" name="_next" value="https://pl.devlab.blog/thank-you.html">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="text" name="_honey" style="display:none">
+                      action="https://formsubmit.co/info@devlab.blog"
+                      method="POST">
+                  <input type="hidden" name="_next" value="https://pl.devlab.blog/thank-you.html">
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="text" name="_honey" style="display:none">
 
-                    <input type="email" name="email" class="field" placeholder="Twój adres e-mail" required>
-                    <button class="btn btn-primary" type="submit">Zapisz się</button>
+                  <input type="email" name="email" class="field" placeholder="Twój e-mail" required>
+                  <button class="btn btn-primary" type="submit">Zapisz się</button>
 
-                    <p class="newsletter-note">
+                  <p class="newsletter-note">
                     Otrzymasz e-mail z potwierdzeniem.<br>
-                    Bezpiecznie obsługiwane przez FormSubmit.
-                    </p>
+                    Bezpiecznie przez FormSubmit.
+                  </p>
                 </form>
-                </section>
+              </section>
 
-                </article>
-                <!-- SIDEBAR -->
-                <aside class="sidebar">
-                <section class="sidebar-block">
-                    <h3 class="sidebar-title" id="topic-question-title">Zaproponuj temat</h3>
-                    <p class="sidebar-text">
-                    Masz pytanie lub pomysł na kolejny artykuł?
-                    <a class="post-read" href="mailto:info@devlab.blog?subject=Pytanie%20lub%20pomys%C5%82%20na%20temat%20dla%20DevLab%20Blog">
-                        Napisz do nas →
-                    </a>
-                    </p>
-                </section>
+            </section>
 
-                <section class="sidebar-block">
-                    <h3 class="sidebar-title">O blogu</h3>
-                    <p class="sidebar-text">
-                    DevLab Blog opisuje open-source ERP, architektury modułowe i automatyzację low-code —
-                    z naciskiem na praktyczne wdrożenia w realnych projektach.
-                    </p>
-                </section>
+            <div class="post-nav-links">
+              <a class="back" href="/#posts" style="margin-left: 0;">← Wszystkie artykuły</a>
+              <a class="back" href="/#categories" style="margin-right: 0;">Kategorie →</a>
+            </div>
+          </article>
 
-                <section class="sidebar-block">
-                    <h3 class="sidebar-title">Więcej</h3>
-                    <p class="sidebar-text">
-                    Wróć na stronę główną, aby zobaczyć inne wpisy lub przejrzeć kategorie:
-                    </p>
-                    <ul>
-                    <li><a href="/">Wszystkie wpisy</a></li>
-                    <li><a href="/#categories">Przeglądaj kategorie</a></li>
-                    <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer noreferrer">Strona główna DevLab</a></li>
-                    </ul>
-                </section>
-                </aside>
-                </div>
-                </div>
-                </main>
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title" id="topic-question-title">Zaproponuj temat</h3>
+              <p class="sidebar-text">
+                Masz pytanie lub pomysł na kolejny artykuł?
+                <a class="post-read" href="mailto:info@devlab.blog?subject=Pytanie%20lub%20pomys%C5%82%20dla%20DevLab%20Blog">
+                  Napisz do nas →
+                </a>
+              </p>
+            </section>
 
-                <!-- FOOTER -->
-                <footer class="site-footer">
-                <div class="wrapper footer-grid">
-                    <div>
-                    <div class="footer-links">
-                        <a href="/">Wpisy</a>
-                        <a href="/#categories">Kategorie</a>
-                        <a href="/#about">O blogu</a>
-                        <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer noreferrer">Strona główna</a>
-                    </div>
-                    <p class="footer-meta">
-                        DevLab Blog — notatki o open-source ERP, architekturach modułowych i eksperymentach z automatyzacją.
-                    </p>
-                    </div>
-                    <div class="footer-meta">
-                    <p>&copy; <span id="year"></span> DevLab Blog</p>
-                    </div>
-                </div>
-                </footer>
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">O blogu</h3>
+              <p class="sidebar-text">
+                DevLab Blog pisze o open-source ERP, modułowych architekturach i automatyzacji low-code —
+                z naciskiem na praktyczne wdrożenia i realne case studies.
+              </p>
+            </section>
 
-                </div>
-                </body>
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">Co jeszcze warto zobaczyć</h3>
+              <p class="sidebar-text">Wróć na stronę główną lub przejrzyj kategorie:</p>
+              <ul>
+                <li><a href="/">Wszystkie artykuły</a></li>
+                <li><a href="/#categories">Kategorie</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Strona główna DevLab</a></li>
+              </ul>
+            </section>
+          </aside>
+
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Artykuły</a>
+            <a href="/#categories">Kategorie</a>
+            <a href="/#about">O blogu</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Strona główna</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog — notatki o open-source ERP, modułowych architekturach i eksperymentach z automatyzacją.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
 </html>
-
