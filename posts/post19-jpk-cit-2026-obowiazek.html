@@ -1,0 +1,738 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>JPK_CIT 2026: obowiązek, JPK_KR_PD i JPK_ST_KR, harmonogram i przygotowanie ksiąg – DevLab Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Praktyczny przewodnik po JPK_CIT: co to jest, struktury JPK_KR_PD i JPK_ST_KR, harmonogram etapowy 2025–2027, pierwsze przesłanie z zeznaniem CIT, znaczniki podatkowe, mapowanie kont, powiązania z KSeF i JPK_VAT oraz checklista przygotowania."
+  />
+  <meta name="keywords" content="JPK_CIT, JPK_KR_PD, JPK_ST_KR, księgi rachunkowe, CIT, ustrukturyzowane księgi, JPK, podatkowa grupa kapitałowa, znaczniki podatkowe, plan kont, KSeF, JPK_VAT, automatyzacja księgowości" />
+
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{
+      analytics_storage:'denied',
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      functionality_storage:'granted',
+      security_storage:'granted'
+    });
+  </script>
+
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://pl.devlab.blog/posts/post19-jpk-cit-2026-obowiazek.html"
+    },
+    "headline": "JPK_CIT 2026: obowiązek ustrukturyzowanych ksiąg rachunkowych — JPK_KR_PD, JPK_ST_KR, harmonogram i przygotowanie",
+    "description": "Praktyczny przewodnik po JPK_CIT: struktury JPK_KR_PD i JPK_ST_KR, harmonogram etapowy 2025–2027, pierwsze przesłanie z zeznaniem CIT, znaczniki podatkowe, mapowanie kont, powiązania z KSeF i JPK_VAT oraz checklista przygotowania.",
+    "author": { "@type": "Organization", "name": "DevLab Blog" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": { "@type": "ImageObject", "url": "https://uk.devlab.blog/img/devlab-logo.svg" }
+    },
+    "datePublished": "2026-07-04",
+    "dateModified": "2026-07-04"
+  }
+  </script>
+
+  <link rel="canonical" href="https://pl.devlab.blog/posts/post19-jpk-cit-2026-obowiazek.html">
+
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WTZDV4K6');</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Czym jest JPK_CIT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "JPK_CIT to obowiązek prowadzenia ksiąg rachunkowych przy użyciu programów komputerowych i przesyłania ich do organu podatkowego w formacie ustrukturyzowanym. Składa się z dwóch struktur logicznych: JPK_KR_PD (księgi rachunkowe z danymi podatkowymi) oraz JPK_ST_KR (ewidencja środków trwałych i wartości niematerialnych i prawnych). Obowiązek wprowadziła nowelizacja ustawy o CIT."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Od kiedy obowiązuje JPK_CIT i kogo dotyczy najpierw?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Harmonogram jest etapowy. Za rok podatkowy rozpoczynający się po 31 grudnia 2024 obowiązek obejmuje najpierw największych podatników CIT (przychód powyżej 50 mln euro) oraz podatkowe grupy kapitałowe. Za rok rozpoczynający się po 31 grudnia 2025 dołączają pozostali podatnicy CIT zobowiązani do przesyłania JPK_VAT. Za rok rozpoczynający się po 31 grudnia 2026 obowiązek obejmuje pozostałych podatników CIT."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kiedy trzeba przesłać JPK_CIT po raz pierwszy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "JPK_CIT przesyła się raz w roku, wraz z rocznym zeznaniem CIT — czyli do końca trzeciego miesiąca po zakończeniu roku podatkowego. Dla roku pokrywającego się z kalendarzowym oznacza to zwykle koniec marca kolejnego roku. Księgi trzeba jednak prowadzić w wymaganej strukturze przez cały rok, a nie dopiero przy wysyłce."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak JPK_CIT łączy się z KSeF i JPK_VAT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "JPK_CIT nie działa w próżni. Dane z ksiąg muszą być spójne z JPK_VAT oraz z fakturami przechodzącymi przez KSeF. Rozbieżność między przychodem w księgach a sprzedażą wykazaną w JPK_VAT albo między zaksięgowaną fakturą a jej odpowiednikiem w KSeF to najczęstszy sygnał do kontroli. Uporządkowanie danych źródłowych przed pierwszą wysyłką jest kluczowe."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="post-page">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="page">
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="Logo DevLab Blog">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP i automatyzacja</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Artykuły</a>
+              <a href="/#categories">Kategorie</a>
+              <a href="/#about">O blogu</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Strona główna</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/">EN</a>
+              <a href="https://pl.devlab.blog/" class="active">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Do artykułów</a>
+            <a href="/#about" class="btn btn-primary">Co to jest?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrapper">
+        <div class="main-grid">
+
+          <article id="post19-jpk-cit-2026-obowiazek">
+            <div class="section-title">
+              <span>Artykuł</span>
+              <small><a href="/">← Wszystkie artykuły</a></small>
+            </div>
+
+            <header>
+              <div class="post-meta">
+                <span>Polska · JPK_CIT · Compliance</span>
+                <span>&middot;</span>
+                <span>Czytanie: ~14 min</span>
+                <span>&middot;</span>
+                <span>Opublikowano: 4 lipca 2026</span>
+              </div>
+
+              <h1 class="hero-title">
+                JPK_CIT 2026: koniec ery „księgi to nasza sprawa" — co się zmienia i jak się przygotować
+              </h1>
+
+              <p class="hero-text">
+                Fiskus przestaje pytać o wynik i zaczyna czytać całą księgę. JPK_CIT to obowiązek wysyłania ksiąg rachunkowych
+                w ustrukturyzowanym formacie — konto po koncie, zapis po zapisie. Kto, od kiedy, w jakiej strukturze i co
+                najczęściej się rozjeżdża w praktyce. Bez lania wody.
+              </p>
+
+              <figure class="post-hero">
+                <img
+                  src="https://uk.devlab.blog/img/post19-jpk-cit-2026-obowiazek.webp"
+                  alt="JPK_CIT 2026: struktury JPK_KR_PD i JPK_ST_KR, harmonogram etapowy i przygotowanie ksiąg rachunkowych"
+                >
+              </figure>
+            </header>
+
+            <section class="post-content">
+
+              <!-- TL;DR -->
+              <div class="post-quick">
+                <p class="post-quick__title">W skrócie (60 sekund)</p>
+                <p class="post-quick__text">
+                  <strong>Co to.</strong> Obowiązek prowadzenia i przesyłania ksiąg rachunkowych w formacie ustrukturyzowanym: struktura <strong>JPK_KR_PD</strong> (księgi z danymi podatkowymi) oraz <strong>JPK_ST_KR</strong> (środki trwałe i WNiP). Wprowadzony nowelizacją ustawy o CIT.
+                  <strong>Harmonogram.</strong> Etapami: za rok po 31.12.2024 — najwięksi podatnicy CIT (przychód &gt;50 mln EUR) i podatkowe grupy kapitałowe; za rok po 31.12.2025 — pozostali podatnicy CIT składający JPK_VAT; za rok po 31.12.2026 — reszta podatników CIT.
+                  <strong>Termin.</strong> Pierwsze przesłanie wraz z rocznym zeznaniem CIT — do końca 3. miesiąca po zakończeniu roku podatkowego.
+                  <strong>Co boli.</strong> Nie format XML, lecz dane: mapowanie kont na standard, znaczniki podatkowe, identyfikacja kontrahentów, spójność z KSeF i JPK_VAT.
+                </p>
+              </div>
+
+              <h2 id="intro">Co się naprawdę zmienia</h2>
+
+              <p>
+                Do tej pory księgi rachunkowe były wewnętrzną kuchnią firmy. Fiskus widział wynik: zeznanie CIT, deklaracje, JPK na żądanie.
+                To, jak dokładnie zaksięgowano każdą operację — którym kontem, z jakim opisem, na podstawie jakiego dokumentu — zostawało w firmie,
+                dopóki nie przyszła kontrola i nie poprosiła o wyciąg.
+              </p>
+
+              <p>
+                <strong>JPK_CIT to odwrócenie tej logiki.</strong> Teraz to firma sama, co roku, wysyła urzędowi <em>całą</em> księgę w formacie,
+                który da się przeczytać maszynowo — z oznaczeniami kont według standardu, znacznikami podatkowymi przy każdej istotnej pozycji,
+                zidentyfikowanymi kontrahentami i osobnym rejestrem środków trwałych. Nie wynik. Nie próbkę. Księgę.
+              </p>
+
+              <p>Co to oznacza w praktyce dla działu księgowego:</p>
+
+              <ul>
+                <li>Plan kont trzeba zmapować na standardowy układ oczekiwany przez strukturę — „u nas to konto 731-2" przestaje wystarczać.</li>
+                <li>Każdy zapis o znaczeniu podatkowym musi nieść odpowiedni <strong>znacznik podatkowy</strong> (np. koszt niestanowiący KUP, przychód zwolniony).</li>
+                <li>Kontrahenci muszą być zidentyfikowani danymi, które da się skontrolować — NIP w jednolitym formacie, nie „Firma Handlowa Kowalski".</li>
+                <li>Środki trwałe i WNiP idą osobną strukturą <strong>JPK_ST_KR</strong> — z datami, wartościami, amortyzacją.</li>
+                <li>Dane muszą się <em>zgadzać</em> z tym, co już wysłałeś w JPK_VAT i co przeszło przez KSeF.</li>
+              </ul>
+
+              <div class="post-toc" aria-label="Spis treści">
+                <div class="post-toc__title">W tym artykule</div>
+                <ul class="post-toc__list">
+                  <li><a href="#czym-jest">Czym jest JPK_CIT: JPK_KR_PD i JPK_ST_KR</a></li>
+                  <li><a href="#harmonogram">Harmonogram: kto i od kiedy</a></li>
+                  <li><a href="#termin">Termin: kiedy pierwsza wysyłka</a></li>
+                  <li><a href="#dane">Co musi znaleźć się w księgach</a></li>
+                  <li><a href="#powiazania">Powiązania z KSeF i JPK_VAT</a></li>
+                  <li><a href="#ryzyka">7 miejsc, w których to się rozjeżdża</a></li>
+                  <li><a href="#checklist">Checklista przygotowania</a></li>
+                  <li><a href="#narzedzia">Narzędzia: gotowe vs open-source</a></li>
+                  <li><a href="#wniosek">Wniosek: co zrobić już teraz</a></li>
+                  <li><a href="#faq">FAQ</a></li>
+                  <li><a href="#sources">Oficjalne źródła</a></li>
+                </ul>
+              </div>
+
+              <hr>
+
+              <h2 id="czym-jest">Czym jest JPK_CIT: dwie struktury, jeden obowiązek</h2>
+
+              <p>
+                JPK_CIT to potoczna nazwa obowiązku, który w praktyce składa się z <strong>dwóch osobnych struktur logicznych</strong>.
+                Warto je rozdzielić od razu, bo mylenie ich to pierwsze źródło chaosu przy wdrożeniu.
+              </p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Struktura</th><th>Co zawiera</th><th>Sedno</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>JPK_KR_PD</strong></td>
+                      <td>Księgi rachunkowe rozszerzone o dane podatkowe: zapisy na kontach, znaczniki podatkowe, powiązanie z dokumentami źródłowymi, dane kontrahentów</td>
+                      <td>To „mięso" obowiązku — pełny obraz księgowań w ujęciu podatkowym</td>
+                    </tr>
+                    <tr>
+                      <td><strong>JPK_ST_KR</strong></td>
+                      <td>Ewidencja środków trwałych oraz wartości niematerialnych i prawnych: wartość początkowa, data przyjęcia, metoda i stawka amortyzacji, zmiany wartości</td>
+                      <td>Osobny rejestr majątku trwałego — często niedoceniany przy planowaniu</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>
+                Obowiązek wprowadziła <strong>nowelizacja ustawy o CIT</strong> — księgi mają być prowadzone przy użyciu programów komputerowych
+                i przesyłane organom podatkowym w postaci ustrukturyzowanej. Skrót „JPK_CIT" jest wygodny w rozmowie, ale w dokumentacji technicznej
+                zawsze operuj nazwami struktur: to one określają, jakie pola i w jakim formacie system musi wygenerować.
+              </p>
+
+              <div class="callout">
+                <strong>Częste nieporozumienie.</strong>
+                <p>
+                  JPK_CIT to nie „kolejna deklaracja do wysłania raz w roku". To wymóg <em>prowadzenia ksiąg</em> w określonej strukturze
+                  przez cały rok. Jeśli przez 11 miesięcy księgujesz „po staremu", a w grudniu chcesz to przekształcić w JPK_KR_PD —
+                  zabraknie ci znaczników, opisów i identyfikatorów, których nikt nie wprowadzał na bieżąco. Struktura wysyłki to skutek,
+                  a nie przyczyna. Przyczyną jest sposób księgowania.
+                </p>
+              </div>
+
+              <hr>
+
+              <h2 id="harmonogram">Harmonogram: kto i od kiedy</h2>
+
+              <p>
+                Obowiązek wchodzi etapami, zależnie od tego, jaki jest twój rok podatkowy i do której grupy podatników należysz.
+                Kluczowe jest sformułowanie „za rok podatkowy rozpoczynający się po" danej dacie — nie mylić z rokiem kalendarzowym wysyłki.
+              </p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Rok podatkowy rozpoczynający się po</th><th>Kogo obejmuje</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>31 grudnia 2024</strong></td>
+                      <td>Najwięksi podatnicy CIT — przychód za poprzedni rok <strong>powyżej 50 mln euro</strong> — oraz <strong>podatkowe grupy kapitałowe</strong> (PGK)</td>
+                    </tr>
+                    <tr>
+                      <td><strong>31 grudnia 2025</strong></td>
+                      <td>Pozostali podatnicy CIT <strong>zobowiązani do przesyłania JPK_VAT</strong></td>
+                    </tr>
+                    <tr>
+                      <td><strong>31 grudnia 2026</strong></td>
+                      <td>Pozostali podatnicy CIT (grupa zamykająca)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>
+                Innymi słowy: jeśli jesteś dużym podatnikiem albo działasz w PGK, obowiązek już cię dotyczy za rok, który zaczął się w 2025.
+                Średnie firmy składające JPK_VAT wchodzą rok później. Reszta — jeszcze rok później. Ale uwaga:
+                <strong>przygotowanie ksiąg zaczyna się na długo przed pierwszą wysyłką</strong>, bo trzeba je prowadzić w nowej strukturze od pierwszego dnia roku objętego obowiązkiem.
+              </p>
+
+              <div class="callout">
+                <strong>Praktyczna rada dla „drugiej fali".</strong>
+                <p>
+                  Jeśli twój obowiązek startuje za rok rozpoczynający się po 31.12.2025, to znaczy, że księgi w strukturze musisz prowadzić
+                  <em>od stycznia 2026</em> — a nie od momentu wysyłki w 2027. Firmy, które to przeoczą, w pierwszym kwartale kolejnego roku
+                  odkrywają, że cały poprzedni rok trzeba księgowo „przemapować" wstecz. To najdroższy scenariusz.
+                </p>
+              </div>
+
+              <hr>
+
+              <h2 id="termin">Termin: kiedy pierwsza wysyłka</h2>
+
+              <p>
+                W odróżnieniu od JPK_VAT (miesięczny) JPK_CIT przesyła się <strong>raz w roku</strong> — razem z rocznym zeznaniem CIT.
+                Termin to <strong>koniec trzeciego miesiąca po zakończeniu roku podatkowego</strong>.
+              </p>
+
+              <p>
+                Dla firmy, której rok podatkowy pokrywa się z kalendarzowym, oznacza to zwykle koniec marca kolejnego roku.
+                Jeśli masz rok przesunięty (np. od 1 lipca do 30 czerwca), liczysz trzy miesiące od swojej daty zamknięcia.
+                Sama wysyłka to formalność — problemem jest to, żeby księgi <em>przez cały rok</em> były prowadzone w sposób,
+                który da się jednym ruchem wygenerować jako JPK_KR_PD i JPK_ST_KR.
+              </p>
+
+              <hr>
+
+              <h2 id="dane">Co musi znaleźć się w księgach</h2>
+
+              <p>
+                To sekcja, która decyduje o powodzeniu. Struktura wymaga danych, których wiele firm dziś nie ewidencjonuje w wymaganej postaci:
+              </p>
+
+              <h3>Oznaczenie kont według standardu</h3>
+              <p>
+                Twój firmowy plan kont trzeba <strong>zmapować</strong> na układ oczekiwany przez strukturę. To nie znaczy, że musisz porzucić
+                własną numerację — ale każde konto musi mieć przypisany odpowiednik w standardzie. Najczęstsza pułapka: konta „historyczne",
+                używane od lat, których nikt już nie potrafi jednoznacznie zakwalifikować.
+              </p>
+
+              <h3>Znaczniki podatkowe</h3>
+              <p>
+                Zapisy o znaczeniu podatkowym muszą nieść odpowiedni znacznik — np. koszt niestanowiący kosztu uzyskania przychodu,
+                przychód zwolniony, różnice przejściowe. To informacja, którą księgowość i tak zna „w głowie", ale która musi trafić do zapisu
+                w sposób maszynowo czytelny. Bez tego JPK_KR_PD jest niekompletny.
+              </p>
+
+              <h3>Identyfikacja kontrahentów</h3>
+              <p>
+                Kontrahent w zapisie musi być zidentyfikowany danymi, które da się zweryfikować — przede wszystkim NIP w jednolitym formacie.
+                „Sklep na rogu", „Zaliczka Kowalski", „Różni" — takie opisy przechodzą w księgowaniu wewnętrznym, ale w strukturze są sygnałem problemu.
+              </p>
+
+              <h3>Środki trwałe i WNiP (JPK_ST_KR)</h3>
+              <p>
+                Osobna struktura z danymi o majątku trwałym: wartość początkowa, data przyjęcia do używania, metoda i stawka amortyzacji,
+                korekty wartości, likwidacje. Wiele firm prowadzi ewidencję środków trwałych w osobnym module lub arkuszu, który
+                <em>nie jest spięty</em> z księgą główną. To pierwszy kandydat do rozbieżności.
+              </p>
+
+              <hr>
+
+              <h2 id="powiazania">Powiązania z KSeF i JPK_VAT: spójność albo kontrola</h2>
+
+              <p>
+                JPK_CIT nie żyje w izolacji. To trzeci element układanki obok JPK_VAT i KSeF — a fiskus dostaje wszystkie trzy i może je zestawić.
+              </p>
+
+              <ul>
+                <li>
+                  <strong>Przychód w księgach vs sprzedaż w JPK_VAT.</strong> Jeśli przychód wykazany w JPK_KR_PD nie zgadza się ze sprzedażą
+                  raportowaną w JPK_VAT (po korektach o różnice VAT/CIT), to gotowy powód do pytań.
+                </li>
+                <li>
+                  <strong>Zaksięgowana faktura vs jej odpowiednik w KSeF.</strong> Od momentu, gdy faktura sprzedażowa lub zakupowa przechodzi przez KSeF,
+                  ma swój identyfikator. Zapis w księdze, który dotyczy tej faktury, powinien dać się z nią powiązać. Rozjazd tutaj to najczystszy sygnał kontrolny.
+                </li>
+                <li>
+                  <strong>Korekty.</strong> Faktura korygująca zmienia i VAT, i podstawę CIT, i zapis w księdze. Jeśli te trzy warstwy korygujesz
+                  niespójnie albo w różnych okresach — dane się rozjadą, a kontrola zobaczy różnicę natychmiast.
+                </li>
+              </ul>
+
+              <div class="callout">
+                <strong>Sedno.</strong>
+                <p>
+                  Największe ryzyko JPK_CIT to nie „nie wyślemy pliku". To <em>wyślemy plik, który nie zgadza się z tym, co już wysłaliśmy</em>.
+                  Trzy systemy raportowania — KSeF, JPK_VAT, JPK_CIT — muszą opowiadać tę samą historię. Uporządkowanie danych źródłowych
+                  <em>zanim</em> wygenerujesz pierwszy JPK_KR_PD jest ważniejsze niż samo narzędzie do wysyłki.
+                </p>
+              </div>
+
+              <hr>
+
+              <h2 id="ryzyka">7 miejsc, w których to się rozjeżdża</h2>
+
+              <ol>
+                <li>
+                  <strong>Mapowanie kont zrobione „na styk".</strong>
+                  Standard dostał przypisanie tylko dla kont aktywnych w bieżącym roku. Stare konta, konta techniczne, konta rozliczeń
+                  międzyokresowych — pominięte. Wychodzi przy pierwszej nietypowej operacji.
+                </li>
+                <li>
+                  <strong>Brak znaczników na bieżąco.</strong>
+                  Księgowość zna kwalifikację podatkową „z pamięci", ale nie zapisuje jej przy księgowaniu. Na koniec roku trzeba
+                  ręcznie oznaczyć tysiące zapisów — albo zgadywać.
+                </li>
+                <li>
+                  <strong>Ewidencja środków trwałych poza księgą.</strong>
+                  ST prowadzone w osobnym arkuszu/module, nieuzgadniane z księgą główną. JPK_ST_KR pokazuje rozjazd, którego nikt wcześniej nie widział.
+                </li>
+                <li>
+                  <strong>Kontrahenci bez NIP albo z NIP „w różnych formatach".</strong>
+                  W ERP bez separatorów, w CRM z myślnikami, w rozrachunkach z prefiksem PL. Na kontroli to wygląda jak trzej różni kontrahenci.
+                </li>
+                <li>
+                  <strong>Rozjazd z JPK_VAT.</strong>
+                  Przychód CIT i sprzedaż VAT liczone niezależnie, bez uzgodnienia różnic. Zestawienie plików pokazuje lukę.
+                </li>
+                <li>
+                  <strong>Korekty w różnych okresach.</strong>
+                  Korekta VAT zaksięgowana w innym miesiącu niż korekta CIT. Formalnie może być poprawne — ale wymaga jasnego śladu, dlaczego.
+                </li>
+                <li>
+                  <strong>Brak właściciela procesu.</strong>
+                  Księgowość odpowiada za zapisy, IT za wysyłkę, doradca podatkowy za znaczniki. Gdy plik się nie zgadza, nikt nie wie, czyj to problem.
+                </li>
+              </ol>
+
+              <p>
+                <strong>6 z 7 pułapek to nie technika.</strong> To dane i proces. Wygenerowanie XML jest łatwe.
+                Trudne jest to, żeby dane w tym XML były spójne, kompletne i zgodne z pozostałymi raportami.
+              </p>
+
+              <hr>
+
+              <h2 id="checklist">Checklista przygotowania</h2>
+
+              <div class="diagram-card">
+                <div class="diagram-title">
+                  Droga do pierwszej wysyłki
+                  <span class="diagram-hint">od „poukładać" do „wygenerować"</span>
+                </div>
+                <ol>
+                  <li>
+                    <strong>Ustal swoją datę startu.</strong>
+                    Sprawdź, do której fali harmonogramu należysz i od którego roku podatkowego musisz prowadzić księgi w strukturze.
+                    Pamiętaj: liczy się początek roku objętego obowiązkiem, nie termin wysyłki.
+                  </li>
+                  <li>
+                    <strong>Zmapuj plan kont na standard.</strong>
+                    Wszystkie konta, nie tylko aktywne. Wyłap konta „sieroty" i konta techniczne. Udokumentuj mapowanie.
+                  </li>
+                  <li>
+                    <strong>Wprowadź znaczniki podatkowe do procesu księgowania.</strong>
+                    Tak, żeby powstawały na bieżąco, a nie ręcznie w grudniu. To zmiana w sposobie pracy, nie tylko w systemie.
+                  </li>
+                  <li>
+                    <strong>Uporządkuj kontrahentów.</strong>
+                    Jednolity format NIP, deduplikacja, likwidacja pozycji typu „Różni". Uzgodnij dane z tymi w KSeF i JPK_VAT.
+                  </li>
+                  <li>
+                    <strong>Spryj ewidencję środków trwałych z księgą.</strong>
+                    JPK_ST_KR ma się zgadzać z księgą główną co do wartości i amortyzacji. Uzgodnij salda.
+                  </li>
+                  <li>
+                    <strong>Przetestuj generowanie i spójność.</strong>
+                    Wygeneruj próbny JPK_KR_PD i JPK_ST_KR z danych roboczych i zestaw je z JPK_VAT za ten sam okres. Wyłap różnice, zanim zrobi to urząd.
+                  </li>
+                  <li>
+                    <strong>Wyznacz właściciela procesu end-to-end.</strong>
+                    Jedna osoba/rola odpowiedzialna za to, że dane, znaczniki, wysyłka i spójność „grają" razem.
+                  </li>
+                </ol>
+              </div>
+
+              <hr>
+
+              <h2 id="narzedzia">Narzędzia: gotowe vs open-source</h2>
+
+              <p>
+                Większość systemów księgowych obecnych na polskim rynku dodaje albo zapowiada moduł JPK_CIT. Jeśli nie masz zespołu deweloperów,
+                to najprostsza droga. Jeśli masz — warstwa open-source daje elastyczność tam, gdzie gotowe moduły milczą: kontrola spójności,
+                uzgodnienia między JPK_CIT / JPK_VAT / KSeF, obsługa wyjątków. <em>Zakres i dojrzałość modułów sprawdź bezpośrednio u dostawców —
+                obsługa JPK_CIT wciąż dojrzewa.</em>
+              </p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Narzędzie</th><th>Do czego</th><th>Linki</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>MyCompany (lsFusion)</strong></td>
+                      <td>Deklaratywna platforma ERP, w której księgi, VAT i majątek trwały to jeden model danych. Ułatwia utrzymanie spójności JPK_CIT / JPK_VAT / KSeF, bo dane nie są rozproszone między moduły. Pełna lokalizacja polska</td>
+                      <td><a href="https://mycompany.lsfusion.org/pl/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Appsmith</strong></td>
+                      <td>Wewnętrzne panele do uzgadniania danych, wyłapywania rozjazdów między raportami, ręcznej obsługi wyjątków</td>
+                      <td><a href="https://www.appsmith.com/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/appsmithorg/appsmith" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Metabase</strong></td>
+                      <td>Zestawienia kontrolne: przychód CIT vs sprzedaż VAT, salda ST vs księga główna, luki w znacznikach</td>
+                      <td><a href="https://www.metabase.com/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/metabase/metabase" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>n8n</strong></td>
+                      <td>Automatyzacja: alerty o rozbieżnościach, przypomnienia o terminach, routing spraw do właściciela procesu</td>
+                      <td><a href="https://n8n.io/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <hr>
+
+              <h2 id="wniosek">Wniosek: co zrobić już teraz</h2>
+
+              <p>
+                JPK_CIT to <strong>projekt danych</strong>, a nie „nowy plik do wysłania". Firmy, które potraktują go jako formalność na koniec roku,
+                odkryją w pierwszym kwartale, że cały poprzedni rok trzeba księgowo porządkować wstecz. Ci, którzy poukładają księgi z wyprzedzeniem,
+                wyślą JPK_KR_PD jednym ruchem.
+              </p>
+
+              <p>Trzy rzeczy warte zrobienia <em>w tym miesiącu</em>:</p>
+
+              <ol class="steps">
+                <li>
+                  <strong>Ustal swoją falę i datę startu.</strong> Sprawdź, od którego roku podatkowego musisz prowadzić księgi w strukturze —
+                  to często wcześniej, niż się wydaje, bo liczy się początek roku, nie termin wysyłki.
+                </li>
+                <li>
+                  <strong>Zrób audyt danych źródłowych.</strong> Mapowanie kont, znaczniki podatkowe, format NIP kontrahentów, spójność ewidencji ST z księgą.
+                  To 80% pracy — i to, co decyduje o tym, czy plik się zgodzi.
+                </li>
+                <li>
+                  <strong>Zestaw próbnie z JPK_VAT.</strong> Wygeneruj roboczy JPK_KR_PD i porównaj z JPK_VAT za ten sam okres.
+                  Każda różnica, którą znajdziesz teraz, to różnica, której nie znajdzie urząd.
+                </li>
+              </ol>
+
+              <hr>
+
+              <h2 id="faq">FAQ</h2>
+
+              <h3>Czym jest JPK_CIT?</h3>
+              <p>
+                To obowiązek prowadzenia ksiąg rachunkowych przy użyciu programów komputerowych i przesyłania ich organom podatkowym
+                w formacie ustrukturyzowanym. Składa się z dwóch struktur: <strong>JPK_KR_PD</strong> (księgi z danymi podatkowymi) oraz
+                <strong>JPK_ST_KR</strong> (środki trwałe i WNiP). Obowiązek wprowadziła nowelizacja ustawy o CIT.
+              </p>
+
+              <h3>Od kiedy obowiązuje i kogo dotyczy najpierw?</h3>
+              <p>
+                Etapami. Za rok podatkowy rozpoczynający się po 31.12.2024 — najwięksi podatnicy CIT (przychód &gt;50 mln EUR) i podatkowe grupy kapitałowe.
+                Za rok po 31.12.2025 — pozostali podatnicy CIT składający JPK_VAT. Za rok po 31.12.2026 — reszta podatników CIT.
+              </p>
+
+              <h3>Kiedy trzeba przesłać po raz pierwszy?</h3>
+              <p>
+                Raz w roku, wraz z rocznym zeznaniem CIT — do końca trzeciego miesiąca po zakończeniu roku podatkowego. Dla roku
+                pokrywającego się z kalendarzowym to zwykle koniec marca. Księgi trzeba jednak prowadzić w strukturze przez cały rok, nie dopiero przy wysyłce.
+              </p>
+
+              <h3>Jak JPK_CIT łączy się z KSeF i JPK_VAT?</h3>
+              <p>
+                Dane z ksiąg muszą być spójne z JPK_VAT i z fakturami z KSeF. Rozbieżność między przychodem w księgach a sprzedażą w JPK_VAT,
+                albo między zaksięgowaną fakturą a jej odpowiednikiem w KSeF, to najczęstszy sygnał do kontroli. Uporządkowanie danych źródłowych przed pierwszą wysyłką jest kluczowe.
+              </p>
+
+              <hr>
+
+              <h2 id="sources">Oficjalne źródła</h2>
+              <ul>
+                <li><a href="https://www.podatki.gov.pl/cit/jpk-cit/" target="_blank" rel="noopener noreferrer">JPK_CIT na podatki.gov.pl — portal oficjalny</a></li>
+                <li><a href="https://www.gov.pl/web/finanse" target="_blank" rel="noopener noreferrer">Ministerstwo Finansów — gov.pl</a></li>
+                <li><a href="https://www.podatki.gov.pl/jednolity-plik-kontrolny/" target="_blank" rel="noopener noreferrer">Jednolity Plik Kontrolny — informacje ogólne</a></li>
+              </ul>
+
+              <h2 id="feedback">Szybki feedback</h2>
+              <div class="callout">
+                <strong>Czy było przydatne?</strong>
+                <p>Krótki sygnał pomaga nam wybierać tematy kolejnych materiałów.</p>
+
+                <div class="hero-actions">
+                  <button class="btn btn-primary" type="button" data-vote="like">
+                    👍 Przydatne <span class="count" data-count="like">—</span>
+                  </button>
+
+                  <button class="btn btn-outline" type="button" data-vote="dislike">
+                    👎 Niezbyt <span class="count" data-count="dislike">—</span>
+                  </button>
+                </div>
+
+                <p class="sidebar-text">Bez komentarzy i kont.</p>
+              </div>
+
+              <h2 id="related-posts">Powiązane materiały</h2>
+
+              <div class="callout">
+                <strong>Co jeszcze warto przeczytać:</strong>
+                <p>JPK_CIT łączy się z KSeF i JPK_VAT — więcej praktyki na DevLab Blog:</p>
+                <ul>
+                  <li><a href="/posts/post14-ksef-2026-limit-10000-checklist.html">KSeF 2026: kompletny przewodnik — FA(3), ZAW-FA, kary i checklista ↗</a></li>
+                  <li><a href="/posts/post15-ksef-after-go-live-15-issues.html">KSeF po starcie: 15 problemów pojawiających się po 2–3 miesiącach ↗</a></li>
+                  <li><a href="/posts/post12-ksef-low-code.html">KSeF w 2026 roku: terminy, limit 10 000 zł i praktyczne przygotowanie ↗</a></li>
+                </ul>
+              </div>
+
+              <footer class="post-footer-extended">
+                <div class="post-footer-meta">
+                  <div class="post-meta-tags">
+                    <span class="post-tag">JPK_CIT</span>
+                    <span class="post-tag">JPK_KR_PD</span>
+                    <span class="post-tag">JPK_ST_KR</span>
+                    <span class="post-tag">CIT</span>
+                    <span class="post-tag">Poland</span>
+                    <span class="post-tag">Compliance</span>
+                  </div>
+
+                  <div class="post-meta-secondary">
+                    <span>Opublikowano: 4 lipca 2026</span>
+                    <span>·</span>
+                    <span>Czytanie: ~14 min</span>
+                    <span>·</span>
+                    <span class="post-views">Wyświetlenia: <span class="count">—</span></span>
+                  </div>
+                </div>
+              </footer>
+
+              <section class="sidebar-block">
+                <p class="sidebar-text">
+                  Bez spamu — tylko notatki o JPK_CIT, KSeF, ERP i automatyzacji oraz nowych artykułach.
+                </p>
+                <form class="newsletter-form"
+                      action="https://formsubmit.co/info@devlab.blog"
+                      method="POST">
+                  <input type="hidden" name="_next" value="https://pl.devlab.blog/thank-you.html">
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="text" name="_honey" style="display:none">
+
+                  <input type="email" name="email" class="field" placeholder="Twój e-mail" required>
+                  <button class="btn btn-primary" type="submit">Zapisz się</button>
+
+                  <p class="newsletter-note">
+                    Otrzymasz e-mail z potwierdzeniem.<br>
+                    Bezpiecznie przez FormSubmit.
+                  </p>
+                </form>
+              </section>
+
+            </section>
+
+            <div class="post-nav-links">
+              <a class="back" href="/#posts" style="margin-left: 0;">← Wszystkie artykuły</a>
+              <a class="back" href="/#categories" style="margin-right: 0;">Kategorie →</a>
+            </div>
+          </article>
+
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title" id="topic-question-title">Zaproponuj temat</h3>
+              <p class="sidebar-text">
+                Masz pytanie lub pomysł na kolejny artykuł?
+                <a class="post-read" href="mailto:info@devlab.blog?subject=Pytanie%20lub%20pomys%C5%82%20dla%20DevLab%20Blog">
+                  Napisz do nas →
+                </a>
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">O blogu</h3>
+              <p class="sidebar-text">
+                DevLab Blog pisze o open-source ERP, modułowych architekturach i automatyzacji low-code —
+                z naciskiem na praktyczne wdrożenia i realne case studies.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">Co jeszcze warto zobaczyć</h3>
+              <p class="sidebar-text">Wróć na stronę główną lub przejrzyj kategorie:</p>
+              <ul>
+                <li><a href="/">Wszystkie artykuły</a></li>
+                <li><a href="/#categories">Kategorie</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Strona główna DevLab</a></li>
+              </ul>
+            </section>
+          </aside>
+
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Artykuły</a>
+            <a href="/#categories">Kategorie</a>
+            <a href="/#about">O blogu</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Strona główna</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog — notatki o open-source ERP, modułowych architekturach i eksperymentach z automatyzacją.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
