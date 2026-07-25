@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>System zarządzania magazynem bez mitów: od chaosu w arkuszach do WMS, który się zwraca – DevLab Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Przystępne wyjaśnienie zarządzania magazynem: co WMS naprawdę robi, oznaki, że wyrosłeś z arkuszy, „kupić/zbudować/wpiąć w ERP” oraz błędy, przez które projekty WMS się nie udają. Napisane dla ludzi z operacji, nie dla dostawców."
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <!-- Consent Mode (set BEFORE GTM) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{
+      analytics_storage:'denied',
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      functionality_storage:'granted',
+      security_storage:'granted'
+    });
+  </script>
+
+  <!-- Main blog styles -->
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+
+  <!-- Main blog scripts (year + search + views counter) -->
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://pl.devlab.blog/posts/post21-wms-demystified.html"
+    },
+    "headline": "System zarządzania magazynem bez mitów: od chaosu w arkuszach do WMS, który się zwraca",
+    "description": "Przystępne wyjaśnienie zarządzania magazynem: co WMS naprawdę robi, oznaki, że wyrosłeś z arkuszy, „kupić/zbudować/wpiąć w ERP” oraz błędy, przez które projekty WMS się nie udają. Napisane dla ludzi z operacji, nie dla dostawców.",
+    "author": { "@type": "Organization", "name": "DevLab Blog" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": { "@type": "ImageObject", "url": "https://uk.devlab.blog/img/devlab-logo.svg" }
+    },
+    "datePublished": "2026-07-24",
+    "dateModified": "2026-07-24"
+  }
+  </script>
+
+  <link rel="canonical" href="https://pl.devlab.blog/posts/post21-wms-demystified.html">
+
+  <meta name="keywords" content="zarządzanie magazynem, system zarządzania magazynem, WMS, oprogramowanie WMS, gospodarka magazynowa, zarządzanie zapasami, oprogramowanie magazynowe, trasa kompletacji, logistyka, moduł magazynowy ERP, low-code WMS">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="DevLab Blog">
+  <meta property="og:title" content="System zarządzania magazynem bez mitów: od chaosu w arkuszach do WMS, który się zwraca – DevLab Blog">
+  <meta property="og:description" content="Przystępne wyjaśnienie zarządzania magazynem: co WMS naprawdę robi, oznaki, że wyrosłeś z arkuszy, „kupić/zbudować/wpiąć w ERP” oraz błędy, przez które projekty WMS się nie udają. Napisane dla ludzi z operacji, nie dla dostawców.">
+  <meta property="og:url" content="https://pl.devlab.blog/posts/post21-wms-demystified.html">
+  <meta property="og:image" content="https://uk.devlab.blog/img/post21-wms-demystified.webp">
+  <meta property="article:published_time" content="2026-07-24">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="System zarządzania magazynem bez mitów: od chaosu w arkuszach do WMS, który się zwraca – DevLab Blog">
+  <meta name="twitter:description" content="Przystępne wyjaśnienie zarządzania magazynem: co WMS naprawdę robi, oznaki, że wyrosłeś z arkuszy, „kupić/zbudować/wpiąć w ERP” oraz błędy, przez które projekty WMS się nie udają. Napisane dla ludzi z operacji, nie dla dostawców.">
+  <meta name="twitter:image" content="https://uk.devlab.blog/img/post21-wms-demystified.webp">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WTZDV4K6');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="post-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automation notes</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Artykuły</a>
+              <a href="/#categories">Kategorie</a>
+              <a href="/#about">O blogu</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer noreferrer">Strona główna</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/">EN</a>
+              <a href="https://pl.devlab.blog/" class="active">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Wszystkie artykuły</a>
+            <a href="/#about" class="btn btn-primary">Co to jest?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="wrapper">
+        <div class="main-grid">
+          <!-- ARTICLE -->
+<article id="post21-warehouse-management-system-demystified">
+
+  <div class="section-title">
+    <span>Artykuł</span>
+    <small><a class="back" href="/">← Do wszystkich artykułów</a></small>
+  </div>
+
+  <header>
+    <div class="post-meta">
+      <span>Logistyka · WMS · Operacje</span>
+      <span>·</span>
+      <span>Około 9–11 min czytania</span>
+      <span>·</span>
+      <span>Analiza praktyka (bez marketingu)</span>
+    </div>
+  </header>
+
+  <nav class="post-toc" id="toc">
+    <h2>Spis treści</h2>
+    <ol>
+      <li class="has-children">
+        <a class="post-read" href="#intro">Wstęp</a>
+        <ol>
+          <li><a class="post-read" href="#intro-spreadsheet">Arkusz zawsze wygrywa — dopóki nie przestaje</a></li>
+          <li><a class="post-read" href="#intro-what-is">Czym WMS jest naprawdę</a></li>
+        </ol>
+      </li>
+      <li class="has-children">
+        <a class="post-read" href="#signs">Oznaki, że wyrosłeś z arkuszy</a>
+        <ol>
+          <li><a class="post-read" href="#signs-checklist">Lista pięciu objawów</a></li>
+        </ol>
+      </li>
+      <li class="has-children">
+        <a class="post-read" href="#does">Co robi system zarządzania magazynem</a>
+        <ol>
+          <li><a class="post-read" href="#does-receiving">Przyjęcie i składowanie</a></li>
+          <li><a class="post-read" href="#does-picking">Kompletacja, pakowanie, wysyłka</a></li>
+          <li><a class="post-read" href="#does-truth">Jedno zadanie, które liczy się najbardziej</a></li>
+        </ol>
+      </li>
+      <li class="has-children">
+        <a class="post-read" href="#buy">Zbudować, kupić czy wpiąć w ERP</a>
+        <ol>
+          <li><a class="post-read" href="#buy-options">Trzy uczciwe ścieżki</a></li>
+        </ol>
+      </li>
+      <li><a class="post-read" href="#fail">Dlaczego projekty WMS się nie udają</a></li>
+      <li><a class="post-read" href="#verdict">Od czego zacząć</a></li>
+    </ol>
+  </nav>
+
+  <section class="post-content">
+    <h1 class="hero-title">System zarządzania magazynem bez mitów</h1>
+    <p class="post-subtitle">
+      Większość magazynów nie upada dlatego, że brakuje im oprogramowania. Upadają, bo arkusz,
+      który ogarniał wszystko przy 200 zamówieniach dziennie, cicho przestaje działać przy
+      2000 — a nikt tego nie zauważa, dopóki zła paczka nie pojedzie do złego klienta. To
+      przystępne wyjaśnienie zarządzania magazynem: co WMS naprawdę robi, kiedy jest ci
+      naprawdę potrzebny i jak takie projekty idą nie tak.
+    </p>
+
+    <div class="callout" role="note">
+      <strong>Dla kogo to jest</strong>
+      <p>
+        Kierownicy operacji, założyciele i szefowie magazynu, którzy podejrzewają, że wyrośli z
+        ręcznej ewidencji, ale nie są pewni, czy WMS jest wart zamieszania.
+      </p>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="post-content">
+
+    <h2 id="intro-spreadsheet">Arkusz zawsze wygrywa — dopóki nie przestaje</h2>
+    <p>
+      Każdy magazyn zaczyna od arkusza i przez jakiś czas arkusz słusznie wygrywa. Jest
+      darmowy, wszyscy go znają i gnie się pod cokolwiek. Problem w tym, że arkusz modeluje to,
+      co ci się <em>wydaje</em>, że jest w magazynie. Nie ma pojęcia, co naprawdę leży teraz na
+      półce, kto to przesunął ani czy towar, który klient właśnie kupił, da się fizycznie
+      pobrać.
+    </p>
+    <p>
+      Ta luka — między liczbą w arkuszu a paczką na regale — jest niewidoczna przy małym
+      wolumenie i katastrofalna przy dużym. WMS istnieje po to, by ją zamknąć.
+    </p>
+
+    <h2 id="intro-what-is">Czym WMS jest naprawdę</h2>
+    <p>
+      Odrzuć żargon, a system zarządzania magazynem to jedna obietnica: <strong>system zawsze
+      wie, co gdzie jest, w czasie rzeczywistym, i mówi człowiekowi dokładnie, co robić
+      dalej.</strong> Zeskanuj towar na wejściu — stan rośnie w konkretnej lokalizacji.
+      Zeskanuj na wyjściu — stan maleje. Pracownik podąża za ekranem, a nie za swoją pamięcią.
+      Wszystko inne, co robi WMS, to wariacje tego motywu.
+    </p>
+
+    <div class="callout" role="note">
+      <strong>Ważne</strong>
+      <p>
+        WMS to nie to samo co oprogramowanie do stanów magazynowych. Oprogramowanie do stanów
+        liczy, <em>ile</em> masz. WMS śledzi też, <em>gdzie</em> jest każda sztuka, i
+        orkiestruje fizyczny ruch, by wyprowadzić ją za drzwi. „Gdzie” to cała różnica.
+      </p>
+    </div>
+
+    <hr>
+
+    <h2 id="signs-checklist">Lista pięciu objawów</h2>
+    <p>
+      Przy dziesięciu zamówieniach dziennie formalny WMS raczej nie jest ci potrzebny. Oto jak
+      poznać, kiedy naprawdę jest. Jeśli prawdziwe są trzy lub więcej punktów — arkusz już
+      kosztuje cię więcej, niż kosztowałoby oprogramowanie:
+    </p>
+    <ul>
+      <li>Nowym pracownikom zajmuje tygodnie znalezienie rzeczy, bo mapa magazynu żyje w głowie jednego weterana.</li>
+      <li>Regularnie sprzedajesz towar, którego nie masz — albo siedzisz na towarze, o którym system zapomniał.</li>
+      <li>Błędy kompletacji i zwroty rosną wraz z wolumenem.</li>
+      <li>Inwentaryzacja oznacza zamknięcie magazynu na dzień.</li>
+      <li>Nie umiesz odpowiedzieć „gdzie jest teraz zamówienie nr 4471?” bez obchodu magazynu.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="does-receiving">Przyjęcie i składowanie</h2>
+    <p>
+      Przychodzi towar. WMS sprawdza go względem zamówienia zakupu, przypisuje każdej sztuce
+      „domową” lokalizację i mówi pracownikowi, gdzie dokładnie ją odłożyć. Właśnie ten krok —
+      kierowane składowanie — sprawia, że dobry magazyn wchłania nowego pracownika w dzień, a
+      nie w miesiąc. Mapę trzyma system, a nie człowiek.
+    </p>
+
+    <h2 id="does-picking">Kompletacja, pakowanie, wysyłka</h2>
+    <p>
+      Tu WMS zarabia na siebie. Zamiast błądzić po alejkach, kompletujący dostaje zoptymalizowaną
+      trasę: tu — weź trzy, tam — weź jedną. System grupuje zamówienia, minimalizuje chodzenie
+      (często największy pojedynczy koszt w magazynie), weryfikuje każde skanowanie względem
+      zamówienia i drukuje etykietę. Mniej kroków, mniej błędów, szybsze wysyłki.
+    </p>
+
+    <h2 id="does-truth">Jedno zadanie, które liczy się najbardziej</h2>
+    <p>
+      Jeśli WMS nie robi nic innego dobrze, musi robić to: utrzymywać jedno, godne zaufania
+      źródło prawdy o stanach i lokalizacji. Każda obietnica w dół łańcucha — „dostępne” na
+      twojej stronie, termin dostawy, który podajesz, wyzwalacz uzupełnienia u dostawcy — jest
+      uczciwa dokładnie na tyle, na ile uczciwe jest to źródło prawdy. Zrób to dobrze — a reszta
+      staje się łatwiejsza. Zrób źle — a żadne funkcje cię nie uratują.
+    </p>
+
+    <div class="callout" role="note">
+      <strong>Praktyczny wniosek</strong>
+      <p>
+        Oceniaj każdy WMS jednym pytaniem: po pracowitym tygodniu system nadal zgadza się z
+        półką bez ręcznego uzgadniania? Jeśli tak — robi swoją prawdziwą robotę.
+      </p>
+    </div>
+
+    <hr>
+
+    <h2 id="buy-options">Zbudować, kupić czy wpiąć w ERP — trzy uczciwe ścieżki</h2>
+    <p>
+      Nie ma uniwersalnie poprawnej odpowiedzi, są tylko kompromisy:
+    </p>
+    <ul>
+      <li><strong>Kupić osobny WMS</strong> — najszybciej do głębokich funkcji magazynowych, ale teraz jesteś właścicielem kolejnej integracji między nim a twoim ERP/sklepem. Świetne, gdy magazyn to serce biznesu.</li>
+      <li><strong>Użyć modułu magazynowego swojego ERP</strong> — jeden system, jedno źródło prawdy, bez integracji. Zwykle płytszy niż dedykowany WMS, ale „wystarczająco dobrze i połączone” częściej wygrywa z „idealnie i odizolowane”, niż przyznają dostawcy.</li>
+      <li><strong>Zbudować na platformie low-code / modułowej</strong> — gdy logika twojego magazynu jest naprawdę nietypowa, gotowy WMS potrafi się z tobą kłócić. Platforma modułowa pozwala oprogramowaniu dopasować się do twojego procesu, a nie odwrotnie. Więcej wysiłku na starcie — dużo mniej tarcia, gdy twoje reguły się zmieniają.</li>
+    </ul>
+
+    <div class="callout" role="note">
+      <strong>Ważne</strong>
+      <p>
+        Najdroższy WMS to ten, z którym walczysz trzy lata, bo zbudowano go pod cudzy magazyn.
+        Dopasowanie do procesu niemal zawsze wygrywa z liczbą funkcji.
+      </p>
+    </div>
+
+    <hr>
+
+    <h2 id="fail">Dlaczego projekty WMS się nie udają</h2>
+    <p>
+      Gdy projekt systemu zarządzania magazynem idzie nie tak, rzadko chodzi o oprogramowanie.
+      Niemal zawsze o jedno z tego:
+    </p>
+    <ul>
+      <li><strong>Śmieci na wejściu.</strong> Wystartuj z błędnymi lokalizacjami i stanami, a WMS wiernie zautomatyzuje bałagan. Najpierw czyste dane; to nudne i nie podlega negocjacji.</li>
+      <li><strong>Brak zmiany procesu.</strong> WMS kupiony, by „naprawić magazyn”, podczas gdy wszyscy dalej pracują po staremu, po prostu dokłada skanowanie do chaosu.</li>
+      <li><strong>Start „wielkim wybuchem”.</strong> Przełączenie całej operacji z dnia na dzień w szczycie sezonu — tak magazyny zaczynają wysyłać przy latarce. Najpierw pilotaż na jednej strefie.</li>
+      <li><strong>Magazynu nie było w pokoju.</strong> Kompletujący wiedzą to, czego nie ma w specyfikacji. Zaprojektuj bez nich — a do drugiego tygodnia będą obchodzić system.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="verdict">Od czego zacząć</h2>
+    <p>
+      Nie zaczynaj od demo dostawcy. Zacznij od obchodu własnej hali i listy pięciu objawów
+      powyżej. Jeśli wyraźnie wyrosłeś z arkusza, najpierw narysuj na papierze swój prawdziwy
+      przepływ od przyjęcia do wysyłki — ten dokument jest wart więcej niż jakiekolwiek
+      porównanie funkcji, bo mówi, czy potrzebujesz głębokiego, osobnego WMS, modułu twojego
+      ERP, czy platformy, która gnie się pod twój proces.
+    </p>
+    <p>
+      Celem nigdy nie było „kupić WMS”. Celem jest, by system zgadzał się z półką co godzinę,
+      każdego dnia, bez człowieka trzymającego mapę w głowie. Wybierz ścieżkę, która doprowadzi
+      cię tam z najmniejszym tarciem — i wyczyść dane, zanim pstrykniesz przełącznikiem.
+    </p>
+
+    <div class="callout" role="note">
+      <strong>Praktyczny wniosek</strong>
+      <p>
+        System zarządzania magazynem to obietnica, że system zawsze wie, co gdzie jest. Kupuj go,
+        by dotrzymać tej obietnicy, a nie by kupić funkcje — i dopasuj narzędzie do swojego
+        procesu, a nie proces do narzędzia.
+      </p>
+    </div>
+
+              <hr>
+            <h2 id="feedback">Szybki feedback</h2>
+            <div class="callout">
+              <strong>Przydatne?</strong>
+              <p>Krótki sygnał pomaga nam wybierać kolejne tematy.</p>
+              <div class="hero-actions">
+                <button class="btn btn-primary" type="button" data-vote="like">👍 Tak <span class="count" data-count="like">—</span></button>
+                <button class="btn btn-outline" type="button" data-vote="dislike">👎 Niezbyt <span class="count" data-count="dislike">—</span></button>
+              </div>
+              <p class="sidebar-text">Bez komentarzy i kont.</p>
+            </div>
+            <h2 id="related-posts">Czytaj dalej</h2>
+            <div class="callout">
+              <strong>Kontynuuj:</strong>
+              <ul>
+                <li><a href="https://pl.devlab.blog/posts/post16-erp-architecture-doesnt-break-compare-1c-sap-dynamics-odoo.html" target="_blank" rel="noopener noreferrer">ERP, które nie zamienia się w drogi hamulec — architektura i koszt zmiany ↗</a></li>
+                <li><a href="https://pl.devlab.blog/posts/post13-open-source-erp-low-code.html" target="_blank" rel="noopener noreferrer">Open-source ERP i low-code: czego firmy faktycznie używają ↗</a></li>
+                <li><a href="https://pl.devlab.blog/posts/post6-low-code-platforms-principles-benefits.html" target="_blank" rel="noopener noreferrer">Platformy low-code: zasady i korzyści ↗</a></li>
+              </ul>
+            </div>
+          </section>
+
+            <footer class="post-footer-extended">
+              <div class="post-footer-meta">
+                <div class="post-meta-tags">
+                  <span class="post-tag">WMS</span>
+                  <span class="post-tag">Logistyka</span>
+                  <span class="post-tag">Magazyn</span>
+                  <span class="post-tag">Zapasy</span>
+                  <span class="post-tag">Operacje</span>
+                  <span class="post-tag">Low-code</span>
+                  <span class="post-tag">ERP</span>
+                </div>
+                <div class="post-meta-secondary">
+                  <span>Opublikowano: 24 lip 2026</span>
+                  <span>·</span>
+                  <span>Około 9–11 min czytania</span>
+                  <span>·</span>
+                  <span class="post-views">Wyświetlenia: <span class="count">—</span></span>
+                </div>
+              </div>
+            </footer>
+
+            <!-- Inline newsletter -->
+            <section class="sidebar-block">
+              <p class="sidebar-text">Bez spamu — tylko rzadkie notatki o ERP, automatyzacji i nowych artykułach.</p>
+              <form class="newsletter-form" action="https://formsubmit.co/info@devlab.blog" method="POST">
+                <input type="hidden" name="_next" value="https://pl.devlab.blog/thank-you.html">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none">
+                <input type="email" name="email" class="field" placeholder="Twój e-mail" required>
+                <button class="btn btn-primary" type="submit">Zapisz się</button>
+                <p class="newsletter-note">Otrzymasz e-mail potwierdzający.<br>Działa przez FormSubmit.</p>
+              </form>
+            </section>
+
+            <div class="post-nav-links">
+              <a class="back" href="/#posts" style="margin-left: 0;">← Wróć do wszystkich artykułów</a>
+              <a class="back" href="/#categories" style="margin-right: 0;">Kategorie →</a>
+            </div>
+        </article>
+          <!-- SIDEBAR -->
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title" id="topic-question-title">Zaproponuj temat</h3>
+              <p class="sidebar-text">
+                Masz pytanie lub pomysł na kolejny artykuł?
+                <a class="post-read" href="mailto:info@devlab.blog?subject=Pomys%C5%82%20lub%20pytanie%20dla%20DevLab%20Blog">
+                  Napisz do nas →
+                </a>
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">O blogu</h3>
+              <p class="sidebar-text">
+                DevLab Blog — notatki o open-source ERP, podejściach modułowych, integracjach i praktyce automatyzacji.
+                Piszemy o tym, co psuje się w realnych wdrożeniach i jak podejmować decyzje technologiczne bez „religii”.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">Więcej</h3>
+              <p class="sidebar-text">
+                Wróć na stronę główną albo wybierz kategorię:
+              </p>
+              <ul>
+                <li><a href="/">Wszystkie artykuły</a></li>
+                <li><a href="/#categories">Kategorie</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer noreferrer">Główna strona DevLab</a></li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Artykuły</a>
+            <a href="/#categories">Kategorie</a>
+            <a href="/#about">O blogu</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer noreferrer">Strona główna</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog – notatki o open-source ERP, architekturach modułowych i automatyzacji.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
