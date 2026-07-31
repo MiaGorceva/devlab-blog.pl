@@ -29,6 +29,8 @@
   </script>
 
   <!-- Main blog styles -->
+  <link rel="preconnect" href="https://uk.devlab.blog">
+  <link rel="dns-prefetch" href="https://uk.devlab.blog">
   <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
 
   <!-- Main blog scripts (year + search + views counter) -->
@@ -61,7 +63,7 @@
       }
     },
     "datePublished": "2026-02-06",
-    "dateModified": "2026-02-06"
+    "dateModified": "2026-07-31"
   }
   </script>
 
@@ -141,6 +143,40 @@
                   <li><a class="post-read" href="#related-posts">Related Posts</a></li>
               </ol></nav>
             </div>
+
+              <div class="callout">
+                <strong>Werdykt 2026 w skrócie — przed głębokim nurkowaniem.</strong>
+                <p>
+                  Ten materiał zderza ERPNext z MyCompany (lsFusion) na realnym zadaniu replenishmentu detalicznego — z kodem i uczciwym kosztem zmiany.
+                  Od pierwszej publikacji programowanie wspierane AI tylko wyostrzyło pointę: platforma, której reguły są zwięzłe i deklaratywne,
+                  to ta, którą AI (i Twój własny zespół) faktycznie utrzyma.
+                </p>
+              </div>
+
+              <p><strong>ERPNext vs MyCompany — wersja skrócona:</strong></p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Wymiar</th><th>ERPNext</th><th>MyCompany (lsFusion)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Najlepiej pasuje</td><td>Procesy bliskie modelowi standardowemu</td><td>Unikalne, zmieniające się procesy</td></tr>
+                    <tr><td>Koszt zmiany reguły</td><td>Rośnie, gdy odchodzisz od modelu</td><td>Opisane raz, w jednym miejscu</td></tr>
+                    <tr><td>Kod na to samo zadanie</td><td>Więcej „kleju" między modelami i hookami</td><td>Mniej — deklaratywnie, jeden formalizm</td></tr>
+                    <tr><td>Szerokość „z pudełka"</td><td>Wysoka — gotowy ERP</td><td>Niższa — budujesz na platformie</td></tr>
+                    <tr><td>Wygrywa, gdy…</td><td>Jesteś gotów standaryzować</td><td>Liczy się dopasowanie do procesu i tania zmiana</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>
+                Reszta to uczciwa długa wersja — specyfikacja biznesowa, obie implementacje z kodem, porównanie obok siebie i git-diff, który zmierzysz sam.
+                Powiązane: <a href="/posts/post13-open-source-erp-low-code.html">krajobraz open-source ERP ↗</a> oraz dlaczego architektura decyduje o
+                <a href="/posts/post16-erp-architecture-doesnt-break-compare-1c-sap-dynamics-odoo.html">koszcie zmiany ↗</a>.
+              </p>
+
+              <hr>
 
             <h2 id="stress-test">1. Why Retail Replenishment Is a Good ERP Stress Test</h2>
 
@@ -695,7 +731,7 @@
                 </p>
                 <ul>
                   <li>
-                    <a href="posts/post16-erp-architecture-doesnt-break-compare-1c-sap-dynamics-odoo.html" target="_blank" rel="noopener noreferrer">
+                    <a href="post16-erp-architecture-doesnt-break-compare-1c-sap-dynamics-odoo.html" target="_blank" rel="noopener noreferrer">
                       RP that doesn’t break from changes: architecture breakdown (and comparison with 1C / SAP / Dynamics / Odoo) ↗
                     </a>
                   </li>
