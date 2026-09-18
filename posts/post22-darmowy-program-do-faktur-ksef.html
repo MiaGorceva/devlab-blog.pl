@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Darmowy program do faktur KSeF: jakie masz opcje (rządowe i open-source) – DevLab Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Czy da się wystawiać faktury w KSeF za darmo? Przegląd bezpłatnych opcji: rządowa Aplikacja Podatnika KSeF, e-mikrofirma oraz rozwiązania open-source — dla kogo się nadają i gdzie mają granice."
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('consent','default',{
+    analytics_storage:'denied',
+    ad_storage:'denied',
+    ad_user_data:'denied',
+    ad_personalization:'denied',
+    functionality_storage:'granted',
+    security_storage:'granted'
+  });
+</script>
+
+  <!-- Main blog styles -->
+  <link rel="preconnect" href="https://uk.devlab.blog">
+  <link rel="dns-prefetch" href="https://uk.devlab.blog">
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Darmowy program do faktur KSeF: jakie masz opcje (rządowe i open-source)",
+    "description": "Czy da się wystawiać faktury w KSeF za darmo? Przegląd bezpłatnych opcji: Aplikacja Podatnika KSeF, e-mikrofirma oraz rozwiązania open-source — dla kogo się nadają i gdzie mają granice.",
+    "author": {
+      "@type": "Organization",
+      "name": "DevLab Blog"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://uk.devlab.blog/img/devlab-logo.svg"
+      }
+    },
+    "mainEntityOfPage": "https://pl.devlab.blog/posts/post22-darmowy-program-do-faktur-ksef.html",
+    "datePublished": "2026-09-18",
+    "dateModified": "2026-09-18"
+  }
+  </script>
+  <link rel="canonical" href="https://pl.devlab.blog/posts/post22-darmowy-program-do-faktur-ksef.html">
+     <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WTZDV4K6');</script>
+  <!-- End Google Tag Manager -->
+
+</head>
+
+<body class="post-page">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Notatki o open-source ERP i automatyzacji</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Artykuły</a>
+              <a href="/#categories">Kategorie</a>
+              <a href="/#about">O blogu</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Strona główna</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/">EN</a>
+              <a href="/" class="active">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Przeglądaj artykuły</a>
+            <a href="/#about" class="btn btn-primary">Co to jest?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Przełącz nawigację">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="wrapper">
+        <div class="main-grid">
+          <!-- ARTICLE -->
+          <article>
+            <div class="section-title">
+              <span>Artykuł</span>
+              <small><a href="/">← Powrót do wszystkich artykułów</a></small>
+            </div>
+
+            <header>
+              <div class="post-meta">
+                <span>Regulacje · KSeF</span>
+                <span>&middot;</span>
+                <span>Około 8 min czytania</span>
+              </div>
+
+              <h1 class="hero-title">
+                Darmowy program do faktur KSeF: jakie masz opcje
+              </h1>
+
+              <p class="hero-text">
+                Wraz z KSeF dostawcy zaczęli sprzedawać płatne „moduły e-faktur”. Ale zanim za to zapłacisz —
+                warto wiedzieć, że fakturę w KSeF można wystawiać także <strong>bezpłatnie</strong>. Oto uczciwy
+                przegląd darmowych opcji: narzędzia rządowe, ich granice oraz rozwiązania open-source dla firm,
+                którym rządowa aplikacja już nie wystarcza.
+              </p>
+
+              <figure class="post-hero">
+                <img
+                  src="https://uk.devlab.blog/img/post12-ksef-low-code-poland.webp"
+                  alt="Darmowe programy do faktur KSeF w Polsce"
+                >
+              </figure>
+            </header>
+
+            <section class="post-content">
+              <h2>1. Czy naprawdę potrzebujesz płatnego programu do KSeF?</h2>
+              <p>
+                KSeF (Krajowy System e-Faktur) to krajowa platforma do wystawiania i odbierania ustrukturyzowanych
+                faktur XML. Sam dostęp do KSeF jest bezpłatny — udostępnia go Ministerstwo Finansów. Płatne bywają
+                dopiero <em>programy</em>, które nakładają na to własny interfejs, integracje i automatyzację.
+              </p>
+              <p>
+                Dla wielu firm — zwłaszcza mikro i małych — darmowe narzędzia w zupełności wystarczą. Poniżej
+                pokazujemy, kiedy tak jest, a kiedy warto sięgnąć po coś więcej (również bezpłatnie).
+              </p>
+              <p class="callout">
+                Szukasz kontekstu prawnego — terminy, wyjątek 10&nbsp;000&nbsp;zł, kary i kody błędów? Zebraliśmy to
+                w osobnym przewodniku:
+                <a href="/posts/post14-ksef-2026-limit-10000-checklist.html">KSeF w 2026: harmonogram i praktyczne przygotowanie ↗</a>.
+              </p>
+
+              <h2>2. Bezpłatne narzędzia rządowe</h2>
+              <p>
+                Ministerstwo Finansów udostępnia kilka darmowych sposobów na wystawianie faktur w KSeF —
+                bez żadnej opłaty licencyjnej:
+              </p>
+              <ul>
+                <li>
+                  <strong>Aplikacja Podatnika KSeF</strong> — oficjalna, bezpłatna aplikacja (przeglądarkowa
+                  i mobilna) do wystawiania, odbierania i przeglądania faktur. Logowanie m.in. przez Profil
+                  Zaufany. Dobra na start i przy niewielkiej liczbie dokumentów.
+                </li>
+                <li>
+                  <strong>e-mikrofirma</strong> (w e-Urzędzie Skarbowym) — darmowe narzędzie kierowane do
+                  najmniejszych firm, powiązane z rozliczeniami i ewidencją.
+                </li>
+                <li>
+                  <strong>KSeF API</strong> — bezpłatny interfejs do integracji, jeśli chcesz łączyć KSeF
+                  z własnym systemem. Sam w sobie to nie „program”, lecz brama do automatyzacji.
+                </li>
+              </ul>
+              <p>
+                Jeśli wystawiasz kilka–kilkanaście faktur miesięcznie i nie potrzebujesz integracji z magazynem
+                czy księgowością — <strong>aplikacja rządowa najprawdopodobniej Ci wystarczy i nie zapłacisz nic.</strong>
+              </p>
+
+              <h2>3. Gdzie kończą się darmowe narzędzia rządowe</h2>
+              <p>
+                Narzędzia MF są świetne na start, ale mają swoje granice. Zaczynają uwierać, gdy:
+              </p>
+              <ul>
+                <li>wystawiasz dużo faktur i ręczne wpisywanie zabiera realny czas;</li>
+                <li>potrzebujesz faktur na podstawie zamówień, magazynu, umów czy e-commerce — a nie „od zera”;</li>
+                <li>obsługujesz korekty, zaliczki i statusy masowo, nie pojedynczo;</li>
+                <li>chcesz, by faktura powstawała automatycznie po zdarzeniu w Twoim systemie;</li>
+                <li>potrzebujesz własnych procesów akceptacji, ról i raportowania.</li>
+              </ul>
+              <p>
+                W tym momencie zwykle pojawia się pytanie o „program do faktur”. I tu warto wiedzieć, że
+                alternatywą dla płatnych pakietów nie jest tylko rządowa aplikacja — istnieją też
+                <strong>bezpłatne rozwiązania open-source</strong>, które łączą wygodę programu z zerową opłatą licencyjną.
+              </p>
+
+              <h2>4. Opcje open-source: darmowo, ale z integracją</h2>
+              <p>
+                Oprogramowanie open-source (otwartoźródłowe) można używać bez opłat licencyjnych, samodzielnie
+                lub z pomocą partnera. W kontekście KSeF interesują nas rozwiązania, które potrafią:
+              </p>
+              <ul>
+                <li>generować ustrukturyzowaną fakturę i wysyłać ją do KSeF;</li>
+                <li>odbierać potwierdzenia i śledzić statusy oraz błędy;</li>
+                <li>spinać faktury z resztą firmy — sprzedażą, magazynem, księgowością;</li>
+                <li>rosnąć razem z firmą, bez wymiany systemu co rok.</li>
+              </ul>
+              <p>
+                Takie rozwiązania buduje się dziś na deklaratywnych platformach low-code (np. klasy lsFusion),
+                gdzie logika opisana jest regułami, a techniczna integracja z KSeF jest ukryta w konektorach —
+                dzięki temu dostosowanie do zmian schemy MF to godziny, a nie tygodnie.
+              </p>
+
+              <div class="callout">
+                <strong>Kilka realnych opcji open-source — z plusami i minusami (opcjonalnie, bez zobowiązań):</strong>
+                <ul>
+                  <li>
+                    <a href="https://demo.lsfusion.org/mycompany" target="_blank" rel="noopener noreferrer">MyCompany</a>
+                    — darmowy ERP open-source (Apache-2.0) na platformie lsFusion.
+                    <br><strong>Plus:</strong> to pełny ERP — faktury powiązane ze sprzedażą, magazynem i księgowością, automatyzacja procesów; publiczne demo obejmuje wystawianie faktur.
+                    <strong>Minus:</strong> jako platforma zwykle wymaga konfiguracji pod własne procesy (samodzielnie lub z partnerem) — próg wejścia wyższy niż prosta aplikacja do faktur.
+                  </li>
+                  <li>
+                    <a href="https://www.dolibarr.org" target="_blank" rel="noopener noreferrer">Dolibarr</a>
+                    — dojrzały, otwarty ERP/CRM z dużą społecznością.
+                    <br><strong>Plus:</strong> mnóstwo gotowych modułów, sprawdzony w tysiącach firm.
+                    <strong>Minus:</strong> interfejs miejscami archaiczny; obsługa polskiego KSeF zwykle przez moduły zewnętrzne, nie „z pudełka”.
+                  </li>
+                  <li>
+                    <a href="https://www.invoiceninja.com" target="_blank" rel="noopener noreferrer">Invoice Ninja</a>
+                    — lekka, otwartoźródłowa aplikacja do fakturowania.
+                    <br><strong>Plus:</strong> prosta i szybka na start, skupiona na fakturach i płatnościach.
+                    <strong>Minus:</strong> to nie pełny ERP — brak głębokiej integracji z magazynem/produkcją; bez funkcji specyficznych dla KSeF.
+                  </li>
+                </ul>
+                <p class="sidebar-text">
+                  Zakres wsparcia dla KSeF różni się między narzędziami — warto sprawdzić w każdym. To tylko przykłady; wybór zależy od skali i procesów Twojej firmy.
+                </p>
+              </div>
+
+              <h2>5. Jak wybrać — krótka checklista</h2>
+              <ul>
+                <li><strong>Mało faktur, prosto?</strong> → darmowa Aplikacja Podatnika KSeF.</li>
+                <li><strong>Najmniejsza firma, powiązanie z rozliczeniami?</strong> → e-mikrofirma.</li>
+                <li><strong>Dużo faktur, integracja z magazynem/ERP, automatyzacja?</strong> → program (płatny lub open-source).</li>
+                <li><strong>Chcesz uniknąć opłaty licencyjnej mimo integracji?</strong> → rozwiązania open-source.</li>
+                <li><strong>Masz własny system?</strong> → integracja przez KSeF API.</li>
+              </ul>
+
+              <h2>6. Podsumowanie</h2>
+              <p>
+                „Darmowy program do faktur KSeF” to nie mit. Dla wielu firm wystarczą bezpłatne narzędzia rządowe,
+                a tam, gdzie potrzebna jest integracja i automatyzacja — bez licencyjnych opłat pomaga open-source.
+                Zanim podpiszesz umowę na płatny moduł, sprawdź, czy darmowa ścieżka nie załatwia sprawy w Twojej skali.
+              </p>
+            </section>
+
+             <h2 id="feedback">Szybka opinia</h2>
+              <div class="callout">
+                <strong>Czy to było pomocne?</strong>
+                <p>
+                  Krótki sygnał pomaga nam ustalić priorytety kolejnych tematów.
+                </p>
+
+                <div class="hero-actions">
+                  <button class="btn btn-primary" type="button" data-vote="like">
+                    👍 Pomocne <span class="count" data-count="like">—</span>
+                  </button>
+
+                  <button class="btn btn-outline" type="button" data-vote="dislike">
+                    👎 Raczej nie <span class="count" data-count="dislike">—</span>
+                  </button>
+                </div>
+
+                <p class="sidebar-text">
+                  Bez komentarzy, bez kont.
+                </p>
+              </div>
+
+
+            <h2 id="related-posts">Powiązane posty</h2>
+
+              <div class="callout">
+                <strong>Przeglądaj dalej:</strong>
+                <p>
+                  Więcej praktycznych notatek o KSeF, e-fakturowaniu i automatyzacji.
+                </p>
+
+                <ul>
+                  <li>
+                    <a href="/posts/post14-ksef-2026-limit-10000-checklist.html">
+                      KSeF w 2026: harmonogram, wyjątek 10 000 PLN i praktyczne przygotowanie ↗
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/posts/post12-ksef-low-code.html">
+                      KSeF + low-code: jak przygotować się do e-faktur przy minimalnych kosztach ↗
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/posts/post15-ksef-after-go-live-15-issues.html">
+                       KSeF po uruchomieniu: 15 problemów po 2–3 miesiącach ↗
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+          <div class="post-nav-links">
+            <a class="post-read" href="/#posts" >← Powrót do wszystkich postów</a>
+            <a class="post-read" href="/#categories" > Przeglądaj wszystkie kategorie →</a>
+          </div>
+
+            <footer class="post-footer-extended">
+              <div class="post-footer-meta">
+                <div class="post-meta-tags">
+                  <span class="post-tag">KSeF</span>
+                  <span class="post-tag">E-fakturowanie</span>
+                  <span class="post-tag">Faktury</span>
+                  <span class="post-tag">Open-source</span>
+                  <span class="post-tag">Polska</span>
+                </div>
+
+                <div class="post-meta-secondary">
+                  <span>Opublikowano: 18 wrz 2026</span>
+                  <span>·</span>
+                  <span>Około 8 min czytania</span>
+                  <span>·</span>
+                  <span class="post-views">Wyświetlenia: <span class="count">—</span></span>
+                </div>
+              </div>
+            </footer>
+
+        <section class="sidebar-block">
+            <p class="sidebar-text">
+              Bez spamu – tylko okazjonalne notatki o projektowaniu ERP, eksperymentach z automatyzacją i nowych artykułach.
+            </p>
+            <form class="newsletter-form"
+                  action="https://formsubmit.co/info@devlab.blog"
+                  method="POST">
+              <input type="hidden" name="_next" value="https://pl.devlab.blog/thank-you.html">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="text" name="_honey" style="display:none">
+
+              <input type="email" name="email" class="field" placeholder="Twój adres email" required>
+              <button class="btn btn-primary" type="submit">Subskrybuj</button>
+
+              <p class="newsletter-note">
+                Otrzymasz email z potwierdzeniem.<br>
+                Bezpiecznie przez FormSubmit.
+              </p>
+            </form>
+          </section>
+
+          </article>
+
+          <!-- SIDEBAR -->
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title" id="topic-question-title">Zaproponuj temat</h3>
+              <p class="sidebar-text">
+                Masz pytanie lub pomysł na przyszły artykuł?
+                <a class="post-read" href="mailto:info@devlab.blog?subject=Pytanie%20lub%20pomysł%20dla%20DevLab%20Blog">
+                  Napisz do nas →
+                </a>
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">O blogu</h3>
+              <p class="sidebar-text">
+                DevLab Blog skupia się na open-source ERP, platformach deklaratywnych i automatyzacji low-code:
+                jak dostosować systemy do wymogów takich jak KSeF, nie zamieniając IT w niekończący się projekt.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">Więcej do odkrycia</h3>
+              <ul class="sidebar-list">
+                <li><a href="/">Wszystkie artykuły bloga</a></li>
+                <li><a href="/#categories">Przeglądaj według kategorii</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Główna strona DevLab</a></li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+        <footer class="site-footer">
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Artykuły</a>
+            <a href="/#categories">Kategorie</a>
+            <a href="/#about">O blogu</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Strona główna</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog – notatki o open-source ERP, low-code i automatyzacji w realnych firmach.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
