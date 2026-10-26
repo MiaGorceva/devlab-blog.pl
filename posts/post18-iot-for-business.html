@@ -59,7 +59,7 @@
       }
     },
     "datePublished": "2026-05-30",
-    "dateModified": "2026-05-30"
+    "dateModified": "2026-10-26"
   }
   </script>
 
@@ -197,6 +197,7 @@
                     <ol>
                       <li><a class="post-read" href="#class-1">Klasa 1. Monitoring</a></li>
                       <li><a class="post-read" href="#class-2">Klasa 2. Podejmowanie decyzji</a></li>
+                      <li><a class="post-read" href="#open-source">Open-source i self-hosted</a></li>
                       <li><a class="post-read" href="#how-to-choose">Jak wybrać</a></li>
                     </ol>
                   </li>
@@ -440,6 +441,55 @@
                 <p>Chmurowy system zarządzania utrzymaniem z akcentem na zlecenia robocze: mobilny dostęp, historia po aktywie, predykcja na danych IoT, ewidencja części zamiennych z alertami o dokupieniu, otwarte API, integracje z ERP i SCADA. Konfiguracja raczej dla technicznie obytych zespołów — nie zawsze plug-and-play.</p>
               </div>
 
+              <h3 id="open-source">Trzecia oś: open-source i self-hosted — stack należy do ciebie</h3>
+              <p>Poza ceną i „poziomem mózgu" jest trzeci wybór: zarządzana chmura dostawcy kontra open-source, który hostujesz sam. Open-source zamienia rachunek za licencję na rachunek za utrzymanie — brak opłat za urządzenie, pełna kontrola i twoje dane na twoich serwerach, ale hosting, skalowanie, bezpieczeństwo i aktualizacje stają się twoim zadaniem. Te narzędzia przecinają obie klasy powyżej.</p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr>
+                      <th>Platforma</th>
+                      <th>Mocna strona</th>
+                      <th>Słaba strona</th>
+                      <th>Kiedy brać</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong><a href="https://thingsboard.io/" target="_blank" rel="noopener noreferrer nofollow">ThingsBoard</a></strong> (Community)</td>
+                      <td>Pełny stack: zarządzanie urządzeniami, silnik reguł, dashboardy; self-host, bez opłat za urządzenie</td>
+                      <td>Prowadzisz to sam — hosting, skalowanie, bezpieczeństwo, aktualizacje na tobie; zaawansowane funkcje płatne (PE)</td>
+                      <td>Chcesz kontroli i braku opłat za urządzenie, masz DevOps</td>
+                    </tr>
+                    <tr>
+                      <td><strong><a href="https://nodered.org/" target="_blank" rel="noopener noreferrer nofollow">Node-RED</a></strong></td>
+                      <td>Wizualne łączenie przepływów; spina dowolny protokół lub API; ogromna społeczność</td>
+                      <td>To nie platforma — brak multi-tenant, uwierzytelniania i dashboardów od ręki; resztę składasz sam</td>
+                      <td>Szybkie prototypy i spinanie urządzeń z logiką</td>
+                    </tr>
+                    <tr>
+                      <td><strong><a href="https://grafana.com/" target="_blank" rel="noopener noreferrer nofollow">Grafana</a></strong></td>
+                      <td>Najlepsze w klasie dashboardy i alerty; open-source</td>
+                      <td>Tylko wizualizacja — bez zarządzania urządzeniami i decyzji</td>
+                      <td>Już przechowujesz telemetrię (InfluxDB/Timescale) i potrzebujesz świetnych wykresów</td>
+                    </tr>
+                    <tr>
+                      <td><strong><a href="https://www.home-assistant.io/" target="_blank" rel="noopener noreferrer nofollow">Home Assistant</a></strong></td>
+                      <td>Bogate integracje urządzeń; local-first; darmowe</td>
+                      <td>Zbudowane do domów i budynków, nie do produkcji przemysłowej</td>
+                      <td>Automatyka obiektów/budynków ze sterowaniem lokalnym</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>Uczciwy haczyk: „darmowa platforma" wciąż zostawia niezbudowane dwie części, które naprawdę tworzą wartość biznesową — <strong>aplikację mobilną</strong>, w której działa twój zespół w terenie, oraz <strong>ERP</strong>, gdzie żyje logika pieniędzy. Dokładasz je sam, a rachunek za integracje po cichu zastępuje rachunek za licencję.</p>
+
+              <div class="callout">
+                <strong>Prawdziwy stack to nie jedna platforma — to IoT → aplikacja mobilna → ERP</strong>
+                <p>Dashboard to środek historii, nie koniec. Wartość pojawia się, gdy łańcuch się domyka: odczyt z czujnika trafia do <strong>aplikacji mobilnej</strong>, gdzie technik lub kierowca działa w terenie, i płynie do <strong>ERP</strong>, gdzie żyje logika biznesowa — zamów część, otwórz zlecenie, wystaw fakturę, przebuduj plan. Zszyj trzech dostawców (platforma IoT + aplikacja mobilna + ERP) i płacisz integracjami oraz błędami synchronizacji. <strong>Systemy platform-first opisują cały łańcuch jako jeden model:</strong> na deklaratywnym silniku lsFusion (który napędza <a href="https://mite.club/" target="_blank" rel="noopener noreferrer">MITE</a>) ta sama logika generuje odbiór IoT, aplikację mobilną i formularze ERP — więc „czujnik + zlecenie + regulacja → plan" to jeden opis, a nie trzy integracje. To różnica między kupnem dashboardu a posiadaniem pętli.</p>
+              </div>
+
               <h3 id="how-to-choose">Jak wybrać</h3>
 
               <div class="dev-table-wrap">
@@ -465,7 +515,7 @@
                     <tr>
                       <td>Złożony plan od wielu czynników (budowa, rolnictwo, logistyka)</td>
                       <td>Decyzje</td>
-                       <td><strong><a href="https://mite.club/" target="_blank">Akenza</a></strong></td>
+                       <td><strong><a href="https://mite.club/" target="_blank" rel="noopener noreferrer">MITE</a></strong></td>
                     </tr>
                     <tr>
                       <td>Nie pozwolić sprzętowi się zepsuć</td>
